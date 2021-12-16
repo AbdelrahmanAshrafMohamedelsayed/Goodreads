@@ -1,0 +1,49 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --bold: #1b8bcb;
+    --bolder: #167db8;
+}
+
+.bg-main {
+    background-color: var(--bold);
+}
+
+.my-1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.my-1 a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.last {
+    font-size: 15px;
+}
+
+.keep {
+    font-size: 23px;
+}
+
+.wts {
+    white-space: nowrap;
+}
+
+.bg-bolder {
+    background-color: var(--bolder);
+}
+
+@media (max-width: 760px) {
+    .ad-catara {
+        text-align: center;
+    }
+    .wts {
+        margin: auto;
+    }
+}
