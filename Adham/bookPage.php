@@ -1,35 +1,5 @@
 <?php
-$_GET['book'] = 12345678;
-$bookISBN = $_GET['book'];
-session_start();
-include 'connect.php';
-
-//book retrival
-$sql = "SELECT * FROM book WHERE ISBN=$bookISBN";
-$select = mysqli_query($connect, $sql);
-$data = mysqli_fetch_assoc($select);
-$handle = $data['BookAuthor'];
-//author data
-$sql = "SELECT Fname,Minit,Lname FROM author WHERE Handle='$handle'";
-$select = mysqli_query($connect, $sql);
-$author = mysqli_fetch_assoc($select);
-$data['BookAuthor'] = $author['Fname'] . " " . $author['Minit'] . "." . $author['Lname'];
-
-//user data
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['review'])) {
-    $username = $_SESSION['username'];
-    //review insertion
-    $review = addslashes($_POST['review']);
-    $sql = "INSERT INTO review (BOOKISBN,URName,ReviewText)
-    VALUES ($bookISBN,'$username','$review')";
-    $Insertion = mysqli_query($connect, $sql);
-}
-//reviews retrival
-$sql = "SELECT ReviewText,URName FROM review,book WHERE BOOKISBN='$bookISBN' AND ISBN='$bookISBN' ";
-$select = mysqli_query($connect, $sql);
-$reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
-
+include 'bookPHP.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +11,9 @@ $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="footerStyle.css">
-    <link rel="stylesheet" href="2headerStyle.css">
+    <link rel="stylesheet" href="../Footer/footerStyle.css">
+    <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
+    <link rel="stylesheet" href="rating.css">
     <style>
         .btn-outline-secondary {
             color: #1b8bcb;
@@ -63,11 +34,11 @@ $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
 </head>
 
 <body>
-    <?php include '2header.php' ?>
+    <?php include '../WebsiteHeader/2header.php' ?>
     <div class="fluid bg-light mb-4">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center flex-row-reverse">
             <div class="container bg-light d-flex justify-content-center ">
-                <img src="book1.jpeg" alt="">
+                <img src="../images/book1.jpeg" class="m-2" alt="">
             </div>
             <div class="container bg-light">
                 <div class="card bg-light" style="border:0px solid black">
@@ -97,9 +68,11 @@ $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
         <div id="data" class="container">
             <h1>Reviews: </h1>
             <?php
-            foreach ($reviews as $i) { ?>
-                <div class="card w-75 mx-auto my-4">
+            $count=-1;
+            foreach ($reviews as $i) { $count+=1;  ?>
+                <div id=<?php echo $count ?> class="card w-75 mx-auto my-4">
                     <h4 class="card-header card-title">
+                        <div>
                         <?php
                         $username=$i['URName'];
                         $sql = "SELECT Fname,Minit,Lname FROM users WHERE Username='$username'";
@@ -108,11 +81,33 @@ $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
                         $usernameFull = $user['Fname'] . " " . $user['Minit'] . "." . $user['Lname'];
                          echo $usernameFull
                           ?>
+                        </div>
+                        
                     </h4>
                     <div class="card-body">
                         <p class="card-text"><?php echo $i['ReviewText']; ?></p>
-                        <a href="#" class="btn bg-main text-light"><i class="fas fa-thumbs-up"></i></a>
-                        <a href="#" class="btn bg-main text-light"><i class="fas fa-thumbs-down"></i></a>
+                        <div class="d-flex justify-content-between ">
+                        <div>
+                            <?php
+                            if(isset($_SESSION['username']))
+                            {if(!SelectAction($_SESSION['username'],$username,$i['BOOKISBN'],$i['ID'],$connect,'')){?>
+                            <a  href="<?php echo"?num=".$count."&like=1 #".$count ?>" class="btn bg-white text-dark"><i class="far fa-thumbs-up"></i><br><?php echo $i['likes'] ?></a>
+                            <?php }else { ?>
+                            <a  href="<?php echo"?num=".$count."&like=0 #".$count ?>" class="btn bg-white text-dark"><i class="fas fa-thumbs-up"></i><br><?php echo $i['likes'] ?></a>
+                            <?php }if(!SelectAction($_SESSION['username'],$username,$i['BOOKISBN'],$i['ID'],$connect,'dis')){
+                             ?>
+                            <a  href="<?php echo"?num=".$count."&dislike=1#".$count ?>" class="btn bg-white text-dark"> <i class="far fa-thumbs-down"></i><br><?php echo $i['dislikes'] ?></a>
+                            <?php }else { ?>
+                            <a  href="<?php echo"?num=".$count."&dislike=0#".$count ?>" class="btn bg-white text-dark"> <i class="fas fa-thumbs-down"></i><br><?php echo $i['dislikes'] ?></a>
+                            <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <div class="fs-6 pt-1 d-flex align-items-end" style="color:#888;">
+                            <?php
+                            echo $i['DateOfReview'];
+                             ?>
+                        </div>
+                        </div>  
                     </div>
                 </div>
             <?php
@@ -132,8 +127,14 @@ $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
             }
             ?>
         </div>
+    </div>     
+    <div class="fluid bg-white text-center p-3">
+        <h1> Rate Book </h1>
+        <div id="data" class="container fs-1">
+        <?php include 'rating.php' ?>
+        </div>
     </div>
-    <?php include 'footer.php' ?>
+    <?php include '../Footer/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

@@ -1,19 +1,25 @@
 <?php
 session_start();
-echo $_SESSION['handle'];
-echo $_SESSION['username'];
- if($_SERVER['REQUEST_METHOD']=='POST')
- {
-     echo"<img src='".$_POST['avatar']."' alt='hghsghhhhhhhh'>";
-     echo "<div>fjfhgvhj</div>";
-     if(1==1)
-     {
-         $test="okeeeey";
-     }
-     echo $test;
- }
+$arr=array(array("a"=>1,"b"=>2),array("a"=>1,"b"=>2));
+foreach($arr as $i)
+{
+    $i['a']=4;
+}
+print_r ($arr);
+// echo $_SESSION['handle'];
+// echo $_SESSION['username'];
+//  if($_SERVER['REQUEST_METHOD']=='POST')
+//  {
+//      echo"<img src='".$_POST['avatar']."' alt='hghsghhhhhhhh'>";
+//      echo "<div>fjfhgvhj</div>";
+//      if(1==1)
+//      {
+//          $test="okeeeey";
+//      }
+//      echo $test;
+//  }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,4 +38,4 @@ echo $_SESSION['username'];
 </form>
 
 </body>
-</html>
+</html> -->

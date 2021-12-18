@@ -18,7 +18,7 @@
                             <li><a class="dropdown-item" href="#">Publishing House</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="loginPage.php?logout=1" class="nav-link"><i class="fas fa-sign-out-alt fs-3"></i></a></li>
+                    <li class="nav-item"><a href="../Adham/loginPage.php?logout=1" class="nav-link"><i class="fas fa-sign-out-alt fs-3"></i></a></li>
                 </ul>
             </div>
         </div>

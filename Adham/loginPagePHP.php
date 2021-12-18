@@ -19,9 +19,11 @@ function checkPassword($pass)
 }
 if (isset($_GET['logout']) and !empty($_GET['logout'])) {
     $logout = "you have logged out!";
+    session_unset();
+    session_destroy();
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include 'connect.php';
+    include '../connect.php';
     if (isset($_POST['handle'])) {
         $handle = addslashes($_POST['handle']);
         $password = addslashes($_POST['apass']);
