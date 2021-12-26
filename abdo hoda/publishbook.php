@@ -27,11 +27,12 @@ function int_validate($text)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      include '../connect.php';
     if (isset($_POST)) {
+        $author=$_SESSION['handle'];
         $booktitle = addslashes($_POST['book-title']);
         $bookisbn = addslashes($_POST['book-isbn']);
         $bookprice = addslashes($_POST['book-price']);
         $bookNOAC = addslashes($_POST['book-NOAC']);
-        $bookdescription = addslashes(trim($_POST['book-description']));
+        $bookdescription = addslashes($_POST['book-description']);
         $bookstore = addslashes($_POST['book-store']);
         $bookph = addslashes($_POST['book-ph']);
         $booknop = addslashes($_POST['book-nop']);

@@ -58,7 +58,7 @@
                     <label for="exampleFormControlTextarea6">Book description</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
                         placeholder="Write something here..." name="book-description"
-                        <?php if (isset($_POST['book-description'])) echo $_POST['book-description']; ?>> </textarea>
+                        ><?php if (isset($bookdescription)) echo 123; ?> </textarea>
                 </div>
                 <div class="image-upload" class="col">
                     <p class="abd">upload image</p>

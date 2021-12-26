@@ -1,4 +1,4 @@
-<form>
+<form action="bookPage.php" method='GET'>
     <fieldset class="rating">
         <input id="demo-1" type="radio" name="demo" value="1"> 
         <label for="demo-1">1 star</label>
@@ -18,6 +18,7 @@
             <label for="demo-4" aria-label="4 stars" title="4 stars"></label>
             <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
         </div>
+        <input type="submit" class="btn text-white bg-main" value="Rate">
         
     </fieldset>
     <script>

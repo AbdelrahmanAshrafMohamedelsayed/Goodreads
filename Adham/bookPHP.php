@@ -1,10 +1,26 @@
 <?php
-$_GET['book'] = 12345678;
-if(isset($_GET['adham']))
-echo "hhhhhh";
-$bookISBN = $_GET['book'];
 session_start();
 include '../connect.php';
+if(isset($_POST['demo']))
+{
+    $val=$_POST['demo'];
+    $mybook=$_GET['book'];
+    $rater=$_SESSION['username'];
+    $sql="INSERT INTO rate_book(RatingValue, BookISBN, rater) VALUES ('$val','$mybook','$rater');";
+    $Rateinsertion=mysqli_query($connect,$sql);
+    if(!$Rateinsertion)
+    {
+        $sql="UPDATE rate_book SET RatingValue='$val' WHERE  BookISBN='$mybook' AND rater='$rater';";
+        $updaterate=mysqli_query($connect,$sql);
+    }
+}
+$bookISBN = $_GET['book'];
+
+//rating retrival
+$sql="SELECT sum(RatingValue)/count(RatingValue) rating FROM rate_book WHERE BookISBN='$bookISBN';";
+$selectrating=mysqli_query($connect,$sql);
+$bookRating=mysqli_fetch_assoc($selectrating);
+$bookRating=$bookRating['rating'];
 
 //book retrival
 $sql = "SELECT * FROM book WHERE ISBN=$bookISBN";
@@ -12,8 +28,8 @@ $select = mysqli_query($connect, $sql);
 $data = mysqli_fetch_assoc($select);
 
 //author data
-$handle = $data['BookAuthor'];
-$sql = "SELECT Fname,Minit,Lname FROM author WHERE Handle='$handle'";
+$AuthorHandle = $data['BookAuthor'];
+$sql = "SELECT Fname,Minit,Lname FROM author WHERE Handle='$AuthorHandle'";
 $select = mysqli_query($connect, $sql);
 $author = mysqli_fetch_assoc($select);
 $data['BookAuthor'] = $author['Fname'] . " " . $author['Minit'] . "." . $author['Lname'];

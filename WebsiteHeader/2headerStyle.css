@@ -24,3 +24,7 @@
 .ad-last-ul {
     font-size: 1.1rem !important;
 }
+
+.dropdown-toggle::after {
+    display: none !important;
+}

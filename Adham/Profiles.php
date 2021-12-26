@@ -1,5 +1,5 @@
 <?php
-include 'bookPHP.php'
+include 'profilePHP.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,32 +36,55 @@ include 'bookPHP.php'
             border-radius: 50%;
             width: 30%;
         }
+
+        .row a i:hover {
+            color: #1b8bcb;
+        }
     </style>
 </head>
 
 <body>
     <?php include '../WebsiteHeader/2header.php' ?>
-    <div class="fluid bg-light mb-4">
+    <div class="fluid bg-light pb-4">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center">
             <div class="container bg-light d-flex justify-content-center ">
-                <img src="https://picsum.photos/300" class="proimage m-2" alt="">
+                <img src="<?php echo $image; ?>" class="proimage m-2" alt="">
             </div>
             <div class="container bg-light">
                 <div class="card bg-light" style="border:0px solid black">
                     <div class="card-body">
-                        <h3 class="card-title">Ahmed Mohamed Hamza</h3>
-                        <h5 class="card-subtitle mb-2 text-muted">@adhamali</h5>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Nationality <b><?php echo "Canadian" ?></b> </p>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Number of books <b>16</b> </p>
+                        <h3 class="card-title"><?php echo $data['Fname'] . " " . $data['Minit'] . "." . $data['Lname']; ?></h3>
+                        <h5 class="card-subtitle mb-2 text-muted">
+                            <?php
+                            if (isset($handle)) {
+                                echo $handle;
+                            } else if (isset($username)) {
+                                echo $username;
+                            }
+                            ?>
+                        </h5>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Nationality <b class="ms-2"><?php echo $data['Nationality']; ?></b> </p>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Number of books <b class="ms-2"><?php echo count($books) ?></b> </p>
+                        <?php if (isset($handle)) { ?>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Rating <b class="ms-2"><?php 
+                        $n=(int)$AuthorRating ;
+                        for($i=0;$i<$n;$i++)
+                         echo "<i class='fas fa-star'></i>";
+                        $n=5-$n;
+                        for($i=0;$i<$n;$i++)
+                         echo "<i class='far fa-star'></i>";
+                        ?></b> </p>
+                        <?php } ?>
+                        <h6 class="card-subtitle my-2">Follow <?php echo $data['Fname'] ?></h6>
                         <div class="row w-25">
                             <div class="col-4">
-                                <a class="text-dark" href="https://www.facebook.com/profile.php?id=100009982989915" target="blank"> <i class="fab fa-facebook "></i></a>
+                                <a class="text-dark" href="<?php echo $facebook; ?>" target="blank"> <i class="fab fa-facebook "></i></a>
                             </div>
                             <div class="col-4">
-                                <a class="text-dark" href="https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09" target="blank"><i class="fab fa-twitter "></i></a>
+                                <a class="text-dark" href="<?php echo $twitter; ?>" target="blank"><i class="fab fa-twitter "></i></a>
                             </div>
                             <div class="col-4">
-                                <a class="text-dark" href="https://www.facebook.com/profile.php?id=100009982989915" target="blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="text-dark" href="<?php echo $linkedin; ?>" target="blank"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
@@ -69,62 +92,140 @@ include 'bookPHP.php'
             </div>
         </div>
     </div>
-    <div class="fluid bg-white mb-5">
-        <div id="" class="container">
-            <h4>About The Author: </h4>
-            <p><?php echo "Font Awesome 6's third beta release is out now!Try out the Free version of v6 Beta. Subscribe to Font Awesome Pro to get even more!" ?> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quod dolorum, placeat est aliquam quidem explicabo facilis reprehenderit cumque, suscipit libero cum in beatae sequi hic necessitatibus expedita, blanditiis vitae adipisci exercitationem autem consequuntur. Placeat, distinctio soluta sed magni dolor, modi ex velit saepe explicabo, maiores nihil repellendus pariatur nisi! Aperiam, voluptas! Repudiandae illo recusandae odio tenetur sunt dignissimos perferendis quas earum. Id, fugiat? Nam tempora perspiciatis a! Vel suscipit officiis molestiae architecto, facere error veritatis dicta praesentium, sed ullam consectetur eius! Accusantium at nostrum omnis labore nisi aperiam, in voluptates deserunt architecto, minus quod minima error? Ipsam, quas quidem!</p>
+    <?php if (isset($bio)) { ?>
+        <div class="fluid bg-white py-5">
+            <div id="" class="container">
+                <h4>About The Author: </h4>
+                <p><?php echo $bio ?></p>
+            </div>
         </div>
-    </div>
-    <div class="fluid bg-light p-5">
-        <div id="" class="container">
-            <form class="row g-3 w-75 mx-auto">
-                <div class="col-md-4">
-                    <label for="validationDefault01" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="validationDefault01" value="" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="validationDefault02" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="validationDefault02" value="" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="validationDefaultUsername" class="form-label">Username</label>
-                    <div class="input-group">
-                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                        <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+    <?php } ?>
+
+    <?php
+    function to_know(&$test, &$ok)
+    {
+        if (isset($test))
+            $ok = $test;
+    }
+    $myuser = 0;
+    $profileowner = 0;
+    to_know($_SESSION['handle'], $myuser);
+    to_know($_SESSION['username'], $myuser);
+    to_know($handle, $profileowner);
+    to_know($username, $profileowner);
+    if ($profileowner == $myuser) {
+    ?>
+        <div class="fluid bg-light p-5">
+            <div id="" class="container">
+                <form class="row g-3 w-75 mx-auto" action="ProfilesHelp.php" method="POST">
+                    <div class="col-md-4">
+                        <label for="validationDefault01" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="validationDefault01" name="fname" value="<?php echo $data['Fname'] ?>">
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <label for="formFile" class="form-label">Profile Image</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-                <div class="col-md-4">
-                    <label for="validationDefault05" class="form-label">Facebook</label>
-                    <input type="text" class="form-control" id="validationDefault05" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="validationDefault05" class="form-label">Twitter</label>
-                    <input type="text" class="form-control" id="validationDefault05" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="validationDefault05" class="form-label">linkedin</label>
-                    <input type="text" class="form-control" id="validationDefault05" required>
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Confirm Updating
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="validationDefault02" name="lname" value="<?php echo $data['Lname'] ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefaultUsername" class="form-label">
+                            <?php if (isset($handle))
+                                echo "Handle";
+                            else
+                                echo "Username";
+                            ?>
                         </label>
+                        <div class="input-group">
+                            <?php if (isset($username)) { ?>
+                                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                            <?php } ?>
+                            <input type="text" class="form-control" id="validationDefaultUsername" name="<?php
+                                                                                                            if (isset($handle))
+                                                                                                                echo "handle";
+                                                                                                            else
+                                                                                                                echo "username";
+                                                                                                            ?>" aria-describedby="inputGroupPrepend2" value="<?php
+                                                                                                                                                                if (isset($username))
+                                                                                                                                                                    echo $username;
+                                                                                                                                                                else
+                                                                                                                                                                    echo $handle;
+                                                                                                                                                                ?>">
+                        </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Update Info</button>
-                </div>
-            </form>
+                    <div class="col-md-8">
+                        <label for="formFile" class="form-label">Profile Image</label>
+                        <input class="form-control" type="file" id="formFile" name="image" value="<?php echo $image ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Nationality</label>
+                        <input type="text" class="form-control" id="validationDefault05" name="Nationality" value="<?php echo $data['Nationality'] ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="validationDefault05" name="Facebook" value="<?php echo $facebook ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Twitter</label>
+                        <input type="text" class="form-control" id="validationDefault05" name="Twitter" value="<?php echo $twitter ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Linkedin</label>
+                        <input type="text" class="form-control" id="validationDefault05" name="Linkedin" value="<?php echo $linkedin ?>">
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                                Confirm Updating
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Update Info</button>
+                    </div>
+                    <?php if (isset($_SESSION["error"]) && strlen($_SESSION["error"]) != 0) { ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo "there were error/s :" . $_SESSION["error"];
+                                $_SESSION["error"] = "";
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </form>
+            </div>
+        </div>
+    <?php } ?>
+    <?php if(isset($_SESSION['username'])&&isset($handle)){ ?> 
+    <div class="fluid bg-white text-center p-3">
+        <h1> Rate Author </h1>
+        <div id="data" class="container fs-1">
+        <form action="Profiles.php?handle=<?php echo $handle ?>" method='POST'>
+    <fieldset class="rating">
+        <input id="demo-1" type="radio" name="demo" value="1"> 
+        <label for="demo-1">1 star</label>
+        <input id="demo-2" type="radio" name="demo" value="2">
+        <label for="demo-2">2 stars</label>
+        <input id="demo-3" type="radio" name="demo" value="3">
+        <label for="demo-3">3 stars</label>
+        <input id="demo-4" type="radio" name="demo" value="4">
+        <label for="demo-4">4 stars</label>
+        <input id="demo-5" type="radio" name="demo" value="5">
+        <label for="demo-5">5 stars</label>
+        
+        <div class="stars">
+            <label for="demo-1" aria-label="1 star" title="1 star"></label>
+            <label for="demo-2" aria-label="2 stars" title="2 stars"></label>
+            <label for="demo-3" aria-label="3 stars" title="3 stars"></label>
+            <label for="demo-4" aria-label="4 stars" title="4 stars"></label>
+            <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
+        </div>
+        <input type="submit" class="btn text-white bg-main" value="Rate">
+        
+    </fieldset>
+</form>
         </div>
     </div>
-
-
+    <?php } ?>
     <?php include '../Footer/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

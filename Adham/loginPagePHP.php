@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fname = addslashes($_POST['afname']);
         $minit = addslashes($_POST['aminit']);
         $lname = addslashes($_POST['alast']);
-        if (checkText($handle) == 0) {
+        if (checkText($handle) == 0||preg_match("/ /", $handle)) {
             $aerrors .= "<br /> please enter valid handle";
         }
         if (checkText($fname) == 0 || (strlen($minit) != 1) || checkText($lname) == 0) {
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $Insertion = mysqli_query($connect, $sql);
             if ($Insertion) {
                 $_SESSION['handle'] = $handle;
-                header('Location:bookPage.php');
+                header('Location:bookPage.php?book=12345678');
             }
             $aerrors .= "<br /> This handle already exists";
         }
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fname = addslashes($_POST['ufname']);
         $minit = addslashes($_POST['uminit']);
         $lname = addslashes($_POST['ulname']);
-        if (checkText($username) == 0 || !preg_match("/@/", $username)) {
+        if (checkText($username) == 0 || !preg_match("/@/", $username)||preg_match("/ /", $username)) {
             $uerrors .= "<br /> please enter valid username should contain @ character";
         }
         if (checkText($fname) == 0 || (strlen($minit) != 1) || checkText($lname) == 0) {
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $Insertion = mysqli_query($connect, $sql);
             if ($Insertion) {
                 $_SESSION['username'] = $username;
-                header('Location:bookPage.php');
+                header('Location:bookPage.php?book=12345678');
             }
             $uerrors .= "<br /> This username already exists";
         }
@@ -82,14 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data = mysqli_fetch_assoc($selectFromAuthors);
         if ($data) {
             $_SESSION['handle'] = $username_handle;
-            header('Location:bookPage.php');
+            header('Location:bookPage.php?book=12345678');
         }
         $sqlUser = "SELECT * FROM users WHERE username='$username_handle' and password='$password'";
         $selectFromUsers = mysqli_query($connect, $sqlUser);
         $data = mysqli_fetch_assoc($selectFromUsers);
         if ($data) {
             $_SESSION['username'] = $username_handle;
-            header('Location:bookPage.php');
+            header('Location:bookPage.php?book=12345678');
         }
     }
 }
