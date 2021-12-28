@@ -22,6 +22,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $_SESSION["error"]="";
     if(isset($_POST['username']))
     {
+        if(!$_POST['image'])
+        {
+            $_POST['image']="undraw_male_avatar_323b.svg";
+        }
         $name="username";
         $username = addslashes($_POST['username']);
         $image = "../images/".addslashes($_POST['image']);

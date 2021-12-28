@@ -27,7 +27,7 @@
 /* header-2 */
 
 .landing {
-    background-image: url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+    background-image: url("../images/namee.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 90vh;
@@ -42,7 +42,7 @@
 
 .lio {
     clip-path: circle();
-    border: 8px solid #ffff;
+    /* border: 8px solid #ffff; */
 }
 
 .abb {
@@ -125,7 +125,7 @@
 } */
 
 .vaa {
-    background-color: #d3e6f1;
+    background-color: #98cbe8;
 }
 
 .vaa .cf {
@@ -135,4 +135,13 @@
 
 .m2 {
     margin: 0 2%;
+}
+
+.xs {
+    text-align: center !important;
+}
+
+.author-namex {
+    position: relative;
+    left: -11%;
 }

@@ -86,15 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
             <div class="container pb-1" style="margin-top: 0;">
-                <h1>Book Shop</h1>
-                <p class="pb-1 fs-5">Find and read more books you'll love, and keep track of the books you want to read.
-                    Be part of the world's largest community of book lovers on Goodreads.</p>
-                <p class="fs-6 fw-bold">interested? Sign up now!</p>
+                <h1>Book Store</h1>
+
             </div>
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
         <div class=" row">
             <div class="col"><?php include 'bookstore.php' ?></div>
+            <br>
         </div>
     </div>
 

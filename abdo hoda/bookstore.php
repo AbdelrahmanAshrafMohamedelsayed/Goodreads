@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="abcontainer" id="abcontainer">
+<div class="container mb-5">
+    <div class="abcontainer" id="abcontainer" style="min-height: 490px !important">
 
         <div class="form-abcontainer sign-in-abcontainer">
             <form action="bookstorevalidate.php" method='POST' class="abform row">
@@ -23,7 +23,7 @@
                     echo $storelocation;
                 }
                  ?>">
-                <div class="image-upload" class="col">
+                <div class="image-upload" class="col" style="margin-bottom: -6%;">
                     <p class="abd">upload image</p>
                     <label for="file-input">
                         <i class="fas fa-file-upload"></i>

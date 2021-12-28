@@ -27,17 +27,26 @@ function int_validate($text)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      include '../connect.php';
     if (isset($_POST)) {
-        $author=$_SESSION['handle'];
         $booktitle = addslashes($_POST['book-title']);
         $bookisbn = addslashes($_POST['book-isbn']);
         $bookprice = addslashes($_POST['book-price']);
         $bookNOAC = addslashes($_POST['book-NOAC']);
-        $bookdescription = addslashes($_POST['book-description']);
+        $bookdescription = addslashes(trim($_POST['book-description']));
         $bookstore = addslashes($_POST['book-store']);
         $bookph = addslashes($_POST['book-ph']);
         $booknop = addslashes($_POST['book-nop']);
         $booklanguage = addslashes($_POST['book-language']);
         $bookimage=addslashes($_POST['book-image']);
+      //  $bookstore=addslashes($_POST['book-store']);
+     // $_SESSION['handle']='@body';
+        $bookauthor=addslashes($_SESSION['handle']);
+        $check = getimagesize($_FILES["book-image"]["tmp_name"]);
+       // echo $bookauthor;
+       if($check == false) {
+        $berrors .= "<br /> please enter valid book image";
+
+       }
+     
         if (checkText($booktitle) == 0) {
             $berrors .= "<br /> please enter valid book title";
         }
@@ -62,14 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (checkText($bookstore) == 0) {
             $berrors .= "<br /> please enter valid book store";
         }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $bookstore)){
-            $berrors .= '<br /> Book store must be letters and spaces only';
+       else if (!int_validate( $bookstore)) {
+            $berrors .= "<br /> please enter valid number of pages";
         }
+        
         if (checkText($bookph) == 0) {
-            $berrors .= "<br /> please enter valid book publish house";
+            $berrors .= "<br /> please enter valid book store";
         }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $bookph)){
-            $berrors .= '<br /> publish house must be letters and spaces only';
+       else if (!int_validate( $bookph)) {
+            $berrors .= "<br /> please enter valid number of pages";
         }
         if (!int_validate( $booknop)) {
             $berrors .= "<br /> please enter valid number of pages";
@@ -88,12 +98,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // }
         
          if (strlen($berrors) == 0) {
-            $sql = "insert into book (ISBN,title,price,numberOfCopies,bookLanguage,description,bookImage) values
-            ('$bookisbn','$booktitle','$bookprice','$bookNOAC','$booklanguage','$bookdescription','$bookimage')";
+            $sql = "insert into book (ISBN,title,price,numberOfCopies,bookLanguage,description,bookImage,BookAuthor,BookStore,numberOfPages,BookPH) values
+        ('$bookisbn','$booktitle','$bookprice','$bookNOAC','$booklanguage','$bookdescription','$bookimage','$bookauthor','$bookstore','$booknop','$bookph')";
             $Insertion = mysqli_query($connect, $sql);
             if (!$Insertion) {
-            $berrors .= "<br /> Failed to Insert";
+            $berrors .= "<br /> Failed isbn Insert";
                
+            }
+            else{
+                $sql2="UPDATE author SET NumberOfBooks = NumberOfBooks+1 where Handle= '$bookauthor'";
+                $Insertion2 = mysqli_query($connect, $sql2);
             }
         }
     }
@@ -115,12 +129,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../Footer/footerStyle.css">
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
     <link rel="stylesheet" href="../Adham/formStyle.css">
-    <link rel="stylesheet" href="publish.css">
+    <link rel="stylesheet" href="../abdo hoda/publish.css">
     <style>
-        .navbar-dark .navbar-nav .nav-link:focus,
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: rgb(255 255 255);
-        }
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: rgb(255 255 255);
+    }
     </style>
 </head>
 
@@ -133,10 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
             <div class="container pb-1" style="margin-top: 0;">
-                <h1>Book Shop</h1>
-                <p class="pb-1 fs-5">Find and read more books you'll love, and keep track of the books you want to read.
-                    Be part of the world's largest community of book lovers on Goodreads.</p>
-                <p class="fs-6 fw-bold">interested? Sign up now!</p>
+                <h1>Publish Book</h1>
+
             </div>
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
