@@ -59,7 +59,7 @@ include 'bookPHP.php'
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Rating <b class="ms-2"><?php
                         $n=(int)$bookRating ;
                         for($i=0;$i<$n;$i++)
-                         echo "<i class='fas fa-star'></i>";
+                         echo "<i class='fas fa-star text-warning'></i>";
                         $n=5-$n;
                         for($i=0;$i<$n;$i++)
                          echo "<i class='far fa-star'></i>";

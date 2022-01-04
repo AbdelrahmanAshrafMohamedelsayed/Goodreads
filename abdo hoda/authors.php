@@ -1,6 +1,6 @@
 <?php
   $connect=mysqli_connect('localhost','root','','goodreads');
-$other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin FROM author";
+$other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin,handle FROM author";
 $result=mysqli_query($connect,$other);
 $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
 ?>
@@ -140,18 +140,19 @@ $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <?php foreach($otherauthor as $i){ ?>
-                <div class="col-sm-5 col-md-4 col-lg-2">
+                <div class="col-sm-5 col-md-4 col-lg-2 mb-3">
                     <div class="card profile-card-3">
                         <div class="background-block">
                             <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
                                 alt="profile-sample1" class="background">
                         </div>
                         <div class="profile-thumb-block">
-                            <img src="../images/<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
+                            <img src="<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
                         </div>
                         <div class="card-content">
-                            <h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
-                            </h2>
+                            <a style="text-decoration: none; color:black;" href="../Adham/Profiles.php?handle=<?php echo $i['handle'];  ?>"><h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
+                            </h2></a>
+                            
                             <div class="icon-block"><a href="<?php echo $i['facebook']?>"><i
                                         class="fab fa-facebook-f"></i></a>
                                 <a href="<?php echo $i['twitter'] ?>"> <i class="fab fa-twitter"></i></a>
