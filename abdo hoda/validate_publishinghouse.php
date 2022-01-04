@@ -29,46 +29,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    include '../connect.php';
     if (isset($_POST)) 
     {
-        $publishinghouse_Id = addslashes($_POST['publishinghouse-id']);
+       // $publishinghouse_Id = addslashes($_POST['publishinghouse-id']);
         $publishinghouse_Name = addslashes($_POST['publishinghouse-name']);
         $publishinghouse_Address = addslashes($_POST['publishinghouse-address']);
         $publishinghouse_Image = addslashes($_POST['publishinghouse-image']);
 
-        if (!int_validate( $publishinghouse_Id))
-          {
-            $perrors .= "<br /> please enter valid ID";
-          }
+     //   if (!int_validate( $publishinghouse_Id))
+        //   {
+        //     $perrors .= "<br /> please enter valid ID";
+        //   }
         
         
         if (checkText($publishinghouse_Name) == 0) 
         {
             $perrors .= "<br /> please enter valid Name";
         }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $publishinghouse_Name))
-        {
-            $perrors .= '<br /> Name must be letters and spaces only';
-        }
+        // else if(!preg_match('/^[a-zA-Z\s]+$/', $publishinghouse_Name))
+        // {
+        //     $perrors .= '<br /> Name must be letters and spaces only';
+        // }
         
         if (checkText($publishinghouse_Address) == 0) 
         {
             $perrors .= "<br /> please enter valid Address";
         }
-        else if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $publishinghouse_Address))
-        {
-            $perrors .= '<br /> address must be letters and spaces and comma only';
-        }
+        // else if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $publishinghouse_Address))
+        // {
+        //     $perrors .= '<br /> address must be letters and spaces and comma only';
+        // }
         
         
         if (strlen($perrors) == 0) 
     
        {
-            $sql = "insert into publishing_house (ID,NAME,Address,Publishing_house_image) values
-            ('$publishinghouse_Id','$publishinghouse_Name','$publishinghouse_Address','$publishinghouse_Image')";
+            $sql = "insert into publishing_house (NAME,Address,Publishing_house_image) values
+            ('$publishinghouse_Name','$publishinghouse_Address','$publishinghouse_Image')";
             $Insertion = mysqli_query($connect, $sql);
             if (!$Insertion) 
             {
             $perrors .= "<br /> Failed to Insert";
                
+            }
+            else{
+                header('location:publishhouseall.php');
             }
         }
     }
@@ -90,12 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <link rel="stylesheet" href="../Footer/footerStyle.css">
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
     <link rel="stylesheet" href="../Adham/formStyle.css">
-    <link rel="stylesheet" href="publish.css"> 
+    <link rel="stylesheet" href="publish.css">
     <style>
-        .navbar-dark .navbar-nav .nav-link:focus,
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: rgb(255 255 255);
-        }
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: rgb(255 255 255);
+    }
     </style>
 </head>
 
@@ -107,12 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
-            <div class="container pb-1" style="margin-top: 0;">
-                <h1>Publishing House</h1>
-                <p class="pb-1 fs-5">Find and read more books you'll love, and keep track of the books you want to read.
-                    Be part of the world's largest community of book lovers on Goodreads.</p>
-                <p class="fs-6 fw-bold">interested? Sign up now!</p>
-            </div>
+            
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
         <div class=" row">
@@ -121,5 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     </div>
 
     <?php include '../Footer/footer.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>

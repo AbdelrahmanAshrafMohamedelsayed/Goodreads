@@ -1,45 +1,8 @@
 <?php
   $connect=mysqli_connect('localhost','root','','goodreads');
-session_start();
-if (isset($_SESSION['handle'])) {
-$bookauthor=addslashes($_SESSION['handle']);
-$authorcur="SELECT Fname,NumberOfBooks,facebook,twitter,ProfileImage,linkedin,Minit,Lname FROM author  WHERE Handle='$bookauthor'";
-$result=mysqli_query($connect,$authorcur);
-$myauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
-$img=$myauthor[0]['ProfileImage'];
-$name=$myauthor[0]['Fname'];
-$face=$myauthor[0]['facebook'];
-$linked=$myauthor[0]['linkedin'];
-$twitter=$myauthor[0]['twitter'];
-$NumberOfBooks=$myauthor[0]['NumberOfBooks'];
-$other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin FROM author WHERE Handle !='$bookauthor' ";
+$other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin FROM author";
 $result=mysqli_query($connect,$other);
 $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
-$type='AUTHORS';
-
-}
-else{
-    $user=addslashes($_SESSION['username']);
-    
-$usercur="SELECT Fname,NumberOfBooks,facebookacc,twitteracc,Image,linkedinacc FROM users  WHERE username='$user'";
-$result=mysqli_query($connect,$usercur);
-$myuser=mysqli_fetch_assoc($result);
-$img=$myuser['Image'];
-$name=$myuser['Fname'];
-$face=$myuser['facebookacc'];
-$linked=$myuser['linkedinacc'];
-$twitter=$myuser['twitteracc'];
-$NumberOfBooks=$myuser['NumberOfBooks'];
-$others="SELECT Fname,NumberOfBooks,Image,Minit,Lname,facebookacc,twitteracc,linkedinacc FROM users WHERE username !='$user' ";
-$result=mysqli_query($connect,$others);
-$otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
-//print_r($otheruser);
-$type='USERS';
-
-}
-$sql1="SELECT bookImage, title, price,Fname FROM book,author  WHERE  Handle=BookAuthor";
-$result=mysqli_query($connect,$sql1);
-$abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -173,54 +136,8 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 <body>
     <?php include '../WebsiteHeader/2header.php' ?>
-    <div class=" landing  d-flex justify-content-center align-items-start abi">
-        <div class="abb">
-            <img src="../images/<?php echo htmlspecialchars($img); ?>" class="img-fluid abimg" alt="Cinque Terre"
-                width="200px" height="200px">
-            <h3><?php echo htmlspecialchars($name); ?></h3>
-            <p class="no-of-books"><?php echo htmlspecialchars($NumberOfBooks); ?> Books</p>
-            <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta consequuntur pariatur, odio obcaecati
-                 hic
-                 et ipsa nisi sed voluptates fugit perferendis cupiditate deleniti voluptatum ad consequatur, dolorum
-                 libero. Ea molestias accusamus ut
-                 cum provident doloribus repudiandae corporis, qui excepturi at.</p> -->
-            <div class="social-container row justify-content-center">
-                <a href="<?php echo htmlspecialchars($face); ?>" class="social col-3 fc"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="<?php echo htmlspecialchars($linked); ?>" class="social col-3 in"><i
-                        class="fab fa-linkedin-in"></i>
-                    <a href="<?php echo htmlspecialchars($twitter); ?>" class="social col-3 tw"><i
-                            class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="author-works mb-2 ">
-        <!-- <h3 class="text-center black py-4 ">All Books</h3> -->
-    </div>
-
-    </div>
-    <div class="container mt-2">
-        <div class="books row d-flex justify-content-center ">
-            <?php foreach($abook as $i){ ?>
-            <div class="col-sm-5 col-md-4 col-lg-2 book row justify-content-center ">
-                <img src="../images/<?php echo htmlspecialchars($i['bookImage']); ?>" class="img-fluid abimg"
-                    alt="Cinque Terre" width="200px" height="200px">
-                <div class="pra row justify-content-center">
-                    <div class="speech">
-                        <p class="title"><?php echo htmlspecialchars($i['title']); ?></p>
-                        <p class="author-name"><?php echo htmlspecialchars($i['Fname']); ?></p>
-                        <p class="price"><?php echo htmlspecialchars($i['price']); ?>$</p>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-
-        </div>
-    </div>
     <div class="vaa py-5 bg-light">
-        <div class="container   ">
-            <p class="cf text-center">VIEW OTHER <?php echo $type; ?></p>
-
+        <div class="container">
             <div class="row d-flex justify-content-center">
                 <?php foreach($otherauthor as $i){ ?>
                 <div class="col-sm-5 col-md-4 col-lg-2">
@@ -230,18 +147,15 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
                                 alt="profile-sample1" class="background">
                         </div>
                         <div class="profile-thumb-block">
-                            <img src="../images/<?php echo (isset($_SESSION['handle']))?$i['ProfileImage']:$i['Image']; ?>"
-                                alt="profile-image" class="profile">
+                            <img src="../images/<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
                         </div>
                         <div class="card-content">
                             <h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
                             </h2>
-                            <div class="icon-block"><a
-                                    href="<?php echo (isset($_SESSION['handle']))?$i['facebook']:$i['facebookacc']; ?>"><i
+                            <div class="icon-block"><a href="<?php echo $i['facebook']?>"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a href="<?php echo (isset($_SESSION['handle']))?$i['twitter']:$i['twitteracc']; ?>"> <i
-                                        class="fab fa-twitter"></i></a>
-                                <a href="<?php echo (isset($_SESSION['handle']))?$i['linkedin']:$i['linkedinacc']; ?>">
+                                <a href="<?php echo $i['twitter'] ?>"> <i class="fab fa-twitter"></i></a>
+                                <a href="<?php echo $i['linkedin']; ?>">
                                     <i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -259,5 +173,4 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-
 </body>

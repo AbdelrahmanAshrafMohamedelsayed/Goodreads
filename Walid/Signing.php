@@ -37,13 +37,15 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                     <?php } ?>
                 </select>
 
-                <div class="image-upload mt-3" class="col">
+                <div class="image-upload" class="col">
                     <p class="abd">Upload an Image</p>
                     <label for="file-input">
                         <i class="fas fa-file-upload"></i>
                     </label>
                     <input id="file-input" type="file" name="event-image" />
                 </div>
+                <!-- <input type="file" id="myFile" name="filename"> -->
+                <br>
                 <?php
                 if (isset($aerrors) and strlen($aerrors) != 0) { ?>
                 <div class="alert alert-danger" role="alert">

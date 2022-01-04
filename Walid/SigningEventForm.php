@@ -27,15 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (checkText($eventTitle) == 0) {
             $aerrors .= "<br /> please enter valid event title";
         }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $eventTitle)){
-            $aerrors .= '<br /> Event Title must be letters and spaces only';
-        }
-
         if (checkText($eventLocation) == 0) {
             $aerrors .= "<br /> please enter valid event location";
-        }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $eventLocation)){
-            $aerrors .= '<br /> Event Location must be letters and spaces only';
         }
     }
 
@@ -57,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $Insertion = mysqli_query($connect, $sql);
         if (!$Insertion) {
             $aerrors .= "<br /> Failed to Create Author_Event Relationship";
+        }
+        else{
+            header('location:EventPage.php');
         }
         //select tag value problem in isbn but id is correct
     }
@@ -88,14 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
-
-
-            <!-- <div class="container pb-1" style="margin-top: 0;">
-                <h1>Book Shop</h1>
-                <p class="pb-1 fs-5">Find and read more books you'll love, and keep track of the books you want to read.
-                    Be part of the world's largest community of book lovers on Goodreads.</p>
-                <p class="fs-6 fw-bold">interested? Sign up now!</p>
-            </div> -->
+         
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
         <div class=" row">
@@ -106,4 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <br>
     <br>
     <?php include '../Footer/footer.php' ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>

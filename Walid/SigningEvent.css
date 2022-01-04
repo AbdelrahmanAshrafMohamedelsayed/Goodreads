@@ -1,5 +1,5 @@
 h2.headf {
-    color: #167db8;
+    color: #1b8bcb;
     font-weight: bold;
     margin: 0;
 }
@@ -23,7 +23,7 @@ h2.headf {
 }
 
 .fa-file-upload:hover {
-    color: #167db8;
+    color: #1b8bcb;
     transition: .5s;
     -webkit-transition: .5s;
     -moz-transition: .5s;
@@ -32,7 +32,7 @@ h2.headf {
 }
 
 .image-upload p {
-    color: #167db8;
+    color: #1b8bcb;
     font-size: 20px;
     font-weight: 800;
     line-height: 20px;
@@ -49,8 +49,8 @@ h2.headf {
 
 .ab {
     border-radius: 20px;
-    border: 1px solid #167db8;
-    background-color: #167db8;
+    border: 1px solid #1b8bcb;
+    background-color: #1b8bcb;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;

@@ -1,16 +1,12 @@
 <div class="container">
-    <div class="abcontainer" id="abcontainer">
+    <div class="abcontainer" id="abcontainer" style="margin-bottom: 10%;">
 
-        <div class="form-abcontainer sign-in-abcontainer">
+        <div class="form-abcontainer sign-in-abcontainer ">
             <form action="validate_publishinghouse.php" method='POST' class="abform row">
-                <h1 class="headf">Adding New Publishing House</h1>
+                <h2 class="headf">Add Publishing House</h2>
 
-                <input type="text" placeholder=" Id" class="col" name="publishinghouse-id" value="<?php
-                if(isset($publishinghouse_Id))
-                {
-                    echo $publishinghouse_Id;
-                }
-                 ?>">
+
+
                 <input type="text" placeholder=" Name" class="col" name="publishinghouse-name" value="<?php
                 if(isset($publishinghouse_Name))
                 {
@@ -23,8 +19,8 @@
                     echo $publishinghouse_Address;
                 }
                  ?>">
-               
-                
+
+
                 <div class="image-upload" class="col">
                     <p class="abd">upload image</p>
                     <label for="file-input">

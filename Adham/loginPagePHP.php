@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $Insertion = mysqli_query($connect, $sql);
             if ($Insertion) {
                 $_SESSION['handle'] = $handle;
-                header('Location:bookPage.php?book=12345678');
+                header('Location:bookPage.php?book=12344');
                 #header('Location:../abdo hoda/homepage.php');
             }
             $aerrors .= "<br /> This handle already exists";
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($Insertion) {
                 $_SESSION['username'] = $username;
                 #header('Location:../abdo hoda/homepage.php');
-                header('Location:bookPage.php?book=12345678');
+                header('Location:bookPage.php?book=12344');
             }
             $uerrors .= "<br /> This username already exists";
         }
@@ -85,15 +85,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($data) {
             $_SESSION['handle'] = $username_handle;
             #header('Location:../abdo hoda/homepage.php');
-            header('Location:bookPage.php?book=12345678');
+            header('Location:bookPage.php?book=12344');
         }
         $sqlUser = "SELECT * FROM users WHERE username='$username_handle' and password='$password'";
         $selectFromUsers = mysqli_query($connect, $sqlUser);
         $data = mysqli_fetch_assoc($selectFromUsers);
         if ($data) {
             $_SESSION['username'] = $username_handle;
-            #header('Location:../abdo hoda/homepage.php');
-            header('Location:bookPage.php?book=12345678');
+            header('Location:bookPage.php?book=12344');
         }
     }
 }

@@ -36,7 +36,23 @@ include 'SigningEvent.php'
 
         }
         .card-img-top {
-            padding-top: 20px;
+            border-radius: 20px;
+            border: 1px solid #000
+        }
+        .card {
+            padding-top: 5px;
+            border-radius: 20px;
+            border: 1px solid #167db8;
+        }
+        .ab{
+        border-radius: 20px;
+        border: 1px solid #167db8;
+        background-color: #167db8;
+        color: #FFFFFF;
+        float: right;
+        }
+        .ab:hover {
+            transform: scale(1.1);
         }
     </style>
 
@@ -56,8 +72,22 @@ include 'SigningEvent.php'
                             <h5 class="card-title"><?php echo $event['Title']; ?></h5>
                             <p class="card-text">Author: <b><?php echo $event['Fname']?> 
                             <?php echo $event['Minit']?>  <?php echo $event['Lname']?> </b> </p>
-                            <p class="card-text" >Book to be Signed: <b><?php echo $event['title']?></b></p>
-                            <p class="card-text"><small class="text-muted">Publish Date: <b><?php echo $event['Creation_date'] ?></b></small></p>
+                            <a href= "../Adham/bookPage.php?book=<?php echo $event['ISBN']?>"> <?php echo $event['title']?> </a>
+                            <p class="card-text">Book to be signed: <b><?php echo $event['title']?> </b> </p>
+                            <p class="card-text">Location: <b><?php echo $event['Clocation'] ?></b></p>
+                            <!-- <p class="card-text">Creation Date: <b><?php echo $event['Creation_date'] ?></b></p> -->
+                            <?php if($event['Handle']==$_SESSION['handle']) {?>
+                                <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
+                                    <input type="hidden" name = "DeletedID" value = "<?php echo $event['ID']?>">
+                                    <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
+                                </form>
+                            <?php } else {?>
+                                <br>
+                                <br>
+                                <?php } ?>
+                            <!-- <input type="submit" name="someAction" value="GO" /> -->
+                            
+                            
                         </div>
                     </div>
                 <!-- </div>      -->
@@ -65,17 +95,9 @@ include 'SigningEvent.php'
             </div>
         </div>
     </div>
-     <div class="card mb-3 col-md-6 d-column-flex align-items-center"> 
-                        <img src= " ../images/<?php echo $event['image']?>" class="card-img-top  EventImage my-auto" alt="No Image Available">
-                        
-                <div class="card-body my-auto d-column-flex align-items-start">
-                            <h5 class="card-title"><?php echo $event['Title']; ?></h5>
-                            <p class="card-text">Author: <b><?php echo $event['Fname']?> 
-                            <?php echo $event['Minit']?>  <?php echo $event['Lname']?> </b> </p>
-                            <p class="card-text" >Book to be Signed: <b><?php echo $event['title']?></b></p>
-                            <p class="card-text"><small class="text-muted">Publish Date: <b><?php echo $event['Creation_date'] ?></b></small></p>
-                </div>
-        </div>     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>
         
         

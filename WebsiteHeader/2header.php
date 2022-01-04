@@ -19,12 +19,14 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="far fa-plus-circle fs-3"></i>
                         </a>
+                        <?php if(isset($_SESSION['handle'])){ ?>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../abdo hoda/publishbook.php">Book</a></li>
                             <li><a class="dropdown-item" href="../abdo hoda/bookstorevalidate.php">Store</a></li>
                             <li><a class="dropdown-item" href="../abdo hoda/validate_publishinghouse.php">Publishing House</a></li>
                             <li><a class="dropdown-item" href="../Walid/SigningEventForm.php">Signing Event</a></li>
                         </ul>
+                        <?php } ?>
                     </li>
                     <li class="nav-item"><a href="../Adham/loginPage.php?logout=1" class="nav-link"><i class="fas fa-sign-out-alt fs-3"></i></a></li>
                 </ul>

@@ -34,6 +34,19 @@ $select = mysqli_query($connect, $sql);
 $author = mysqli_fetch_assoc($select);
 $data['BookAuthor'] = $author['Fname'] . " " . $author['Minit'] . "." . $author['Lname'];
 
+//publishHouse data
+$publishHouse=$data['BookPH'];
+$sql="SELECT NAME FROM publishing_house WHERE ID=$publishHouse";
+$select = mysqli_query($connect, $sql);
+$publishHouse=mysqli_fetch_assoc($select);
+$data['BookPH']=$publishHouse['NAME'];
+
+//Store data
+$store=$data['BookStore'];
+$sql="SELECT NAME FROM store WHERE ID=$store";
+$select = mysqli_query($connect, $sql);
+$store=mysqli_fetch_assoc($select);
+$data['BookStore']=$store['NAME'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['review'])) {
     $username = $_SESSION['username'];

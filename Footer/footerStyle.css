@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    position: relative;
+}
+
 :root {
     --bold: #1b8bcb;
     --bolder: #167db8;
@@ -46,4 +50,19 @@
     .wts {
         margin: auto;
     }
+}
+
+.button {
+    color: #ffffff;
+    font-size: 1.3em;
+    position: fixed;
+    right: 1%;
+    bottom: 1%;
+    background-color: var(--bold);
+    padding: .4%;
+    transition: 1s;
+    border-radius: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
 }

@@ -10,12 +10,7 @@
                     echo $storename;
                 }
                  ?>">
-                <input type="text" placeholder="Store ID" class="col" name="store-id" value="<?php
-                if(isset($storeid))
-                {
-                    echo $storeid;
-                }
-                 ?>">
+
 
                 <input type="text" placeholder="Store Location" class="col" name="store-location" value="<?php
                 if(isset($storelocation))

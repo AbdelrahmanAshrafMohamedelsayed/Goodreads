@@ -36,6 +36,10 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
     .navbar-dark .navbar-nav .nav-link:hover {
         color: rgb(255 255 255);
     } */
+    .card {
+        margin: 10%;
+    }
+
     .card-img-top {
         margin-top: 4%;
     }
@@ -69,8 +73,7 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($pizza['NAME']); ?></h5>
                         <p class="card-text"> <?php echo htmlspecialchars($pizza['Location']); ?></p>
-                        <a href="../abdo hoda/bookstoreone.php" class="btn text-white"
-                            onclick="<?php $_SESSION['ID']=$pizza['ID'] ?>">Go somewhere</a>
+                        <a href="../abdo hoda/bookstoreone.php?ID=<?php echo $pizza['ID'] ?>" class="btn btn-primary">Visit</a>
                     </div>
                 </div>
             </div>
@@ -84,5 +87,8 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
     <!-- js link -->
     <?php include '../Footer/footer.php' ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
 </body>

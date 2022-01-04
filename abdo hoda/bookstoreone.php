@@ -1,7 +1,7 @@
 <?php
  $connect=mysqli_connect('localhost','root','','goodreads');
  session_start();
-$id=$_SESSION['ID'];
+ $id=$_GET['ID'];
 
  $bookstores="SELECT NAME,Location,StoreImage FROM store where ID= $id ";
 $result=mysqli_query($connect,$bookstores);
@@ -39,6 +39,8 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
     <link rel="stylesheet" href="homepage.css">
 
     <style>
+    @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
     .btn-outline-secondary {
         color: #1b8bcb;
         border-color: #1b8bcb;
@@ -59,7 +61,7 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 <body>
     <?php include '../WebsiteHeader/2header.php' ?>
-    <div class="fluid bg-light mb-4">
+    <div class="fluid bg-light">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center flex-row-reverse">
             <div class="container bg-light d-flex justify-content-center ">
                 <img src="../images/<?php echo $mystore['StoreImage'] ?>" class="m-2" alt="">
@@ -76,10 +78,12 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
         </div>
     </div>
     </div>
+
+    <?php if (!empty($abook)) {?>
     <div class="author-works mt-0" style="margin-top: 0 !important;">
         <h3 class="text-center black py-3 ">All <?php echo $mystore['NAME'] ?>'s Books</h3>
     </div>
-
+    <?php }?>
     </div>
     <div class="container">
         <div class="books row d-flex justify-content-center ">
@@ -107,5 +111,6 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>

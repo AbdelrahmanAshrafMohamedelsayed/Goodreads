@@ -1,9 +1,13 @@
 h1.headf {
-    color: #167db8;
+    color: #1b8bcb;
     font-weight: bold;
     margin: 0;
 }
-
+h2.headf {
+    color: #1b8bcb;
+    font-weight: bold;
+    margin: 0;
+}
 .image-upload>input {
     visibility: hidden;
     width: 0;
@@ -15,7 +19,29 @@ h1.headf {
     margin: 10px 0;
     font-size: 50px;
 }
+.selectBookPH {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ddd;
+    border: none;
+    padding: 12px 15px;
+    margin: 3% 0;
+    width: 100%;
+    outline: none;
+    background: url(../images/down_arrow_select.jpg) no-repeat right #ddd; 
+}
 
+.selectBookStore {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ddd;
+    border: none;
+    padding: 12px 15px;
+    margin: 3% 0;
+    width: 100%;
+    outline: none;
+    background: url(../images/down_arrow_select.jpg) no-repeat right #ddd; 
+}
 .image-upload {
     display: grid;
     /* background-color: #eeee; */
@@ -23,7 +49,7 @@ h1.headf {
 }
 
 .fa-file-upload:hover {
-    color: #167db8;
+    color: #1b8bcb;
     transition: .5s;
     -webkit-transition: .5s;
     -moz-transition: .5s;
@@ -32,7 +58,7 @@ h1.headf {
 }
 
 .image-upload p {
-    color: #167db8;
+    color: #1b8bcb;
     font-size: 20px;
     font-weight: 800;
     line-height: 20px;
@@ -49,8 +75,8 @@ h1.headf {
 
 .ab {
     border-radius: 20px;
-    border: 1px solid #167db8;
-    background-color: #167db8;
+    border: 1px solid #1b8bcb;
+    background-color: #1b8bcb;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -80,7 +106,7 @@ h1.headf {
 }
 
 .abform input {
-    background-color: #eee;
+    background-color: #ddd;
     border: none;
     padding: 12px 15px;
     margin: 3% 0;

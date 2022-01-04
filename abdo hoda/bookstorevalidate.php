@@ -24,29 +24,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      include '../connect.php';
     if (isset($_POST)) {
         $storename = addslashes($_POST['store-name']);
-        $storeid = addslashes($_POST['store-id']);
         $storelocation = addslashes($_POST['store-location']);
         $storeimage=addslashes($_POST['store-image']);
         if (checkText($storename) == 0) {
             $berrors .= "<br /> please enter valid Store Name";
         }
-        else if(!preg_match('/^[a-zA-Z\s]+$/', $storename)){
-            $berrors .= '<br /> Store name be letters and spaces only';
-        }
-        if (!int_validate( $storeid)) {
-            $berrors .= "<br /> please enter valid Store Id";
-        }
+   
         if (checkText($storelocation) == 0) {
             $berrors .= "<br /> please enter valid book Store Location";
         }
       
          if (strlen($berrors) == 0) {
-            $sql = "insert into store (ID,NAME,Location,StoreImage) values
-            ('$storeid','$storename','$storelocation','$storeimage')";
+            $sql = "insert into store (NAME,Location,StoreImage) values
+            ('$storename','$storelocation','$storeimage')";
             $Insertion = mysqli_query($connect, $sql);
             if (!$Insertion) {
             $berrors .= "<br /> Failed to Insert";
-               
+            }
+            else{
+                header('location:bookstoresall.php');
             }
         }
     }
@@ -85,10 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
-            <div class="container pb-1" style="margin-top: 0;">
-                <h1>Book Store</h1>
-
-            </div>
+            
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
         <div class=" row">
@@ -98,4 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <?php include '../Footer/footer.php' ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
 </body>

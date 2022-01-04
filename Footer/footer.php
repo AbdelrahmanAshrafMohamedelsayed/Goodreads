@@ -1,3 +1,4 @@
+<div class="button d-flex justify-content-center align-items-center"><i class="fad fa-chevron-double-up"></i></div>
 <div class="fluid ad-catara bg-main text-light py-3">
     <div class="container">
         <div class="row">
@@ -62,3 +63,19 @@
     </div>
 
 </footer>
+<script>
+        let btn = document.querySelector('.button')
+        document.addEventListener('scroll', () => {
+            if (scrollY) {
+                btn.style.right = '1%';
+            } else {
+                btn.style.right = '-4%';
+            }
+        })
+        btn.addEventListener('click', () => {
+            scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
+</script>

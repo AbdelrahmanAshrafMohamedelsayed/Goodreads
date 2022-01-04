@@ -2,15 +2,17 @@
 include '../connect.php';
  
  session_start();
-$id=$_SESSION['ID'];
-
+$id=$_GET['ID'];
+//echo $id;
  $PublishHouses="SELECT NAME,Address,Publishing_house_Image FROM publishing_house where ID= $id ";
 $result=mysqli_query($connect,$PublishHouses);
 $MyPublishHouse=mysqli_fetch_assoc($result);
 
-$sql1="SELECT bookImage, title, price,Fname FROM book,author WHERE BookPH = $id AND Handle=BookAuthor";
+$sql1="SELECT bookImage, title, price,Fname,Minit,Lname  FROM book,author WHERE BookPH = $id AND Handle=BookAuthor";
+//$sql1="SELECT bookImage, title, price,Fname,Minit,Lname FROM book,author WHERE BookStore = $id AND Handle=BookAuthor";
+
 $result=mysqli_query($connect,$sql1);
-$abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
+$pbook=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 
 ?>
@@ -52,7 +54,7 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 <body>
     <?php include '../WebsiteHeader/2header.php' ?>
-    <div class="fluid bg-light mb-4">
+    <div class="fluid bg-light">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center flex-row-reverse">
             <div class="container bg-light d-flex justify-content-center ">
                 <img src="../images/<?php echo $MyPublishHouse['Publishing_house_Image'] ?>" class="m-2" alt="">
@@ -69,24 +71,25 @@ $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
         </div>
     </div>
     </div>
+    <?php if(!empty($pbook)) {?>
     <div class="author-works mt-0" style="margin-top: 0 !important;">
         <h3 class="text-center black py-3 ">All <?php echo $MyPublishHouse['NAME'] ?>'s Books</h3>
     </div>
-
+    <?php } ?>
     </div>
     <div class="container">
         <div class="books row d-flex justify-content-center ">
-            <?php foreach($abook as $MyPublishHouse){ ?>
+            <?php foreach($pbook as $MyPublishHouse){ ?>
             <div class="col-sm col-md-4 col-lg-2 book row justify-content-center bh">
-                <img src="../images/<?php echo htmlspecialchars($MyPublishHouse['bookImage']); ?>" class="img-fluid abimg"
-                    alt="Cinque Terre" width="200px" height="200px">
+                <img src="../images/<?php echo htmlspecialchars($MyPublishHouse['bookImage']); ?>"
+                    class="img-fluid abimg" alt="Cinque Terre" width="200px" height="200px">
                 <div class="pra row justify-content-center">
                     <div class="speech">
                         <p class="title"><?php echo htmlspecialchars($MyPublishHouse['title']); ?></p>
                         <p class="author-name">
                             <?php echo htmlspecialchars($MyPublishHouse['Fname']); ?>
                         </p>
-                        <p class="price"><?php echo htmlspecialchars($MyPublishHouses['price']); ?>$</p>
+                        <p class="price"><?php echo htmlspecialchars($MyPublishHouse['price']); ?>$</p>
                     </div>
                 </div>
             </div>

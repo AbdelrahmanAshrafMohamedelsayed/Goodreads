@@ -42,16 +42,16 @@ include 'bookPHP.php'
     <div class="fluid bg-light mb-4">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center flex-row-reverse">
             <div class="container bg-light d-flex justify-content-center ">
-                <img src="../images/book1.jpeg" class="m-2" alt="">
+                <img src="../images/<?php echo $data['bookImage'] ?>" class="m-2" alt="">
             </div>
             <div class="container bg-light">
                 <div class="card bg-light" style="border:0px solid black">
                     <div class="card-body">
                         <h1 class="card-title"><?php echo $data['title'] ?></h1>
-                        <h5 class="card-subtitle mb-2 text-muted">Dar Eltaqua</h5>
+                        <h5 class="card-subtitle mb-2 text-muted"><?php echo $data['BookPH']?></h5>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Price <b class="ms-2"><?php echo $data['price'] ?>$</b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Publisher <b class="ms-2"><?php echo $data['BookAuthor'] ?></b> </p>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Store <b class="ms-2">Tawfikia</b> </p>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Store <b class="ms-2"><?php echo $data['BookStore']?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px"> Publish Date <b class="ms-2"><?php echo $data['Pubdate'] ?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Pages <b class="ms-2"><?php echo $data['numberOfPages'] ?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Copies <b class="ms-2"><?php echo $data['numberOfCopies'] ?></b> </p>

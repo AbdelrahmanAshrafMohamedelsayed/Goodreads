@@ -1,3 +1,20 @@
+<?php 
+    include'../connect.php';
+
+    $sql = "SELECT ID, NAME FROM publishing_house";
+    $select = mysqli_query($connect, $sql);
+    $publishHouses = mysqli_fetch_all($select, MYSQLI_ASSOC);
+    
+
+    $sql = "SELECT ID, NAME FROM store";
+    $select = mysqli_query($connect, $sql);
+    $stores = mysqli_fetch_all($select, MYSQLI_ASSOC);
+    
+
+?>
+
+
+
 <div class="container">
     <div class="abcontainer" id="abcontainer">
 
@@ -29,19 +46,17 @@
                     echo $bookNOAC;
                 }
                  ?>">
-                <input type="text" placeholder="Book store" class="col" name="book-store" value="<?php
-                if(isset($bookstore))
-                {
-                    echo $bookstore;
-                }
-                 ?>">
+                 <select name = "book-ph" id="book-ph" class = "selectBookPH">
+                    <?php foreach ($publishHouses as $publishHouse) {?>
+                    <option value=<?php echo $publishHouse['ID']?>><?php echo $publishHouse['NAME']?></option>
+                    <?php } ?>
+                </select>
 
-                <input type="text" placeholder="Book publish house" class="col" name="book-ph" value="<?php
-                if(isset($bookph))
-                {
-                    echo $bookph;
-                }
-                 ?>">
+                <select name = "book-store" id="book-store" class = "selectBookStore">
+                    <?php foreach ($stores as $store) {?>
+                    <option value=<?php echo $store['ID']?>> <?php echo $store['NAME']?></option>
+                    <?php } ?>
+                </select>
                 <input type="text" placeholder="Number of pages" class="col" name="book-nop" value="<?php
                 if(isset($booknop))
                 {
@@ -58,7 +73,7 @@
                     <label for="exampleFormControlTextarea6">Book description</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
                         placeholder="Write something here..."
-                        name="book-description"> <?php if (isset($_POST['book-description'])) echo $_POST['book-description']; ?> </textarea>
+                        name="book-description"> <?php if (isset($_POST['book-description'])) echo $_POST['book-description']; ?></textarea>
                 </div>
                 <div class="image-upload" class="col">
                     <p class="abd">upload image</p>
