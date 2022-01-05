@@ -50,9 +50,24 @@ include 'SigningEvent.php'
         background-color: #167db8;
         color: #FFFFFF;
         float: right;
+        position: relative;
+        bottom: -3rem;
         }
         .ab:hover {
             transform: scale(1.1);
+        }
+        .book-link {
+            text-decoration: none;
+            color: #1b8bcb;
+        }
+        .book-link:hover {
+            color: #167db8 ;
+        }
+        .cont {
+            height: auto;
+        }
+        .card {
+            height: 35rem;
         }
     </style>
 
@@ -60,11 +75,10 @@ include 'SigningEvent.php'
 
 <body>
     <?php include '../WebsiteHeader/2header.php' ?>
-    <div class="fluid bg-light mb-4">
+    <div class="bg-light mb-4">
         <div class="container">
             <div class="row">
                 <?php foreach ($eventData as $event) { ?>
-                <!-- <div class="card mb-3 col-md-6"> -->
                     <div class="my-auto bg-light card mb-3 col-md-6">
                         <img src= " ../images/<?php echo $event['image']?>" class="card-img-top  EventImage my-auto" alt="No Image Available">
                         
@@ -72,29 +86,27 @@ include 'SigningEvent.php'
                             <h5 class="card-title"><?php echo $event['Title']; ?></h5>
                             <p class="card-text">Author: <b><?php echo $event['Fname']?> 
                             <?php echo $event['Minit']?>  <?php echo $event['Lname']?> </b> </p>
-                            <a href= "../Adham/bookPage.php?book=<?php echo $event['ISBN']?>"> <?php echo $event['title']?> </a>
-                            <p class="card-text">Book to be signed: <b><?php echo $event['title']?> </b> </p>
+
+                            <p class="card-text">Book to be signed: <b><a class= "book-link" href= "../Adham/bookPage.php?book=<?php echo $event['ISBN']?>">
+                            <?php echo $event['title']?> </a></b> </p>
                             <p class="card-text">Location: <b><?php echo $event['Clocation'] ?></b></p>
-                            <!-- <p class="card-text">Creation Date: <b><?php echo $event['Creation_date'] ?></b></p> -->
                             <?php if($event['Handle']==$_SESSION['handle']) {?>
                                 <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
                                     <input type="hidden" name = "DeletedID" value = "<?php echo $event['ID']?>">
                                     <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
                                 </form>
                             <?php } else {?>
+                                
                                 <br>
                                 <br>
                                 <?php } ?>
-                            <!-- <input type="submit" name="someAction" value="GO" /> -->
-                            
-                            
                         </div>
                     </div>
-                <!-- </div>      -->
                 <?php } ?>
             </div>
         </div>
     </div>
+    <?php include '../Footer/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
