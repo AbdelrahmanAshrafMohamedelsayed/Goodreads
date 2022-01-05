@@ -1,18 +1,16 @@
 <?php
 include '../connect.php';
- 
- session_start();
-$id=$_GET['ID'];
+
+session_start();
+$id = $_GET['ID'];
 //echo $id;
- $PublishHouses="SELECT NAME,Address,Publishing_house_Image FROM publishing_house where ID= $id ";
-$result=mysqli_query($connect,$PublishHouses);
-$MyPublishHouse=mysqli_fetch_assoc($result);
+$PublishHouses = "SELECT NAME,Address,Publishing_house_Image FROM publishing_house where ID= $id ";
+$result = mysqli_query($connect, $PublishHouses);
+$MyPublishHouse = mysqli_fetch_assoc($result);
 
-$sql1="SELECT bookImage, title, price,Fname,Minit,Lname  FROM book,author WHERE BookPH = $id AND Handle=BookAuthor";
-//$sql1="SELECT bookImage, title, price,Fname,Minit,Lname FROM book,author WHERE BookStore = $id AND Handle=BookAuthor";
-
-$result=mysqli_query($connect,$sql1);
-$pbook=mysqli_fetch_all($result,MYSQLI_ASSOC);
+$sql = "SELECT ISBN,price,BookAuthor,bookImage,title FROM book,Publishing_house WHERE ID=BookPH AND ID= $id ";
+$select = mysqli_query($connect, $sql);
+$Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 
 
 ?>
@@ -24,31 +22,30 @@ $pbook=mysqli_fetch_all($result,MYSQLI_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../Footer/footerStyle.css">
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
     <link rel="stylesheet" href="rating.css">
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="../Adham/bookTempStyle.css">
 
     <style>
-    .btn-outline-secondary {
-        color: #1b8bcb;
-        border-color: #1b8bcb;
-    }
+        .btn-outline-secondary {
+            color: #1b8bcb;
+            border-color: #1b8bcb;
+        }
 
-    .btn-outline-secondary:hover {
-        color: #fff;
-        background-color: #1b8bcb;
-        border-color: #1b8bcb;
-    }
+        .btn-outline-secondary:hover {
+            color: #fff;
+            background-color: #1b8bcb;
+            border-color: #1b8bcb;
+        }
 
-    .navbar-dark .navbar-nav .nav-link:focus,
-    .navbar-dark .navbar-nav .nav-link:hover {
-        color: rgb(255 255 255);
-    }
+        .navbar-dark .navbar-nav .nav-link:focus,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: rgb(255 255 255);
+        }
     </style>
 </head>
 
@@ -71,36 +68,22 @@ $pbook=mysqli_fetch_all($result,MYSQLI_ASSOC);
         </div>
     </div>
     </div>
-    <?php if(!empty($pbook)) {?>
-    <div class="author-works mt-0" style="margin-top: 0 !important;">
-        <h3 class="text-center black py-3 ">All <?php echo $MyPublishHouse['NAME'] ?>'s Books</h3>
-    </div>
+    <?php if (!empty($pbook)) { ?>
+        <div class="author-works mt-0" style="margin-top: 0 !important;">
+            <h3 class="text-center black py-3 ">All <?php echo $MyPublishHouse['NAME'] ?>'s Books</h3>
+        </div>
     <?php } ?>
     </div>
     <div class="container">
-        <div class="books row d-flex justify-content-center ">
-            <?php foreach($pbook as $MyPublishHouse){ ?>
-            <div class="col-sm col-md-4 col-lg-2 book row justify-content-center bh">
-                <img src="../images/<?php echo htmlspecialchars($MyPublishHouse['bookImage']); ?>"
-                    class="img-fluid abimg" alt="Cinque Terre" width="200px" height="200px">
-                <div class="pra row justify-content-center">
-                    <div class="speech">
-                        <p class="title"><?php echo htmlspecialchars($MyPublishHouse['title']); ?></p>
-                        <p class="author-name">
-                            <?php echo htmlspecialchars($MyPublishHouse['Fname']); ?>
-                        </p>
-                        <p class="price"><?php echo htmlspecialchars($MyPublishHouse['price']); ?>$</p>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-
+        <div class="row d-flex justify-content-center ">
+            <?php foreach ($Books as $i) {
+                include '../Adham/bookTemp.php';
+            } ?>
         </div>
     </div>
 
     <?php include '../Footer/footer.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>
 

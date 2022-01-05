@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../connect.php';
-$sql = "SELECT * FROM book";
+$sql = "SELECT ISBN,price,BookAuthor,bookImage,title FROM book";
 $select = mysqli_query($connect, $sql);
 $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 
@@ -19,7 +19,7 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
     <link rel="stylesheet" href="../Footer/footerStyle.css">
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
     <link rel="stylesheet" href="rating.css">
-    <link rel="stylesheet" href="../bookTempStyle.css">
+    <link rel="stylesheet" href="../Adham/bookTempStyle.css">
     <style>
         
     </style>
@@ -30,7 +30,7 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
     <?php include '../WebsiteHeader/2header.php' ?>
     <div class="container">
         <div class="row d-flex justify-content-center ">
-            <?php foreach ($Books as $i){include '../bookTemp.php'; }?>
+            <?php foreach ($Books as $i){include '../Adham/bookTemp.php'; }?>
             </div>
         </div>
     </div>

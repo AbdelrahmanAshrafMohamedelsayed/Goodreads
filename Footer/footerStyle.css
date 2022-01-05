@@ -56,7 +56,7 @@ body {
     color: #ffffff;
     font-size: 1.3em;
     position: fixed;
-    right: 1%;
+    right: -4%;
     bottom: 1%;
     background-color: var(--bold);
     padding: .4%;

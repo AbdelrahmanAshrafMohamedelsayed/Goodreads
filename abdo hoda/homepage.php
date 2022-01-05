@@ -12,7 +12,7 @@ if (isset($_SESSION['handle'])) {
     $linked = $myauthor[0]['linkedin'];
     $twitter = $myauthor[0]['twitter'];
     $NumberOfBooks = $myauthor[0]['NumberOfBooks'];
-    $other = "SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin FROM author WHERE Handle !='$bookauthor' ";
+    $other = "SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin,Handle FROM author WHERE Handle !='$bookauthor' ";
     $result = mysqli_query($connect, $other);
     $otherauthor = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $type = 'AUTHORS';
@@ -28,13 +28,13 @@ if (isset($_SESSION['handle'])) {
     $linked = $myuser['linkedinacc'];
     $twitter = $myuser['twitteracc'];
     $NumberOfBooks = $myuser['NumberOfBooks'];
-    $others = "SELECT Fname,NumberOfBooks,Image,Minit,Lname,facebookacc,twitteracc,linkedinacc FROM users WHERE username !='$user' ";
+    $others = "SELECT Fname,NumberOfBooks,Image,Minit,Lname,facebookacc,twitteracc,linkedinacc,username FROM users WHERE username !='$user' ";
     $result = mysqli_query($connect, $others);
     $otherauthor = mysqli_fetch_all($result, MYSQLI_ASSOC);
     //print_r($otheruser);
     $type = 'USERS';
 }
-$sql = "SELECT * FROM book ORDER BY Pubdate";
+$sql = "SELECT ISBN,price,BookAuthor,bookImage,title FROM book";
 $select = mysqli_query($connect, $sql);
 $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 ?>
@@ -50,14 +50,9 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../Footer/footerStyle.css">
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
-    <!-- <link rel="stylesheet" href="../Adham/formStyle.css"> -->
     <link rel="stylesheet" href="homepage.css">
-    <link rel="stylesheet" href="../bookTempStyle.css">
+    <link rel="stylesheet" href="../Adham/bookTempStyle.css">
     <style>
-        /* .navbar-dark .navbar-nav .nav-link:focus,
-    .navbar-dark .navbar-nav .nav-link:hover {
-        color: rgb(255 255 255);
-    } */
         .profile-card-3 {
             font-family: 'Open Sans', Arial, sans-serif;
             position: relative;
@@ -188,7 +183,7 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
             <?php $Maxcount = 0;
             foreach ($Books as $i) {
                 $Maxcount += 1;
-                include '../bookTemp.php';
+                include '../Adham/bookTemp.php';
                 if ($Maxcount > 12)
                     break;
             } ?>
@@ -209,7 +204,12 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                                 <img src="<?php echo (isset($_SESSION['handle'])) ? $i['ProfileImage'] : $i['Image']; ?>" alt="profile-image" class="profile">
                             </div>
                             <div class="card-content">
-                                <h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
+                               <a href="../Adham/Profiles.php?<?php
+                               if($type=='USERS')
+                                    echo "username=".$i['username'] ;
+                                else
+                                    echo "handle=".$i['Handle'] ;
+                                ?>"> <h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?></a>
                                 </h2>
                                 <div class="icon-block"><a href="<?php echo (isset($_SESSION['handle'])) ? $i['facebook'] : $i['facebookacc']; ?>"><i class="fab fa-facebook-f"></i></a>
                                     <a href="<?php echo (isset($_SESSION['handle'])) ? $i['twitter'] : $i['twitteracc']; ?>"> <i class="fab fa-twitter"></i></a>

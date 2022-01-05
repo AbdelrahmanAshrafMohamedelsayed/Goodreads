@@ -50,7 +50,7 @@ include 'bookPHP.php'
                         <h1 class="card-title"><?php echo $data['title'] ?></h1>
                         <h5 class="card-subtitle mb-2 text-muted"><?php echo $data['BookPH']?></h5>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Price <b class="ms-2"><?php echo $data['price'] ?>$</b> </p>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Publisher <b class="ms-2"><?php echo $data['BookAuthor'] ?></b> </p>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Publisher <b class="ms-2"><a href="Profiles.php?handle=<?php echo $AuthorHandle?>" style="text-decoration:none;" class="card-link"><?php echo $data['BookAuthor'] ?></a> </b></p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Store <b class="ms-2"><?php echo $data['BookStore']?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px"> Publish Date <b class="ms-2"><?php echo $data['Pubdate'] ?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Pages <b class="ms-2"><?php echo $data['numberOfPages'] ?></b> </p>
@@ -64,23 +64,27 @@ include 'bookPHP.php'
                         for($i=0;$i<$n;$i++)
                          echo "<i class='far fa-star'></i>";
                          ?></b></p>
-                        <a href="Profiles.php?handle=<?php echo $AuthorHandle?>" class="card-link">Author</a>
                         
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <?php if($data['description']){ ?>
     <div class="fluid bg-white">
         <div id="data" class="container">
             <h1>Description: </h1>
             <p><?php echo $data['description'] ?></p>
         </div>
     </div>
-    <div class="fluid bg-light py-4">
+    <?php }
+     ?>
+    <div class="fluid bg-light<?php if(count($reviews)!=0){echo ' py-4';} ?> ">
         <div id="data" class="container">
+            <?php if(count($reviews)!=0){ ?>
             <h1>Reviews: </h1>
             <?php
+            }
             $count=-1;
             foreach ($reviews as $i) { $count+=1;  ?>
                 <div id=<?php echo $count ?> class="card w-75 mx-auto my-4">

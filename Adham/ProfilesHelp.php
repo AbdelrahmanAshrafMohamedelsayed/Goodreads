@@ -28,6 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         }
         $name="username";
         $username = addslashes($_POST['username']);
+        $password=addslashes($_POST['password']);
+        if(checkText($_POST['image'])==0)
+        {
+            $_POST['image']="undraw_male_avatar_323b.svg";
+        }
         $image = "../images/".addslashes($_POST['image']);
         $fname = addslashes($_POST['fname']);
         $facebook = addslashes($_POST['Facebook']);
@@ -41,6 +46,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         if (checkText($fname) == 0 ||  checkText($lname) == 0) {
             $_SESSION["error"] .= "<br /> please enter valid name";
         }
+        if (checkPassword($password) == 0) {
+            $_SESSION["error"] .= "<br /> please enter valid password at least from 8 characters and 1 uppercase letter";
+        }
         if (strlen($_SESSION["error"]) == 0) {
             echo $username ;
             echo $_SESSION['username'];
@@ -52,7 +60,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             facebookacc='$facebook',
             twitteracc='$twitter',
             linkedinacc='$linkedin',
-            Nationality='$Nationality' 
+            Nationality='$Nationality' ,
+            Password='$password' 
             WHERE Username='".$_SESSION['username']."' ;";
             echo $sql;
             $test = mysqli_query($connect, $sql);
@@ -73,6 +82,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $name="handle";
         $handle = addslashes($_POST['handle']);
+        $password=addslashes($_POST['password']);
+        if(checkText($_POST['image'])==0)
+        {
+            $_POST['image']="undraw_male_avatar_323b.svg";
+        }
         $image = "../images/".addslashes($_POST['image']);
         $fname = addslashes($_POST['fname']);
         $facebook = addslashes($_POST['Facebook']);
@@ -80,11 +94,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $twitter = addslashes($_POST['Twitter']);
         $lname = addslashes($_POST['lname']);
         $Nationality=addslashes($_POST['Nationality']);
+        $bio=addslashes($_POST['bio']);
         if (checkText($handle) == 0||preg_match("/ /", $handle)) {
             $_SESSION["error"] .= "<br /> please enter valid handle";
         }
         if (checkText($fname) == 0 ||  checkText($lname) == 0) {
             $_SESSION["error"] .= "<br /> please enter valid name";
+        }
+        if (checkPassword($password) == 0) {
+            $_SESSION["error"] .= "<br /> please enter valid password at least from 8 characters and 1 uppercase letter";
         }
         if (strlen($_SESSION["error"]) == 0) {
             $sql = "UPDATE  author
@@ -95,7 +113,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             Nationality='$Nationality' ,
             facebook='$facebook' ,
             twitter='$twitter' ,
-            linkedin='$linkedin' 
+            linkedin='$linkedin' ,
+            Password='$password' ,
+            Bio='$bio'
             WHERE Handle='".$_SESSION['handle']."' ;";
             $update = mysqli_query($connect, $sql);
             if ($update) {

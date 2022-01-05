@@ -1,13 +1,4 @@
-<?php
 
-//session_start();
-include '../connect.php';
-$authorHandle = $_SESSION['handle'];
-
-$sql = "SELECT ISBN, title FROM book WHERE BookAuthor = '$authorHandle'";
-$select = mysqli_query($connect, $sql);
-$books = mysqli_fetch_all($select, MYSQLI_ASSOC);
-?>
 
 <!DOCTYPE html>
 

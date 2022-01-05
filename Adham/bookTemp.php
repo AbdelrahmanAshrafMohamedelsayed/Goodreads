@@ -6,7 +6,7 @@
         <div class="card w-100 h-100">
             <div class="card-body">
                 <h4 class="card-title mb-3"><?php echo $i['title']; ?></h4>
-                <h5 class="card-subtitle mb-3 text-muted"><?php
+                <a href="../Adham/Profiles.php?handle=<?php echo $i['BookAuthor']; ?>" style="text-decoration:none;"><h5 class="card-subtitle mb-3 text-muted"><?php
                                                             //author data
                                                             $AuthorHandle = $i['BookAuthor'];
                                                             $sql = "SELECT Fname,Minit,Lname FROM author WHERE Handle='$AuthorHandle'";
@@ -14,7 +14,7 @@
                                                             $author = mysqli_fetch_assoc($select);
                                                             $i['BookAuthor'] = $author['Fname'] . " " . $author['Minit'] . "." . $author['Lname'];
                                                             echo $i['BookAuthor'];
-                                                            ?></h5>
+                                                            ?></h5></a>
                 <p class="card-text h5 mb-3">Price &nbsp;<b><?php echo $i['price']; ?>$</b></p>
                 <p class="card-text h5 mb-3 mx-auto"><?php
                                                         //rating retrival
@@ -32,7 +32,12 @@
                 </p>
                 <div class="icon-block"><a href="<?php echo "../Adham/bookPage.php?book=$bookISBN"; ?>"><i class="fas fa-book-open"></i></a>
                     <a href="<?php echo '../Adham/Profiles.php?handle=' . $AuthorHandle; ?>"> <i class="fas fa-feather-alt"></i></a>
-                    <a href="">
+                    <a href="<?php
+                    if(isset($_SESSION['username'])){
+                     echo "../Adham/buy.php?book=$bookISBN";
+                    }
+                    ?>
+                     " >
                         <i class="fas fa-shopping-cart"></i></a>
                 </div>
 
