@@ -97,9 +97,9 @@ include "loginPagePHP.php";
         </div>
     </section>
     <div class="container">
-        <div class="row mx-auto">
-            <div class="col-md-6 p-4"><?php include 'AuthorForm.php' ?></div>
-            <div class="col-md-6 p-4"><?php include 'userForm.php' ?></div>
+        <div class="d-flex justify-content-center">
+            <!-- <div class="col-md-6 p-4"><?php include 'AuthorForm.php' ?></div> -->
+            <div class="col-md-6 mb-5"><?php include 'userForm.php' ?></div>
         </div>
 
     </div>

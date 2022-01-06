@@ -1,5 +1,5 @@
 <?php 
-    include'../connect.php';
+    include '../connect.php';
 
 // for foreign key validate [publish house] 
     $sql = "SELECT ID, NAME FROM publishing_house";
@@ -21,7 +21,7 @@
     <div class="abcontainer" id="abcontainer">
 
         <div class="form-abcontainer sign-in-abcontainer">
-            <form action="publishbook.php" method='POST' class="abform row">
+            <form action="publishbook.php" method='POST' class="abform row" enctype="multipart/form-data">
                 <h1 class="headf">Publish book</h1>
 
                 <input type="text" placeholder="Book Title" class="col" name="book-title" value="<?php

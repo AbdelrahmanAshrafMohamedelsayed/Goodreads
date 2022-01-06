@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!$insertion) {
                 $error .= "You have already bought this book";
             } else {
+                $sql = "UPDATE users SET NumberOfBooks=NumberOfBooks+1 WHERE Username='$buyer'";
+                $update = mysqli_query($connect, $sql);
                 header("location:Profiles.php?username=$buyer");
             }
         } else {

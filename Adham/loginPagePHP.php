@@ -1,5 +1,8 @@
 <?php
 session_start();
+session_unset();
+session_destroy();
+session_start();
 $aerrors = "";
 $uerrors = "";
 $errors = "";
@@ -24,33 +27,7 @@ if (isset($_GET['logout']) and !empty($_GET['logout'])) {
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '../connect.php';
-    if (isset($_POST['handle'])) {
-        $handle = addslashes($_POST['handle']);
-        $password = addslashes($_POST['apass']);
-        $fname = addslashes($_POST['afname']);
-        $minit = addslashes($_POST['aminit']);
-        $lname = addslashes($_POST['alast']);
-        if (checkText($handle) == 0||preg_match("/ /", $handle)) {
-            $aerrors .= "<br /> please enter valid handle";
-        }
-        if (checkText($fname) == 0 || (strlen($minit) != 1) || checkText($lname) == 0) {
-            $aerrors .= "<br /> please enter valid name";
-        }
-        if (checkPassword($password) == 0) {
-            $aerrors .= "<br /> please enter valid password at least from 8 characters and 1 uppercase letter";
-        }
-        if (strlen($aerrors) == 0) {
-            $sql = "insert into author (handle,fname,minit,lname,password) values
-            ('$handle','$fname','$minit','$lname','$password')";
-            $Insertion = mysqli_query($connect, $sql);
-            if ($Insertion) {
-                $_SESSION['handle'] = $handle;
-                #header('Location:bookPage.php?book=12344');
-                header('Location:../abdo hoda/homepage.php');
-            }
-            $aerrors .= "<br /> This handle already exists";
-        }
-    } else if (isset($_POST['username'])) {
+    if (isset($_POST['username'])) {
         $username = addslashes($_POST['username']);
         $password = addslashes($_POST['upass']);
         $fname = addslashes($_POST['ufname']);
@@ -92,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data = mysqli_fetch_assoc($selectFromUsers);
         if ($data) {
             $_SESSION['username'] = $username_handle;
-            header('Location:../abdo hoda/homepage.php');
+            header('Location:../abdo hoda/homepage.php?T='.$username_handle);
         }
     }
 }

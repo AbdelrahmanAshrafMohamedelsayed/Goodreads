@@ -28,7 +28,7 @@ if (isset($_SESSION['handle'])) {
     $type = 'AUTHORS';
     
     
-} else {
+} else  if(isset($_SESSION['username'])) {
     $user = addslashes($_SESSION['username']);
 
     //retrieve information about this user

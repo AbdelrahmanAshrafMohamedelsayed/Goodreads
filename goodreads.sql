@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2022 at 09:03 PM
+-- Generation Time: Jan 06, 2022 at 06:32 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -11,14 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT;
-SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS;
-SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION;
-SET NAMES utf8;
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
-SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0; 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,10 +47,16 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`Fname`, `Minit`, `Lname`, `Password`, `Nationality`, `Bio`, `NumberOfBooks`, `Handle`, `ProfileImage`, `facebook`, `twitter`, `linkedin`) VALUES
-('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 2, 'Adham_Ali', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
+('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 5, 'Adham_Ali', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
 ('Eslam', 'A', 'Ebraheem', '1234567A', NULL, NULL, 0, 'eslam_asharf', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hamdy', 'M', 'Fathi', '1234567A', NULL, NULL, 1, 'hamdy_fathi', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Hassan', 'M', 'Mahmoud', '1234567A', 'Naigeria', 'lContextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 1, 'Hassan_Ayman', 'IMG_20191215_232051_268.jpg', '', '', ''),
+('Mohamed', 'W', 'Bonegah', '1234567A', NULL, NULL, 0, 'NOAH', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Mohamed', 'W', 'Bonegahhhh', '1234567A', NULL, NULL, 0, 'NOAHaaaa', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Sohaila', 'M', 'Elnagy', '1234567A', 'Sweden', NULL, 0, 'sooo', '../images/pic-2.png', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
+('Adham', 'M', 'Hameed', '1234567A', NULL, NULL, 0, 'unkown_one', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Adham', 'M', 'Hameed', '1234567A', NULL, NULL, 0, 'unkown_onee', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Adham', 'M', 'Hameed', '1234567A', NULL, NULL, 0, 'unkown_oneee', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Mohamed', 'W', 'Walid', '12345678M', 'Russian', NULL, 4, 'Walid', '../images/tet.jpg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
 ('Mohamed', 'W', 'Walid', '1234567A', NULL, NULL, 0, 'Walid_Moh', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL);
 
@@ -95,7 +93,6 @@ CREATE TABLE `book` (
   `ISBN` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `price` int(10) UNSIGNED DEFAULT 0,
-  `rating` int(10) UNSIGNED DEFAULT 0,
   `numberOfCopies` int(10) UNSIGNED DEFAULT 0,
   `BookAuthor` varchar(30) DEFAULT NULL,
   `BookPH` int(10) UNSIGNED DEFAULT NULL,
@@ -111,11 +108,11 @@ CREATE TABLE `book` (
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`ISBN`, `title`, `price`, `rating`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
-(12344, 'Hitler', 1160, 0, 234, 'Walid', 14, 15, '2022-01-04', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Dutch', 'book2.jpeg'),
-(3674367, 'Okda Nafsya', 7688, 0, 8484, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
-(63265456, 'Arwah W Ashbah', 1277, 0, 748, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg'),
-(84438346, 'Confession', 372, 0, 733, 'Adham_Ali', 16, 12, '2022-01-05', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cu', 45, 'French', 'uu.jpeg');
+INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
+(483837, 'Roob Masir', 2778, 73274, 'Hassan_Ayman', 16, 15, '2022-01-06', 'Contextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 12, 'Dutch', 'tt.jpeg'),
+(3674367, 'Okda Nafsya', 7688, 8482, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
+(63265456, 'Arwah W Ashbah', 1277, 748, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg'),
+(84438346, 'Confession', 372, 41, 'Adham_Ali', 16, 12, '2022-01-05', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cu', 45, 'French', 'uu.jpeg');
 
 -- --------------------------------------------------------
 
@@ -127,6 +124,18 @@ CREATE TABLE `buy` (
   `BookISBN` int(10) UNSIGNED NOT NULL,
   `buyer` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buy`
+--
+
+INSERT INTO `buy` (`BookISBN`, `buyer`) VALUES
+(483837, '@dokkaa'),
+(3674367, '@dokkaa'),
+(3674367, '@esso11'),
+(63265456, '@adhamali'),
+(84438346, '@adhamali'),
+(84438346, '@dokkaa');
 
 -- --------------------------------------------------------
 
@@ -146,8 +155,50 @@ CREATE TABLE `dislike_reaction` (
 --
 
 INSERT INTO `dislike_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
-('@adhamaliii', '@adhamaliii', 12344, 22),
-('@adhamaliii', '@esso', 63265456, 21);
+('@adhamali', '@esso11', 63265456, 21),
+('@adhamaliii', '@esso11', 63265456, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `uploaded_on` datetime NOT NULL,
+  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
+(1, 'sincerely-media-ez9IPcFL5r8-unsplash.jpg', '2022-01-06 14:35:17', '1'),
+(2, 'alfons-morales-YLSwjSy7stw-unsplash.jpg', '2022-01-06 14:37:19', '1'),
+(3, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-06 14:40:09', '1'),
+(4, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:42:18', '1'),
+(5, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:42:36', '1'),
+(6, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:43:13', '1'),
+(7, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:43:46', '1'),
+(8, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:44:16', '1'),
+(9, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 14:45:13', '1'),
+(10, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-06 14:51:38', '1'),
+(11, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-06 14:52:16', '1'),
+(12, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-06 14:53:55', '1'),
+(13, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-06 14:54:53', '1'),
+(14, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-06 14:56:31', '1'),
+(15, 'IMG_20191024_133534_828.jpg', '2022-01-06 14:56:45', '1'),
+(16, 'IMG_20191215_232051_268.jpg', '2022-01-06 15:05:02', '1'),
+(17, 'two-eggs.png', '2022-01-06 16:07:11', '1'),
+(18, 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '2022-01-06 16:08:01', '1'),
+(19, 'WhatsApp Image 2021-12-16 at 10.03.18 AM.jpeg', '2022-01-06 19:08:39', '1'),
+(20, 'WhatsApp Image 2021-12-16 at 10.03.18 AM.jpeg', '2022-01-06 19:09:00', '1'),
+(21, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-06 19:20:39', '1'),
+(22, 'ui.jpeg', '2022-01-06 19:26:35', '1'),
+(23, 'IMG_20191024_133534_828.jpg', '2022-01-06 19:30:05', '1');
 
 -- --------------------------------------------------------
 
@@ -167,7 +218,7 @@ CREATE TABLE `like_reaction` (
 --
 
 INSERT INTO `like_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
-('@esso', '@esso', 63265456, 21);
+('@adhamali', '@adhamaliii', 3674367, 23);
 
 -- --------------------------------------------------------
 
@@ -219,11 +270,13 @@ CREATE TABLE `rate_author` (
 --
 
 INSERT INTO `rate_author` (`RatingValue`, `rated`, `rater`) VALUES
-(4, 'Adham_Ali', '@esso'),
+(5, 'Adham_Ali', '@adhamali'),
+(4, 'Adham_Ali', '@dokkaa'),
+(4, 'Adham_Ali', '@esso11'),
 (5, 'Adham_Ali', '@far'),
 (5, 'Adham_Ali', '@hamzaa'),
 (5, 'Walid', '@adhamaliii'),
-(3, 'Walid', '@esso');
+(3, 'Walid', '@esso11');
 
 -- --------------------------------------------------------
 
@@ -242,9 +295,11 @@ CREATE TABLE `rate_book` (
 --
 
 INSERT INTO `rate_book` (`RatingValue`, `BookISBN`, `rater`) VALUES
-(3, 12344, '@adhamaliii'),
+(3, 483837, '@dokkaa'),
+(1, 3674367, '@adhamali'),
 (5, 3674367, '@adhamaliii'),
-(3, 63265456, '@esso');
+(1, 3674367, '@esso11'),
+(3, 63265456, '@esso11');
 
 -- --------------------------------------------------------
 
@@ -265,9 +320,12 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`ID`, `BOOKISBN`, `URName`, `ReviewText`, `DateOfReview`) VALUES
-(22, 12344, '@adhamaliii', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-05'),
+(25, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
+(26, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
+(27, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
 (23, 3674367, '@adhamaliii', 'good job', '2022-01-05'),
-(21, 63265456, '@esso', 'ana bagarab', '2022-01-05');
+(21, 63265456, '@esso11', 'ana bagarab', '2022-01-05'),
+(24, 84438346, '@adhamali', 'jfvfgjhrf', '2022-01-05');
 
 -- --------------------------------------------------------
 
@@ -322,28 +380,31 @@ CREATE TABLE `users` (
   `Minit` char(1) NOT NULL,
   `Lname` varchar(100) NOT NULL,
   `Password` varchar(12) NOT NULL,
-  `NumberOfBooks` int(10) UNSIGNED DEFAULT 0,
   `Username` varchar(100) NOT NULL,
   `Image` varchar(100) NOT NULL DEFAULT '../images/undraw_male_avatar_323b.svg',
   `facebookacc` varchar(100) DEFAULT NULL,
   `twitteracc` varchar(100) DEFAULT NULL,
   `linkedinacc` varchar(100) DEFAULT NULL,
-  `Nationality` varchar(30) DEFAULT NULL
+  `Nationality` varchar(30) DEFAULT NULL,
+  `NumberOfBooks` int(10) UNSIGNED DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Fname`, `Minit`, `Lname`, `Password`, `NumberOfBooks`, `Username`, `Image`, `facebookacc`, `twitteracc`, `linkedinacc`, `Nationality`) VALUES
-('Adham', 'm', 'Hazem', '1234567A', 0, '@adhamaliii', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Egyptian'),
-('Ali', 'A', 'Sayed', '1234567A', 0, '@aliaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Brazilian'),
-('Eslam', 'A', 'Ebraheem', '123456789A', 0, '@esso', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
-('Fahab', 'U', 'Monir', '1234567A', 0, '@far', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
-('Abdelarhman', 'M', 'Hamdy', '1234567A', 0, '@hamdy', '../images/pic-6.png', '', '', '', 'Unknown'),
-('Hamza', 'A', 'Sayed', '1234567A', 0, '@hamza', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
-('Abdelarhman', 'M', 'Mohamed', '1234567A', 0, '@hamzaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Amarican'),
-('Muhammed', 'A', 'Osman', '12345678A', 0, '@mohamed', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`Fname`, `Minit`, `Lname`, `Password`, `Username`, `Image`, `facebookacc`, `twitteracc`, `linkedinacc`, `Nationality`, `NumberOfBooks`) VALUES
+('Adham', 'A', 'Ali', '1234567A', '@adhamali', 'IMG_20191024_133534_828.jpg', '', '', '', 'Unknown', 0),
+('Adham', 'm', 'Hazem', '1234567A', '@adhamaliii', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Egyptian', 0),
+('Ali', 'A', 'Sayed', '1234567A', '@aliaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Brazilian', 0),
+('Mohamed', 'M', 'Ali', '3276267A', '@dokkaa', 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '', '', '', 'Unknown', 0),
+('Eslam', 'A', 'Ebraheem', '123456789A', '@esso11', 'IMG_20191024_133534_828.jpg', '', '', '', 'Unknown', 0),
+('Fahab', 'U', 'Monir', '1234567A', '@far', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL, 0),
+('Abdelarhman', 'M', 'Sayed', '1234567A', '@gggg', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL, 1),
+('Abdelarhman', 'M', 'Hamdy', '1234567A', '@hamdy', '../images/pic-6.png', '', '', '', 'Unknown', 0),
+('Hamza', 'A', 'Sayed', '1234567A', '@hamza', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL, 0),
+('Abdelarhman', 'M', 'Mohamed', '1234567A', '@hamzaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Amarican', 0),
+('Muhammed', 'A', 'Osman', '12345678A', '@mohamed', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -385,6 +446,12 @@ ALTER TABLE `buy`
 ALTER TABLE `dislike_reaction`
   ADD PRIMARY KEY (`Reactor`,`Reviewer`,`bookIsbn`,`ReviewID`),
   ADD KEY `bookIsbn` (`bookIsbn`,`Reviewer`,`ReviewID`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `like_reaction`
@@ -454,6 +521,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT for table `publishing_house`
 --
 ALTER TABLE `publishing_house`
@@ -463,7 +536,7 @@ ALTER TABLE `publishing_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `signing_event`
@@ -499,8 +572,8 @@ ALTER TABLE `book`
 -- Constraints for table `buy`
 --
 ALTER TABLE `buy`
-  ADD CONSTRAINT `buy_ibfk_1` FOREIGN KEY (`BookISBN`) REFERENCES `book` (`ISBN`),
-  ADD CONSTRAINT `buy_ibfk_2` FOREIGN KEY (`buyer`) REFERENCES `users` (`Username`);
+  ADD CONSTRAINT `buy_ibfk_1` FOREIGN KEY (`BookISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `buy_ibfk_2` FOREIGN KEY (`buyer`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dislike_reaction`
@@ -548,10 +621,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT;
-SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS;
-SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION;
-SET SQL_NOTES=@OLD_SQL_NOTES; 

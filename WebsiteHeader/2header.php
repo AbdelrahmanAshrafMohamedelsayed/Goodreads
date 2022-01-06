@@ -25,6 +25,7 @@
                                 <li><a class="dropdown-item" href="../abdo hoda/bookstorevalidate.php">Store</a></li>
                                 <li><a class="dropdown-item" href="../abdo hoda/validate_publishinghouse.php">Publishing House</a></li>
                                 <li><a class="dropdown-item" href="../Walid/SigningEventForm.php">Signing Event</a></li>
+                                <li><a class="dropdown-item" href="../Adham/AddAuthor.php">Author</a></li>
                             </ul>
                         <?php } ?>
                     </li>

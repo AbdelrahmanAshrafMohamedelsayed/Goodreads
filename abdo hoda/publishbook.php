@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../imageUpload.php';
 $berrors = "";
 
 //validate empty
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $bookph = $_POST['book-ph'];
         $booknop = addslashes($_POST['book-nop']);
         $booklanguage = addslashes($_POST['book-language']);
-        $bookimage=addslashes($_POST['book-image']);
+        $bookimage=imageUpload('book-image',$connect,$berrors);
         $bookauthor=addslashes($_SESSION['handle']);
         if (checkText($booktitle) == 0) {
             $berrors .= "<br /> please enter valid book title";
