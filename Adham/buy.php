@@ -2,21 +2,27 @@
 session_start();
 include '../connect.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $error="";
+    $error = "";
     $card = $_POST['card'];
     $sec = $_POST['sec'];
-    $buyer = $_SESSION['username'];
-    $book = $_GET['book'];
-    $sql = "INSERT INTO buy(BookISBN,buyer) VALUES('$book','$buyer')";
-    $insertion = mysqli_query($connect, $sql);
-    if (!$insertion) {
-        $error .= "<br /> Invalid Data";
-        echo $error;
-    } else {
-        header("location:Profiles.php?username=$buyer");
+    if ($card && $sec) {
+        $buyer = $_SESSION['username'];
+        $book = $_GET['book'];
+        $sql = "INSERT INTO buy(BookISBN,buyer) VALUES('$book','$buyer')";
+        $insertion = mysqli_query($connect, $sql);
+        if (!$insertion) {
+            $error .= "You have already bought this book";
+        } else {
+            $sql="UPDATE book SET numberOfCopies=numberOfCopies-1 WHERE ISBN=$book";
+            $update=mysqli_query($connect,$sql);
+            header("location:Profiles.php?username=$buyer");
+        }
+    }
+    else
+    {
+        $error .= "Something Wrong";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,26 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="abcontainer" id="abcontainer">
 
                     <div class="form-abcontainer sign-in-abcontainer">
-                        <form action="buy.php?book=<?php echo $_GET['book'] ?>" method='POST' class="abform row">
-                            <h1 class="headf">Buy <?php echo $_GET['book'] ?></h1>
+                        <form action="buy.php?book=<?php echo $_GET['book'] ?>&title=<?php echo $_GET['title'] ?>" method='POST' class="abform row">
+                            <h1 class="headf">Buy <?php echo $_GET['title'] ?></h1>
 
-                            <input type="text" placeholder="Visa Card" name="card" class="col" value="<?php
+                            <input type="number" placeholder="Visa Card" name="card" class="col" value="<?php
                                                                                                         if (isset($card)) {
                                                                                                             echo $card;
                                                                                                         }
                                                                                                         ?>">
-                            <input type="password" placeholder="Security Key" class="col" name='sec' value="<?php
+                            <input type="number" placeholder="Security Key" class="col" name='sec' value="<?php
                                                                                                             if (isset($sec)) {
                                                                                                                 echo $sec;
                                                                                                             }
                                                                                                             ?>">
-
-
                             <br>
                             <?php
                             if (isset($error) and strlen($error) != 0) { ?>
                                 <div class="alert alert-danger" role="alert">
-                                    <?php echo "there were error/s :" . $error ?>
+                                    <?php echo  $error ?>
                                 </div>
                             <?php }
                             ?>

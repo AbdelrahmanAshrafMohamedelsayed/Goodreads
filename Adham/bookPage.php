@@ -34,6 +34,9 @@ include 'bookPHP.php'
         {
             text-decoration: none;
         }
+        b a{
+            color:black;
+        }
     </style>
 </head>
 
@@ -48,10 +51,10 @@ include 'bookPHP.php'
                 <div class="card bg-light" style="border:0px solid black">
                     <div class="card-body">
                         <h1 class="card-title"><?php echo $data['title'] ?></h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><?php echo $data['BookPH']?></h5>
+                        <h5 class="card-subtitle mb-2 text-muted"><a href="../abdo hoda/publishinghouseone.php?ID=<?php echo $data['PHID']; ?>" style="text-decoration:none;"><?php echo $data['BookPH']?></a></h5>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Price <b class="ms-2"><?php echo $data['price'] ?>$</b> </p>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Publisher <b class="ms-2"><a href="Profiles.php?handle=<?php echo $AuthorHandle?>" style="text-decoration:none;" class="card-link"><?php echo $data['BookAuthor'] ?></a> </b></p>
-                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Store <b class="ms-2"><?php echo $data['BookStore']?></b> </p>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Author <b class="ms-2"><a href="Profiles.php?handle=<?php echo $AuthorHandle?>" style="text-decoration:none;" class="card-link"><?php echo $data['BookAuthor'] ?></a> </b></p>
+                        <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Store <b class="ms-2"><a href="../abdo hoda/bookstoreone.php?ID=<?php echo $data['StoreID']; ?>" style="text-decoration:none;"><?php echo $data['BookStore']?></a></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px"> Publish Date <b class="ms-2"><?php echo $data['Pubdate'] ?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Pages <b class="ms-2"><?php echo $data['numberOfPages'] ?></b> </p>
                         <p class="card-text" style="font-size: 1.08rem!important; margin-bottom:3px">Copies <b class="ms-2"><?php echo $data['numberOfCopies'] ?></b> </p>

@@ -23,10 +23,10 @@
                                                         $selectrating = mysqli_query($connect, $sql);
                                                         $bookRating = mysqli_fetch_assoc($selectrating);
                                                         $n = $bookRating['rating'];
-                                                        for ($i = 0; $i < $n; $i++)
+                                                        for ($k = 0; $k < $n; $k++)
                                                             echo "<i class='fas fa-star text-warning'></i>";
                                                         $n = 5 - $n;
-                                                        for ($i = 0; $i < $n; $i++)
+                                                        for ($k = 0; $k < $n; $k++)
                                                             echo "<i class='far fa-star'></i>";
                                                         ?>
                 </p>
@@ -34,10 +34,9 @@
                     <a href="<?php echo '../Adham/Profiles.php?handle=' . $AuthorHandle; ?>"> <i class="fas fa-feather-alt"></i></a>
                     <a href="<?php
                     if(isset($_SESSION['username'])){
-                     echo "../Adham/buy.php?book=$bookISBN";
+                     echo "../Adham/buy.php?book=$bookISBN&title=".$i['title'];
                     }
-                    ?>
-                     " >
+                    ?>" >
                         <i class="fas fa-shopping-cart"></i></a>
                 </div>
 

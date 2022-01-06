@@ -53,7 +53,7 @@ include 'profilePHP.php';
     <div class="fluid bg-light pb-4">
         <div id="data" class="container d-sm-flex justify-content-around align-items-center">
             <div class="container bg-light d-flex justify-content-center ">
-                <img src="<?php echo $image; ?>" class="proimage m-2" alt="">
+                <img src="../images/<?php echo $image; ?>" class="proimage m-2" alt="">
             </div>
             <div class="container bg-light">
                 <div class="card bg-light" style="border:0px solid black">
@@ -106,7 +106,14 @@ include 'profilePHP.php';
         </div>
     <?php }
     if (count($books) != 0) {
+        
     ?>
+    <div class="fluid bg-main py-2 text-white d-flex justify-content-center">  
+        <h2>
+        <?php echo  $data['Fname']."'s Books"  ?>
+        </h2>
+       
+    </div>
         <div class="fluid bg-white py-5">
             <div class="container">
             <div class="row d-flex justify-content-center ">
@@ -134,7 +141,7 @@ include 'profilePHP.php';
     ?>
         <div class="fluid bg-light p-5">
             <div id="" class="container">
-                <form class="row g-3 w-75 mx-auto" action="ProfilesHelp.php" method="POST">
+                <form class="row g-3 w-75 mx-auto" action="ProfilesHelp.php" method="POST" enctype="multipart/form-data">
                     <div class="col-md-4">
                         <label for="validationDefault01" class="form-label">First name</label>
                         <input type="text" class="form-control" id="validationDefault01" name="fname" value="<?php echo $data['Fname'] ?>">
