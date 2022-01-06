@@ -6,17 +6,19 @@
     if(isset($_GET['Delete']))
     {
         $ID = $_GET['DeletedID'];
-        
-        // Procedure for Deleting an Event
-        $procedure = "Create PROCEDURE deleteEvent(IN eventID INT) 
-        BEGIN
-        DELETE FROM signing_event
-        where ID = eventID;
-        END";
-
-        mysqli_query($connect, $procedure);
-
-        $sql=("CALL deleteEvent($ID)");
+         // Procedure for Deleting an Event
+         $procedure = "Create PROCEDURE deleteEvent(IN eventID INT) 
+         BEGIN
+         DELETE FROM signing_event
+         where ID = eventID;
+         END";
+ 
+         mysqli_query($connect, $procedure);
+ 
+ 
+         $sql = "DELETE FROM signing_event
+         where ID = $ID";
+         $sql=("CALL deleteEvent($ID)");
 
         if(mysqli_query($connect, $sql))
         {

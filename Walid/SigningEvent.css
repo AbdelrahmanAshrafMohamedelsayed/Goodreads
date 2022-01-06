@@ -18,7 +18,6 @@ h2.headf {
 
 .image-upload {
     display: grid;
-    
     grid-template-columns: 1fr 1fr;
 }
 

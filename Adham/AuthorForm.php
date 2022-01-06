@@ -2,7 +2,7 @@
     <div class="abcontainer" id="abcontainer">
 
         <div class="form-abcontainer sign-in-abcontainer">
-            <form action="loginPage.php" method='POST' class="abform row">
+            <form action="../Adham/AddAuthor.php" method='POST' class="abform row">
                 <h1 class="headf">Author</h1>
 
                 <input type="text" placeholder="Handle" class="col" name='handle' 
@@ -49,7 +49,7 @@
                     </div>
                 <?php }
                 ?>
-                <button class="ab btn-lg active">Sign Up</button>
+                <button class="ab btn-lg active">Add Author</button>
             </form>
         </div>
     </div>

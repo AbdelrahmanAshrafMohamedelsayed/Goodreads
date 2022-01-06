@@ -1,5 +1,5 @@
 <?php 
-    include'../connect.php';
+    include '../connect.php';
 
 // for foreign key validate [publish house] 
     $sql = "SELECT ID, NAME FROM publishing_house";
@@ -21,7 +21,7 @@
     <div class="abcontainer" id="abcontainer">
 
         <div class="form-abcontainer sign-in-abcontainer">
-            <form action="publishbook.php" method='POST' class="abform row">
+            <form action="publishbook.php" method='POST' class="abform row" enctype="multipart/form-data">
                 <h1 class="headf">Publish book</h1>
 
                 <input type="text" placeholder="Book Title" class="col" name="book-title" value="<?php
@@ -72,9 +72,10 @@
                 }
                  ?>">
                 <div class="form-group shadow-textarea">
+                    <label for="exampleFormControlTextarea6">Book description</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
                         placeholder="Book Description.."
-                        name="book-description"><?php if (isset($_POST['book-description'])) echo $_POST['book-description'];?></textarea>
+                        name="book-description"><?php if (isset($_POST['book-description'])) echo $_POST['book-description']; ?></textarea>
                 </div>
                 <div class="image-upload" class="col">
                     <p class="abd">upload image</p>

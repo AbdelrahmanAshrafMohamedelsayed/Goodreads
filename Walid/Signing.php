@@ -1,14 +1,14 @@
+
 <?php
+
 //session_start();
 include '../connect.php';
 $authorHandle = $_SESSION['handle'];
 
-//Retrieving Books of Logged in Author
 $sql = "SELECT ISBN, title FROM book WHERE BookAuthor = '$authorHandle'";
 $select = mysqli_query($connect, $sql);
 $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 ?>
-
 <!DOCTYPE html>
 
 <div class="container">
@@ -37,7 +37,7 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                     <option value= "<?php echo $book['ISBN']?>"><?php echo $book['title']?></option>
                     <?php } ?>
                 </select>
-                <!-- <?php echo date("Y-m-d") ?> -->
+                
                 <input type="date" name="Held-Date">
                 <div class="image-upload" class="col">
                     <p class="abd">Upload an Image</p>
@@ -46,7 +46,6 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                     </label>
                     <input id="file-input" type="file" name="event-image" />
                 </div>
-                
                 <br>
                 <?php
                 if (isset($aerrors) and strlen($aerrors) != 0) { ?>

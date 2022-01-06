@@ -37,13 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     if (strlen($aerrors) == 0) {
+        // Insertion into signing event and the relationship table
         $sql = "insert into signing_event (Title , image) values
         ('$eventTitle', '$eventimage')";
         $Insertion = mysqli_query($connect, $sql);
         if (!$Insertion) {
         $aerrors .= "<br /> Failed to Insert the Event";
         }
-        // Insertion into signing event and the relationship table
+        
         $sql = "SELECT ID FROM signing_event WHERE Title = '$eventTitle'";
         $select = mysqli_query($connect, $sql);
         $ids = mysqli_fetch_all($select, MYSQLI_ASSOC);
@@ -57,10 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $aerrors .= "<br /> Failed to Create Author_Event Relationship";
         }
         else{
-            // Head to event pages to show added event
             header('location:EventPage.php');
         }
-
     }
 }
 ?>

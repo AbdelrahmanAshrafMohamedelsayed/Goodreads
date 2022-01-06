@@ -63,6 +63,9 @@ include 'SigningEvent.php'
         .book-link:hover {
             color: #167db8 ;
         }
+        .cont {
+            height: auto;
+        }
         .card {
             height: 35rem;
         }
@@ -76,26 +79,35 @@ include 'SigningEvent.php'
         <div class="container">
             <div class="row">
                 <?php foreach ($eventData as $event) { ?>
+                    <?php $currDate = date("Y-m-d"); ?>
+                    <?php if($event['Creation_date']<$currDate) {
+                            $ID = $event['ID'];
+                            $sql=("CALL deleteEvent($ID)"); 
+                            mysqli_query($connect, $sql); }
+                    ?>
                     <div class="my-auto bg-light card mb-3 col-md-6">
-                        <img src= " ../images/<?php echo $event['image']?>" class="card-img-top  EventImage my-auto" alt="No Image Available">
+                        <img src= "../images/<?php echo $event['image']?>" class="card-img-top  EventImage my-auto" alt="No Image Available">
                         
                         <div class="card-body my-auto">
                             <h5 class="card-title"><?php echo $event['Title']; ?></h5>
                             <p class="card-text">Author: <b><?php echo $event['Fname']?> 
                             <?php echo $event['Minit']?>  <?php echo $event['Lname']?> </b> </p>
-
+                            
                             <p class="card-text">Book to be signed: <b><a class= "book-link" href= "../Adham/bookPage.php?book=<?php echo $event['ISBN']?>">
                             <?php echo $event['title']?> </a></b> </p>
                             <p class="card-text">Location: <b><?php echo $event['Clocation'] ?></b></p>
+                          
+                            <p class="card-text">Date to be Held: <b><?php echo $event['Creation_date']?></b></p>
+                            
                         </div>
-                        <!-- Sending ID to be deleted -->
-                        <?php if($event['Handle']==$_SESSION['handle']) {?>
+                         <!-- Sending ID to be deleted -->
+                         <?php if($event['Handle']==$_SESSION['handle']) {?>
                             <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
                                 <input type="hidden" name = "DeletedID" value = "<?php echo $event['ID']?>">
                                 <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
                             </form>
                         <?php } else {?>
-                            
+
                             <br>
                             <br>
                         <?php } ?>
