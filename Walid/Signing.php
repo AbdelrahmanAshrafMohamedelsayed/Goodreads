@@ -14,6 +14,7 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 <div class="container">
     <div class="abcontainer" id="abcontainer">
 
+    
         <div class="form-abcontainer sign-in-abcontainer">
             <form action="SigningEventForm.php" method='POST' class="abform row">
                 <h2 class="headf">Create a Signing Event</h2>
@@ -36,7 +37,8 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                     <option value= "<?php echo $book['ISBN']?>"><?php echo $book['title']?></option>
                     <?php } ?>
                 </select>
-
+                <!-- <?php echo date("Y-m-d") ?> -->
+                <input type="date" name="Held-Date">
                 <div class="image-upload" class="col">
                     <p class="abd">Upload an Image</p>
                     <label for="file-input">

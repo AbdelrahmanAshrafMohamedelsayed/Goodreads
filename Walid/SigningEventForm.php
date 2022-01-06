@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    if (isset($_POST)) {
        $eventTitle = addslashes($_POST['event-title']);
        $eventLocation = addslashes($_POST['event-location']);
-
+       $eventDate = addslashes($_POST['Held-Date']);
        $bookISBN= $_POST['books'];
        $eventimage=addslashes($_POST['event-image']);
        
@@ -30,8 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (checkText($eventLocation) == 0) {
             $aerrors .= "<br /> please enter valid event location";
         }
+        $currDate = date("Y-m-d");
+        if($eventDate<$currDate) {
+            $aerrors.="<br /> please enter a valid date";
+        }
     }
-
+    
     if (strlen($aerrors) == 0) {
         $sql = "insert into signing_event (Title , image) values
         ('$eventTitle', '$eventimage')";
@@ -45,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ids = mysqli_fetch_all($select, MYSQLI_ASSOC);
         $id = $ids[0]['ID'];
 
-        $sql = "insert into author_create_signing_event (Creator, bookIsbn, SE_ID, Clocation) values
-        ('$authorHandle', '$bookISBN', $id ,'$eventLocation')";
+        $sql = "insert into author_create_signing_event (Creator, bookIsbn, SE_ID, Clocation, Creation_date) values
+        ('$authorHandle', '$bookISBN', $id ,'$eventLocation', '$eventDate')";
         
         $Insertion = mysqli_query($connect, $sql);
         if (!$Insertion) {
