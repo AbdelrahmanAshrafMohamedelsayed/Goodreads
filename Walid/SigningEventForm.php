@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    if (isset($_POST)) {
        $eventTitle = addslashes($_POST['event-title']);
        $eventLocation = addslashes($_POST['event-location']);
-       //getOption();
+
        $bookISBN= $_POST['books'];
        $eventimage=addslashes($_POST['event-image']);
        
@@ -39,11 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!$Insertion) {
         $aerrors .= "<br /> Failed to Insert the Event";
         }
-        //add image attribute
+        // Insertion into signing event and the relationship table
         $sql = "SELECT ID FROM signing_event WHERE Title = '$eventTitle'";
         $select = mysqli_query($connect, $sql);
         $ids = mysqli_fetch_all($select, MYSQLI_ASSOC);
         $id = $ids[0]['ID'];
+
         $sql = "insert into author_create_signing_event (Creator, bookIsbn, SE_ID, Clocation) values
         ('$authorHandle', '$bookISBN', $id ,'$eventLocation')";
         
@@ -52,9 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $aerrors .= "<br /> Failed to Create Author_Event Relationship";
         }
         else{
+            // Head to event pages to show added event
             header('location:EventPage.php');
         }
-        //select tag value problem in isbn but id is correct
+
     }
 }
 ?>

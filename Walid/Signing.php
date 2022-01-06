@@ -4,6 +4,7 @@
 include '../connect.php';
 $authorHandle = $_SESSION['handle'];
 
+//Retrieving Books of Logged in Author
 $sql = "SELECT ISBN, title FROM book WHERE BookAuthor = '$authorHandle'";
 $select = mysqli_query($connect, $sql);
 $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
@@ -44,7 +45,7 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                     </label>
                     <input id="file-input" type="file" name="event-image" />
                 </div>
-                <!-- <input type="file" id="myFile" name="filename"> -->
+                
                 <br>
                 <?php
                 if (isset($aerrors) and strlen($aerrors) != 0) { ?>

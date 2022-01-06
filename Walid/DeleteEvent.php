@@ -6,21 +6,17 @@
     if(isset($_GET['Delete']))
     {
         $ID = $_GET['DeletedID'];
-        // $sql = "SELECT Handle, ISBN FROM signing_event,author_create_signing_event,book, author
-        // where SE_ID = $ID
-        // and ISBN = bookIsbn 
-        // and Handle = Creator;";
-        // $select = mysqli_query($connect, $sql);
-        // $DeleteInfo = mysqli_fetch_all($select, MYSQLI_ASSOC);
+        
+        // Procedure for Deleting an Event
+        $procedure = "Create PROCEDURE deleteEvent(IN eventID INT) 
+        BEGIN
+        DELETE FROM signing_event
+        where ID = eventID;
+        END";
 
-        // $Handle = $DeleteInfo[0]['Handle'];
-        // $ISBN = $DeleteInfo[0]['ISBN'];
+        mysqli_query($connect, $procedure);
 
-        // echo $Handle.'   ';
-        // echo $ISBN;
-
-        $sql = "DELETE FROM signing_event
-        where ID = $ID";
+        $sql=("CALL deleteEvent($ID)");
 
         if(mysqli_query($connect, $sql))
         {

@@ -51,7 +51,7 @@ include 'SigningEvent.php'
         color: #FFFFFF;
         float: right;
         position: relative;
-        bottom: -3rem;
+        bottom: 2rem;
         }
         .ab:hover {
             transform: scale(1.1);
@@ -62,9 +62,6 @@ include 'SigningEvent.php'
         }
         .book-link:hover {
             color: #167db8 ;
-        }
-        .cont {
-            height: auto;
         }
         .card {
             height: 35rem;
@@ -90,17 +87,18 @@ include 'SigningEvent.php'
                             <p class="card-text">Book to be signed: <b><a class= "book-link" href= "../Adham/bookPage.php?book=<?php echo $event['ISBN']?>">
                             <?php echo $event['title']?> </a></b> </p>
                             <p class="card-text">Location: <b><?php echo $event['Clocation'] ?></b></p>
-                            <?php if($event['Handle']==$_SESSION['handle']) {?>
-                                <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
-                                    <input type="hidden" name = "DeletedID" value = "<?php echo $event['ID']?>">
-                                    <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
-                                </form>
-                            <?php } else {?>
-                                
-                                <br>
-                                <br>
-                                <?php } ?>
                         </div>
+                        <!-- Sending ID to be deleted -->
+                        <?php if($event['Handle']==$_SESSION['handle']) {?>
+                            <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
+                                <input type="hidden" name = "DeletedID" value = "<?php echo $event['ID']?>">
+                                <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
+                            </form>
+                        <?php } else {?>
+                            
+                            <br>
+                            <br>
+                        <?php } ?>
                     </div>
                 <?php } ?>
             </div>
