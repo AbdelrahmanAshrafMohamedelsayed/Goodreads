@@ -1,8 +1,10 @@
 <?php
   $connect=mysqli_connect('localhost','root','','goodreads');
+//   retrieve all authors
 $other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin,handle FROM author";
 $result=mysqli_query($connect,$other);
 $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
+//   retrieve all authors
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +23,6 @@ $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
     <!-- <link rel="stylesheet" href="../Adham/formStyle.css"> -->
     <link rel="stylesheet" href="homepage.css">
     <style>
-    /* .navbar-dark .navbar-nav .nav-link:focus,
-    .navbar-dark .navbar-nav .nav-link:hover {
-        color: rgb(255 255 255);
-    } */
     .profile-card-3 {
         font-family: 'Open Sans', Arial, sans-serif;
         position: relative;
@@ -150,9 +148,12 @@ $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
                             <img src="<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
                         </div>
                         <div class="card-content">
-                            <a style="text-decoration: none; color:black;" href="../Adham/Profiles.php?handle=<?php echo $i['handle'];  ?>"><h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
-                            </h2></a>
-                            
+                            <a style="text-decoration: none; color:black;"
+                                href="../Adham/Profiles.php?handle=<?php echo $i['handle'];  ?>">
+                                <h2><?php echo $i['Fname'] . " " . $i['Minit'] . "." . $i['Lname']; ?>
+                                </h2>
+                            </a>
+
                             <div class="icon-block"><a href="<?php echo $i['facebook']?>"><i
                                         class="fab fa-facebook-f"></i></a>
                                 <a href="<?php echo $i['twitter'] ?>"> <i class="fab fa-twitter"></i></a>

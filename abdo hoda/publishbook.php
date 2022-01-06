@@ -2,6 +2,7 @@
 session_start();
 $berrors = "";
 
+//validate empty
 function checkText($text)
 {
     if (strlen($text) == 0) {
@@ -9,6 +10,9 @@ function checkText($text)
     }
     return 1;
 }
+//validate empty
+
+//validate numerical
 function int_validate($text)
 {
     if (strlen($text) == 0) {
@@ -23,6 +27,8 @@ function int_validate($text)
     
   
 }
+//validate numerical
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      include '../connect.php';
@@ -37,16 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $booknop = addslashes($_POST['book-nop']);
         $booklanguage = addslashes($_POST['book-language']);
         $bookimage=addslashes($_POST['book-image']);
-      //  $bookstore=addslashes($_POST['book-store']);
-     // $_SESSION['handle']='@body';
         $bookauthor=addslashes($_SESSION['handle']);
-        //$check = getimagesize($_FILES["book-image"]["tmp_name"]);
-       // echo $bookauthor;
-    //   if($check == false) {
-     //   $berrors .= "<br /> please enter valid book image";
-
-     //  }
-     
         if (checkText($booktitle) == 0) {
             $berrors .= "<br /> please enter valid book title";
         }
@@ -75,12 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         else if(!preg_match('/^[a-zA-Z\s]+$/', $booklanguage)){
             $berrors .= '<br /> book language must be letters and spaces only';
         }
-        // if ($_FILES['book-image']['size'] == 0 && $_FILES['book-image']['error'] == 0)
-        // {
-        //     $berrors .= "<br /> please enter valid book image";
-            
-        // }
-        
          if (strlen($berrors) == 0) {
             $sql = "insert into book (ISBN,title,price,numberOfCopies,bookLanguage,description,bookImage,BookAuthor,BookStore,numberOfPages,BookPH) values
         ('$bookisbn','$booktitle','$bookprice','$bookNOAC','$booklanguage','$bookdescription','$bookimage','$bookauthor','$bookstore','$booknop','$bookph')";
@@ -124,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    
+
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
