@@ -191,7 +191,7 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
     <?php include '../WebsiteHeader/2header.php' ?>
     <div class=" landing  d-flex justify-content-center align-items-start abi">
         <div class="abb">
-            <img src="<?php echo htmlspecialchars($img); ?>" class="img-fluid abimg" alt="Cinque Terre" width="200px"
+            <img src="../images/<?php echo htmlspecialchars($img); ?>" class="img-fluid abimg" alt="Cinque Terre" width="200px"
                 height="200px">
             <h3><?php echo htmlspecialchars($name); ?></h3>
             <p class="no-of-books"><?php echo htmlspecialchars($NumberOfBooks); ?> Books</p>
@@ -231,7 +231,7 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
                                 alt="profile-sample1" class="background">
                         </div>
                         <div class="profile-thumb-block">
-                            <img src="<?php echo (isset($_SESSION['handle'])) ? $i['ProfileImage'] : $i['Image']; ?>"
+                            <img src="../images/<?php echo (isset($_SESSION['handle'])) ? $i['ProfileImage'] : $i['Image']; ?>"
                                 alt="profile-image" class="profile">
                         </div>
                         <div class="card-content">

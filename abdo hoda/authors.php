@@ -145,7 +145,7 @@ $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
                                 alt="profile-sample1" class="background">
                         </div>
                         <div class="profile-thumb-block">
-                            <img src="<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
+                            <img src="../images/<?php echo $i['ProfileImage'] ?>" alt="profile-image" class="profile">
                         </div>
                         <div class="card-content">
                             <a style="text-decoration: none; color:black;"

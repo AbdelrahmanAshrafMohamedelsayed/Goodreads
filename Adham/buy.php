@@ -8,14 +8,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($card && $sec) {
         $buyer = $_SESSION['username'];
         $book = $_GET['book'];
-        $sql = "INSERT INTO buy(BookISBN,buyer) VALUES('$book','$buyer')";
-        $insertion = mysqli_query($connect, $sql);
-        if (!$insertion) {
-            $error .= "You have already bought this book";
+        $sql = "UPDATE book SET numberOfCopies=numberOfCopies-1 WHERE ISBN=$book";
+        $update = mysqli_query($connect, $sql);
+        if ($update) {
+            $sql = "INSERT INTO buy(BookISBN,buyer) VALUES('$book','$buyer')";
+            $insertion = mysqli_query($connect, $sql);
+            if (!$insertion) {
+                $error .= "You have already bought this book";
+            } else {
+                header("location:Profiles.php?username=$buyer");
+            }
         } else {
-            $sql="UPDATE book SET numberOfCopies=numberOfCopies-1 WHERE ISBN=$book";
-            $update=mysqli_query($connect,$sql);
-            header("location:Profiles.php?username=$buyer");
+            $error .= "All Copies Were Sold";
         }
     }
     else
@@ -23,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error .= "Something Wrong";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
