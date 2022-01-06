@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ('$storename','$storelocation','$storeimage')";
             $Insertion = mysqli_query($connect, $sql);
              //insert store
+             
             if (!$Insertion) {
             $berrors .= "<br /> Failed to Insert";
             }
@@ -84,8 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-
-    <?php include '/xampp/htdocs/Goodreads-master/2header.php' ?>
 
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">

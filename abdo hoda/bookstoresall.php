@@ -42,6 +42,16 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
     .btn {
         background-color: #1b8bcb;
     }
+
+    .btn:hover {
+        background-color: #1b8bcb;
+    }
+
+    .f {
+        position: relative;
+        left: 48%;
+        top: -23%;
+    }
     </style>
 </head>
 
@@ -65,6 +75,16 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
                         <p class="card-text"> <?php echo htmlspecialchars($i['Location']); ?></p>
                         <a href="../abdo hoda/bookstoreone.php?ID=<?php echo $i['ID'] ?>"
                             class="btn btn-primary">Visit</a>
+
+                        <!-- delete button -->
+                        <?php if(isset($_SESSION['handle'])) {?>
+                        <form action="deletestore.php?id=<?php echo $i['ID']?>" method="GET" class="f">
+                            <input type="hidden" name="DeletedID" value="<?php echo $i['ID']?>">
+                            <input class="btn btn-primary" type="submit" value="Delete Store" name="Delete">
+                        </form>
+                        <?php } ?>
+                        <!-- delete button -->
+
                     </div>
                 </div>
             </div>
