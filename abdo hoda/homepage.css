@@ -27,7 +27,7 @@
 /* header-2 */
 
 .landing {
-    background-image: url("../images/abdo.jpg");
+    background-image: url("../images/thumb2-library-concepts-stack-of-books-education-background-books-background-with-books.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 90vh;
@@ -109,7 +109,7 @@
 }
 
 .author-works {
-    background-color: #167db8;
+    background-color: var(--bold);
     color: #ffff;
 }
 

@@ -1,18 +1,12 @@
 <?php
   $connect=mysqli_connect('localhost','root','','goodreads');
 session_start();
-//$_SESSION['handle']='@abdo';
-// $bookauthor=addslashes($_SESSION['handle']);
-// #$sql='SELECT bookImage, title, price FROM book where $bookauthor=handle '  WHERE BookAuthor = $bookauthor;
-// $sql1="SELECT bookImage, title, price,Fname FROM book,author  WHERE BookAuthor = '$bookauthor' and Handle='$bookauthor'";
-// $result=mysqli_query($connect,$sql1);
-// $abook=mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+//   retrieve all  bookstores
 $bookstores="SELECT NAME,Location,StoreImage,ID FROM store ";
 $result=mysqli_query($connect,$bookstores);
 $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
-// $other="SELECT Fname,NumberOfBooks FROM author WHERE Handle !='$bookauthor' ";
-// $result=mysqli_query($connect,$other);
-// $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
+//   retrieve all  bookstores
 
 ?>
 <!DOCTYPE html>
@@ -32,10 +26,6 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
     <!-- <link rel="stylesheet" href="../Adham/formStyle.css"> -->
     <link rel="stylesheet" href="homepage.css">
     <style>
-    /* .navbar-dark .navbar-nav .nav-link:focus,
-    .navbar-dark .navbar-nav .nav-link:hover {
-        color: rgb(255 255 255);
-    } */
     .card {
         margin: 10%;
     }
@@ -65,15 +55,16 @@ $mystore=mysqli_fetch_all($result,MYSQLI_ASSOC);
     </div>
     <div class="container">
         <div class="books row d-flex justify-content-center " style="grid-gap: 5%;">
-            <?php foreach($mystore as $pizza){ ?>
+            <?php foreach($mystore as $i){ ?>
             <div class="col-sm col-md-5 col-lg-3 book row justify-content-center bh">
                 <div class="card " style="width: 18rem; ">
-                    <img class="card-img-top" src="../images/<?php echo htmlspecialchars($pizza['StoreImage']); ?>"
+                    <img class="card-img-top" src="../images/<?php echo htmlspecialchars($i['StoreImage']); ?>"
                         alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($pizza['NAME']); ?></h5>
-                        <p class="card-text"> <?php echo htmlspecialchars($pizza['Location']); ?></p>
-                        <a href="../abdo hoda/bookstoreone.php?ID=<?php echo $pizza['ID'] ?>" class="btn btn-primary">Visit</a>
+                        <h5 class="card-title"><?php echo htmlspecialchars($i['NAME']); ?></h5>
+                        <p class="card-text"> <?php echo htmlspecialchars($i['Location']); ?></p>
+                        <a href="../abdo hoda/bookstoreone.php?ID=<?php echo $i['ID'] ?>"
+                            class="btn btn-primary">Visit</a>
                     </div>
                 </div>
             </div>

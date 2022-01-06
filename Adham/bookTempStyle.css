@@ -1,0 +1,53 @@
+.box {
+    position: relative;
+    width: 200px;
+    height: 264px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.box:hover {
+    transform: rotateY(180deg);
+}
+
+.face {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.books {
+    perspective: 500px;
+}
+
+.icon-block i {
+    display: inline-block;
+    font-size: 16px;
+    color: #232323;
+    text-align: center;
+    border: 1px solid #232323;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.icon-block {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.icon-block a {
+    text-decoration: none;
+}
+
+.icon-block i:hover {
+    background-color: #232323;
+    color: #fff;
+    text-decoration: none;
+}

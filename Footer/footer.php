@@ -66,11 +66,12 @@
 <script>
         let btn = document.querySelector('.button')
         document.addEventListener('scroll', () => {
-            if (scrollY) {
+            if (scrollY>30) {
                 btn.style.right = '1%';
             } else {
                 btn.style.right = '-4%';
             }
+            //console.log(scrollY);
         })
         btn.addEventListener('click', () => {
             scrollTo({

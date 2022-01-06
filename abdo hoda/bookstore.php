@@ -1,5 +1,5 @@
 <div class="container mb-5">
-    <div class="abcontainer" id="abcontainer" style="min-height: 490px !important">
+    <div class="abcontainer" id="abcontainer" style="min-height: 440px !important">
 
         <div class="form-abcontainer sign-in-abcontainer">
             <form action="bookstorevalidate.php" method='POST' class="abform row">

@@ -1,15 +1,17 @@
 <?php 
     include'../connect.php';
 
+// for foreign key validate [publish house] 
     $sql = "SELECT ID, NAME FROM publishing_house";
     $select = mysqli_query($connect, $sql);
     $publishHouses = mysqli_fetch_all($select, MYSQLI_ASSOC);
-    
+    // for foreign key validate 
 
+// for foreign key validate [book store]
     $sql = "SELECT ID, NAME FROM store";
     $select = mysqli_query($connect, $sql);
     $stores = mysqli_fetch_all($select, MYSQLI_ASSOC);
-    
+    // for foreign key validate 
 
 ?>
 
@@ -46,13 +48,13 @@
                     echo $bookNOAC;
                 }
                  ?>">
-                 <select name = "book-ph" id="book-ph" class = "selectBookPH">
+                <select name="book-ph" id="book-ph" class="selectBookPH">
                     <?php foreach ($publishHouses as $publishHouse) {?>
                     <option value=<?php echo $publishHouse['ID']?>><?php echo $publishHouse['NAME']?></option>
                     <?php } ?>
                 </select>
 
-                <select name = "book-store" id="book-store" class = "selectBookStore">
+                <select name="book-store" id="book-store" class="selectBookStore">
                     <?php foreach ($stores as $store) {?>
                     <option value=<?php echo $store['ID']?>> <?php echo $store['NAME']?></option>
                     <?php } ?>
@@ -81,7 +83,6 @@
                     </label>
                     <input id="file-input" type="file" name="book-image" />
                 </div>
-
                 <br>
                 <?php
                 if (isset($berrors) and strlen($berrors) != 0) { ?>

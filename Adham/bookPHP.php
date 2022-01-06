@@ -39,6 +39,7 @@ $publishHouse=$data['BookPH'];
 $sql="SELECT NAME FROM publishing_house WHERE ID=$publishHouse";
 $select = mysqli_query($connect, $sql);
 $publishHouse=mysqli_fetch_assoc($select);
+$data['PHID']=$data['BookPH'];
 $data['BookPH']=$publishHouse['NAME'];
 
 //Store data
@@ -46,6 +47,7 @@ $store=$data['BookStore'];
 $sql="SELECT NAME FROM store WHERE ID=$store";
 $select = mysqli_query($connect, $sql);
 $store=mysqli_fetch_assoc($select);
+$data['StoreID']=$data['BookStore'];
 $data['BookStore']=$store['NAME'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['review'])) {

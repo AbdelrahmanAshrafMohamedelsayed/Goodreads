@@ -27,9 +27,9 @@ if(isset($_GET['username']))
     $twitter=$data['twitteracc'];
     $linkedin=$data['linkedinacc'];
     $image=$data['Image'];
-    $sql="SELECT BookISBN FROM buy WHERE buyer='$username'";
+    $sql="SELECT ISBN,price,BookAuthor,bookImage,title FROM buy,book WHERE buyer='$username' AND BookISBN=ISBN";
     $select=mysqli_query($connect,$sql);
-    $books=mysqli_fetch_all($select);
+    $books=mysqli_fetch_all($select, MYSQLI_ASSOC);
 }
 elseif(isset($_GET['handle']))
 {
@@ -42,9 +42,9 @@ elseif(isset($_GET['handle']))
     $linkedin=$data['linkedin'];
     $image=$data['ProfileImage'];
     $bio=$data['Bio'];
-    $sql="SELECT ISBN FROM book WHERE BookAuthor='$handle'";
+    $sql="SELECT ISBN,price,BookAuthor,bookImage,title FROM book WHERE BookAuthor='$handle'";
     $select=mysqli_query($connect,$sql);
-    $books=mysqli_fetch_all($select);
+    $books=mysqli_fetch_all($select, MYSQLI_ASSOC);
     //rating retrival
     $sql="SELECT sum(RatingValue)/count(RatingValue) rating FROM rate_author WHERE rated='$handle';";
     $selectrating=mysqli_query($connect,$sql);

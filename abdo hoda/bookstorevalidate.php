@@ -1,6 +1,8 @@
 <?php
 session_start();
 $berrors = "";
+
+//check if empty
 function checkText($text)
 {
     if (strlen($text) == 0) {
@@ -8,6 +10,9 @@ function checkText($text)
     }
     return 1;
 }
+//check if empty
+
+//check if it is numercal
 function int_validate($text)
 {
     if (strlen($text) == 0) {
@@ -20,6 +25,8 @@ function int_validate($text)
             return 0;
         }
 }
+//check if it is numercal
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      include '../connect.php';
     if (isset($_POST)) {
@@ -35,9 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
       
          if (strlen($berrors) == 0) {
+
+             //insert store
             $sql = "insert into store (NAME,Location,StoreImage) values
             ('$storename','$storelocation','$storeimage')";
             $Insertion = mysqli_query($connect, $sql);
+             //insert store
             if (!$Insertion) {
             $berrors .= "<br /> Failed to Insert";
             }
@@ -74,14 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <!--
-        error
-        <?php include '/xampp/htdocs/Goodreads-master/2header.php' ?>
-    -->
+
+    <?php include '/xampp/htdocs/Goodreads-master/2header.php' ?>
+
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">
         <div class="container w-75 text-center">
-            
+
     </section>
     <div class="container d-flex align-items-center justify-content-center ">
         <div class=" row">
