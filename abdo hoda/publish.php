@@ -72,7 +72,6 @@
                 }
                  ?>">
                 <div class="form-group shadow-textarea">
-                    <label for="exampleFormControlTextarea6">Book description</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
                         placeholder="Book Description.."
                         name="book-description"><?php if (isset($_POST['book-description'])) echo $_POST['book-description']; ?></textarea>
