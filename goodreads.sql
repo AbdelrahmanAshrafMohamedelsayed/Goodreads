@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2022 at 01:09 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Jan 07, 2022 at 10:48 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,16 +109,6 @@ CREATE TABLE `author_create_signing_event` (
   `Creation_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `author_create_signing_event`
---
-
-INSERT INTO `author_create_signing_event` (`Creator`, `bookIsbn`, `SE_ID`, `Clocation`, `Creation_date`) VALUES
-('Adham_Ali', 3674367, 68, 'England', '2022-01-29'),
-('Adham_Ali', 12345678, 65, 'New York', '2021-12-27'),
-('Walid', 12344, 66, 'New York', '2022-01-04'),
-('Walid', 12344, 67, 'New York', '2022-01-04');
-
 -- --------------------------------------------------------
 
 --
@@ -188,28 +178,6 @@ CREATE TABLE `dislike_reaction` (
 INSERT INTO `dislike_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
 ('@adhamali', '@esso11', 63265456, 21),
 ('@adhamaliii', '@esso11', 63265456, 21);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
-  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `uploaded_on` datetime NOT NULL,
-  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
-(1, 'IMG_20200331_215814_726.jpg', '2022-01-07 01:49:25', '1'),
-(2, 'img.jpg', '2022-01-07 01:51:03', '1'),
-(3, 'img.jpg', '2022-01-07 02:08:45', '1');
 
 -- --------------------------------------------------------
 
@@ -344,14 +312,6 @@ CREATE TABLE `signing_event` (
   `image` varchar(255) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `signing_event`
---
-
-INSERT INTO `signing_event` (`ID`, `Title`, `image`) VALUES
-(65, 'The First Book', 'blog-4.jpg'),
-(67, 'Khara', 'downhhhhhload.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -453,12 +413,6 @@ ALTER TABLE `dislike_reaction`
   ADD KEY `bookIsbn` (`bookIsbn`,`Reviewer`,`ReviewID`);
 
 --
--- Indexes for table `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `like_reaction`
 --
 ALTER TABLE `like_reaction`
@@ -526,12 +480,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `publishing_house`
 --
 ALTER TABLE `publishing_house`
@@ -547,7 +495,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `signing_event`
 --
 ALTER TABLE `signing_event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `store`
@@ -563,7 +511,9 @@ ALTER TABLE `store`
 -- Constraints for table `author_create_signing_event`
 --
 ALTER TABLE `author_create_signing_event`
-  ADD CONSTRAINT `author_create_signing_event_ibfk_1` FOREIGN KEY (`Creator`) REFERENCES `author` (`Handle`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `IFK` FOREIGN KEY (`SE_ID`) REFERENCES `signing_event` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `author_create_signing_event_ibfk_1` FOREIGN KEY (`Creator`) REFERENCES `author` (`Handle`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ifk2` FOREIGN KEY (`bookIsbn`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `book`
