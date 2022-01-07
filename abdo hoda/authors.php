@@ -1,7 +1,7 @@
 <?php
   $connect=mysqli_connect('localhost','root','','goodreads');
 //   retrieve all authors
-$other="SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin,handle FROM author";
+$other="CALL SelectAllAuthors()";
 $result=mysqli_query($connect,$other);
 $otherauthor=mysqli_fetch_all($result,MYSQLI_ASSOC);
 //   retrieve all authors

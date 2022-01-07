@@ -42,6 +42,16 @@ $MyPublishHouses=mysqli_fetch_all($result,MYSQLI_ASSOC);
     .btn {
         background-color: #1b8bcb;
     }
+
+    .btn:hover {
+        background-color: #1b8bcb;
+    }
+
+    .f {
+        position: relative;
+        left: 48%;
+        top: -23%;
+    }
     </style>
 </head>
 
@@ -64,7 +74,19 @@ $MyPublishHouses=mysqli_fetch_all($result,MYSQLI_ASSOC);
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($MyPublishHouse['NAME']); ?></h5>
                         <p class="card-text"> <?php echo htmlspecialchars($MyPublishHouse['Address']); ?></p>
-                        <a href="../abdo hoda/publishinghouseone.php?ID=<?php echo $MyPublishHouse['ID'] ?>" class="btn btn-primary">Visit</a>
+                        <a href="../abdo hoda/publishinghouseone.php?ID=<?php echo $MyPublishHouse['ID'] ?>"
+                            class="btn btn-primary">Visit</a>
+
+                        <!-- delete publishhouse -->
+                        <?php if(isset($_SESSION['handle'])) {?>
+                        <form action="deletepublishhouse.php?id=<?php echo $MyPublishHouse['ID']?>" method="GET"
+                            class="f">
+                            <input type="hidden" name="DeletedID" value="<?php echo $MyPublishHouse['ID']?>">
+                            <input class="btn btn-primary" type="submit" value="Delete" name="Delete">
+                        </form>
+                        <?php } ?>
+                        <!-- delete publishhouse -->
+
                     </div>
                 </div>
             </div>

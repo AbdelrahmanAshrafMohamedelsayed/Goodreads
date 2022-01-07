@@ -2,7 +2,7 @@
     <div class="abcontainer" id="abcontainer" style="margin-bottom: 10%;">
 
         <div class="form-abcontainer sign-in-abcontainer ">
-            <form action="validate_publishinghouse.php" method='POST' class="abform row">
+            <form action="validate_publishinghouse.php" method='POST' class="abform row" enctype="multipart/form-data">
                 <h2 class="headf">Add Publishing House</h2>
 
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../imageUpload.php';
 $berrors = "";
 
 //check if empty
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST)) {
         $storename = addslashes($_POST['store-name']);
         $storelocation = addslashes($_POST['store-location']);
-        $storeimage=addslashes($_POST['store-image']);
+        $storeimage=imageUpload("store-image",$connect,$berrors);
         if (checkText($storename) == 0) {
             $berrors .= "<br /> please enter valid Store Name";
         }
@@ -48,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ('$storename','$storelocation','$storeimage')";
             $Insertion = mysqli_query($connect, $sql);
              //insert store
+             
             if (!$Insertion) {
             $berrors .= "<br /> Failed to Insert";
             }
@@ -84,8 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-
-    <?php include '/xampp/htdocs/Goodreads-master/2header.php' ?>
 
     <?php include '../WebsiteHeader/2header.php' ?>
     <section class="py-5 d-flex ad-black align-items-center justify-content-center">

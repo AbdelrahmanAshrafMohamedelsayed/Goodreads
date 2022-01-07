@@ -2,7 +2,7 @@
     <div class="abcontainer" id="abcontainer" style="min-height: 440px !important">
 
         <div class="form-abcontainer sign-in-abcontainer">
-            <form action="bookstorevalidate.php" method='POST' class="abform row">
+            <form action="bookstorevalidate.php" method='POST' class="abform row" enctype="multipart/form-data" >
                 <h1 class="headf">Book store</h1>
                 <input type="text" placeholder="Store Name" class="col" name="store-name" value="<?php
                 if(isset($storename))
