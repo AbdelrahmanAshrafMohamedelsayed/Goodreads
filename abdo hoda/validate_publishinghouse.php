@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../imageUpload.php';
 $perrors = "";
 
 function checkText($text)
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
        // $publishinghouse_Id = addslashes($_POST['publishinghouse-id']);
         $publishinghouse_Name = addslashes($_POST['publishinghouse-name']);
         $publishinghouse_Address = addslashes($_POST['publishinghouse-address']);
-        $publishinghouse_Image = addslashes($_POST['publishinghouse-image']);
+        $publishinghouse_Image = imageUpload("publishinghouse-image",$connect,$berrors);
 
      //   if (!int_validate( $publishinghouse_Id))
         //   {

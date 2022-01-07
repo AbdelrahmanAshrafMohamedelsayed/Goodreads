@@ -13,6 +13,7 @@
                                                                 $sql = "SELECT Fname,Minit,Lname FROM author WHERE Handle='$AuthorHandle'";
                                                                 $select = mysqli_query($connect, $sql);
                                                                 $author = mysqli_fetch_assoc($select);
+                                                                mysqli_next_result($connect);
                                                                 $i['BookAuthor'] = $author['Fname'] . " " . $author['Minit'] . "." . $author['Lname'];
                                                                 echo $i['BookAuthor'];
                                                                 ?></h5>
@@ -21,9 +22,10 @@
                 <p class="card-text h5 mb-3 mx-auto"><?php
                                                         //rating retrival
                                                         $bookISBN = $i['ISBN'];
-                                                        $sql = "SELECT sum(RatingValue)/count(RatingValue) rating FROM rate_book WHERE BookISBN='$bookISBN';";
+                                                        $sql = "CALL GetRating('$bookISBN')";
                                                         $selectrating = mysqli_query($connect, $sql);
                                                         $bookRating = mysqli_fetch_assoc($selectrating);
+                                                        mysqli_next_result($connect);
                                                         $n = $bookRating['rating'];
                                                         for ($k = 0; $k < $n; $k++)
                                                             echo "<i class='fas fa-star text-warning'></i>";

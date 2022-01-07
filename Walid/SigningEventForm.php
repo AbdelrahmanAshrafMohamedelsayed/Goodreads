@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../imageUpload.php';
 $aerrors = "";
 $authorHandle = $_SESSION['handle'];
 
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        $eventLocation = addslashes($_POST['event-location']);
        $eventDate = addslashes($_POST['Held-Date']);
        $bookISBN= $_POST['books'];
-       $eventimage=addslashes($_POST['event-image']);
+       $eventimage=imageUpload("event-image",$connect,$berrors);
        
         if (checkText($eventTitle) == 0) {
             $aerrors .= "<br /> please enter valid event title";

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../imageUpload.php';
 $berrors = "";
 
 //check if empty
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST)) {
         $storename = addslashes($_POST['store-name']);
         $storelocation = addslashes($_POST['store-location']);
-        $storeimage=addslashes($_POST['store-image']);
+        $storeimage=imageUpload("store-image",$connect,$berrors);
         if (checkText($storename) == 0) {
             $berrors .= "<br /> please enter valid Store Name";
         }

@@ -16,7 +16,7 @@ $books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 
     
         <div class="form-abcontainer sign-in-abcontainer">
-            <form action="SigningEventForm.php" method='POST' class="abform row">
+            <form action="SigningEventForm.php" method='POST' class="abform row" enctype="multipart/form-data">
                 <h2 class="headf">Create a Signing Event</h2>
                 
                 <input type="text" placeholder="Event Title" class="col" name="event-title" value="<?php

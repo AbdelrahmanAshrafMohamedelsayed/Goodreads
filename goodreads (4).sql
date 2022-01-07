@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2022 at 08:43 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Jan 07, 2022 at 01:09 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,10 +25,34 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delBook` (IN `isbn` INT(10))  BEGIN
+DELETE FROM book WHERE ISBN=isbn;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteEvent` (IN `eventID` INT)  BEGIN
         DELETE FROM signing_event
         where ID = eventID;
         END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deletepublishhouse` (IN `publishhouse_id` INT(10))  BEGIN   
+           DELETE FROM publishing_house WHERE ID = publishhouse_id;  
+           END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteStore` (IN `store_id` INT(10))  BEGIN   
+           DELETE FROM store WHERE ID = store_id;  
+           END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAuthorDataForBook` (`AuthorHandle` VARCHAR(30))  BEGIN
+SELECT Fname,Minit,Lname FROM author WHERE Handle=AuthorHandle;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetRating` (IN `bookIS` INT(10))  BEGIN
+SELECT sum(RatingValue)/count(RatingValue) rating FROM rate_book WHERE BookISBN=bookIS;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SelectAllAuthors` ()  BEGIN
+SELECT Fname,NumberOfBooks,ProfileImage,Minit,Lname,facebook,twitter,linkedin,handle FROM author;
+END$$
 
 DELIMITER ;
 
@@ -58,7 +82,7 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`Fname`, `Minit`, `Lname`, `Password`, `Nationality`, `Bio`, `NumberOfBooks`, `Handle`, `ProfileImage`, `facebook`, `twitter`, `linkedin`) VALUES
-('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 5, 'Adham_Ali', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
+('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 5, 'Adham_Ali', 'IMG_20200331_215814_726.jpg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
 ('Eslam', 'A', 'Ebraheem', '1234567A', NULL, NULL, 0, 'eslam_asharf', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hamdy', 'M', 'Fathi', '1234567A', NULL, NULL, 1, 'hamdy_fathi', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hassan', 'M', 'Mahmoud', '1234567A', 'Naigeria', 'lContextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 1, 'Hassan_Ayman', 'IMG_20191215_232051_268.jpg', '', '', ''),
@@ -90,6 +114,7 @@ CREATE TABLE `author_create_signing_event` (
 --
 
 INSERT INTO `author_create_signing_event` (`Creator`, `bookIsbn`, `SE_ID`, `Clocation`, `Creation_date`) VALUES
+('Adham_Ali', 3674367, 68, 'England', '2022-01-29'),
 ('Adham_Ali', 12345678, 65, 'New York', '2021-12-27'),
 ('Walid', 12344, 66, 'New York', '2022-01-04'),
 ('Walid', 12344, 67, 'New York', '2022-01-04');
@@ -120,10 +145,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
-(483837, 'Roob Masir', 2778, 73274, 'Hassan_Ayman', 16, 15, '2022-01-06', 'Contextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 12, 'Dutch', 'tt.jpeg'),
 (3674367, 'Okda Nafsya', 7688, 8482, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
-(63265456, 'Arwah W Ashbah', 1277, 748, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg'),
-(84438346, 'Confession', 372, 41, 'Adham_Ali', 16, 12, '2022-01-05', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cu', 45, 'French', 'uu.jpeg');
+(63265456, 'Arwah W Ashbah', 1277, 748, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
 
 -- --------------------------------------------------------
 
@@ -141,12 +164,9 @@ CREATE TABLE `buy` (
 --
 
 INSERT INTO `buy` (`BookISBN`, `buyer`) VALUES
-(483837, '@dokkaa'),
 (3674367, '@dokkaa'),
 (3674367, '@esso11'),
-(63265456, '@adhamali'),
-(84438346, '@adhamali'),
-(84438346, '@dokkaa');
+(63265456, '@adhamali');
 
 -- --------------------------------------------------------
 
@@ -168,6 +188,28 @@ CREATE TABLE `dislike_reaction` (
 INSERT INTO `dislike_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
 ('@adhamali', '@esso11', 63265456, 21),
 ('@adhamaliii', '@esso11', 63265456, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `uploaded_on` datetime NOT NULL,
+  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
+(1, 'IMG_20200331_215814_726.jpg', '2022-01-07 01:49:25', '1'),
+(2, 'img.jpg', '2022-01-07 01:51:03', '1'),
+(3, 'img.jpg', '2022-01-07 02:08:45', '1');
 
 -- --------------------------------------------------------
 
@@ -219,8 +261,7 @@ CREATE TABLE `publishing_house` (
 
 INSERT INTO `publishing_house` (`ID`, `NAME`, `Address`, `Publishing_house_Image`) VALUES
 (14, 'Moscco-ELgded', 'Helmya', 'blog-4.jpg'),
-(15, 'Mahmmoud PUBLISH', 'Bahteem', 'worldmap.png'),
-(16, 'Abod Yori', 'Mataria', 'loader-img.gif');
+(15, 'Mahmmoud PUBLISH', 'Bahteem', 'worldmap.png');
 
 -- --------------------------------------------------------
 
@@ -264,7 +305,6 @@ CREATE TABLE `rate_book` (
 --
 
 INSERT INTO `rate_book` (`RatingValue`, `BookISBN`, `rater`) VALUES
-(3, 483837, '@dokkaa'),
 (1, 3674367, '@adhamali'),
 (5, 3674367, '@adhamaliii'),
 (1, 3674367, '@esso11'),
@@ -289,12 +329,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`ID`, `BOOKISBN`, `URName`, `ReviewText`, `DateOfReview`) VALUES
-(25, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
-(26, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
-(27, 483837, '@dokkaa', 'ufhujfhjhfd', '2022-01-06'),
 (23, 3674367, '@adhamaliii', 'good job', '2022-01-05'),
-(21, 63265456, '@esso11', 'ana bagarab', '2022-01-05'),
-(24, 84438346, '@adhamali', 'jfvfgjhrf', '2022-01-05');
+(21, 63265456, '@esso11', 'ana bagarab', '2022-01-05');
 
 -- --------------------------------------------------------
 
@@ -417,6 +453,12 @@ ALTER TABLE `dislike_reaction`
   ADD KEY `bookIsbn` (`bookIsbn`,`Reviewer`,`ReviewID`);
 
 --
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `like_reaction`
 --
 ALTER TABLE `like_reaction`
@@ -484,6 +526,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `publishing_house`
 --
 ALTER TABLE `publishing_house`
@@ -499,13 +547,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `signing_event`
 --
 ALTER TABLE `signing_event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
