@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2022 at 02:20 PM
+-- Generation Time: Jan 07, 2022 at 05:31 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -138,7 +138,7 @@ INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `B
 (8788, 'Orabi', 23, 295, 'Mohsen', 15, 15, '2022-01-07', 'Ahmed ʻUrabi, also known as Ahmed Ourabi or Orabi Pasha, also spelled Arabi or Araby Pasha, was an an officer of the Egyptian army.', 633, 'Arabic', 'ee.jpeg'),
 (36612, 'Hitler', 83, 82378, 'Mohsen', 14, 12, '2022-01-07', 'Adolf Hitler was an Austrian-born German politician who was the dictator of Germany from 1933 until his death in 1945. He rose to power as the leader of the Nazi Party, becoming the chancellor in 1933 and then assuming the title of Führer und Reichskanzler in 1934', 4378, 'German', 'book2.jpeg'),
 (3674367, 'Okda Nafsya', 7688, 8482, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
-(63265456, 'Arwah W Ashbah', 1277, 748, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
+(63265456, 'Arwah W Ashbah', 1277, 747, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,8 @@ INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
 (4, 'ee.jpeg', '2022-01-07 14:22:05', '1'),
 (5, 'book2.jpeg', '2022-01-07 14:53:28', '1'),
 (6, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:13:58', '1'),
-(7, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:14:21', '1');
+(7, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:14:21', '1'),
+(8, 'IMG_20191024_133534_828.jpg', '2022-01-07 18:23:32', '1');
 
 -- --------------------------------------------------------
 
@@ -270,6 +271,8 @@ INSERT INTO `rate_author` (`RatingValue`, `rated`, `rater`) VALUES
 (4, 'Adham_Ali', '@esso11'),
 (5, 'Adham_Ali', '@far'),
 (5, 'Adham_Ali', '@hamzaa'),
+(3, 'eslam_asharf', '@adhamali'),
+(4, 'hamdy_fathi', '@adhamali'),
 (5, 'Walid', '@adhamaliii'),
 (3, 'Walid', '@esso11');
 
@@ -375,7 +378,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Fname`, `Minit`, `Lname`, `Password`, `Username`, `Image`, `facebookacc`, `twitteracc`, `linkedinacc`, `Nationality`) VALUES
-('Adham', 'A', 'Ali', '1234567A', '@adhamali', 'IMG_20191024_133534_828.jpg', '', '', '', 'Unknown'),
+('Adham', 'A', 'Ali', '1234567A', '@adhamali', 'IMG_20191024_133534_828.jpg', '', '', '', 'Chinese'),
 ('Adham', 'm', 'Hazem', '1234567A', '@adhamaliii', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Egyptian'),
 ('Ali', 'A', 'Sayed', '1234567A', '@aliaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Brazilian'),
 ('Mohamed', 'M', 'Ali', '3276267A', '@dokkaa', 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '', '', '', 'Unknown'),
@@ -498,7 +501,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `publishing_house`

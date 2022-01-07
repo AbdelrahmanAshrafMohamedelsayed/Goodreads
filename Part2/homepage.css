@@ -30,7 +30,7 @@
     background-image: url("../images/thumb2-library-concepts-stack-of-books-education-background-books-background-with-books.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 65vh;
     max-width: 100%;
     /* box-shadow: ; */
 }
@@ -112,17 +112,6 @@
     background-color: var(--bold);
     color: #ffff;
 }
-
-
-/* .bh:hover {
-    position: relative;
-    top: -15px;
-    transition: 100s;
-    -webkit-transition: 100s;
-    -moz-transition: 100s;
-    -ms-transition: 100s;
-    -o-transition: 100s;
-} */
 
 .vaa {
     background-color: #98cbe8;

@@ -15,6 +15,7 @@ include 'profilePHP.php';
     <link rel="stylesheet" href="../WebsiteHeader/2headerStyle.css">
     <link rel="stylesheet" href="rating.css">
     <link rel="stylesheet" href="../Part1/bookTempStyle.css">
+    <link rel="stylesheet" href="tabs.css">
     <style>
         .btn-outline-secondary {
             color: #1b8bcb;
@@ -97,37 +98,7 @@ include 'profilePHP.php';
             </div>
         </div>
     </div>
-    <?php if (isset($bio) && strlen($bio) != 0) { ?>
-        <div class="fluid bg-white py-5">
-            <div id="" class="container">
-                <h4>About The Author: </h4>
-                <p><?php echo $bio ?></p>
-            </div>
-        </div>
-    <?php }?>
-    
-    <?php 
-    if (count($books) != 0) {
-        
-    ?>
-    <div class="fluid bg-main py-2 text-white d-flex justify-content-center">  
-        <h2>
-        <?php echo  $data['Fname']."'s Books"  ?>
-        </h2>
-       
-    </div>
-        <div class="fluid bg-white py-5">
-            <div class="container">
-            <div class="row d-flex justify-content-center ">
-                <?php 
-                foreach ($books as $i) {
-                    include '../Part1/bookTemp.php';
-                } ?>
-            </div>
-            </div>
-        </div>
     <?php
-    }
     function to_know(&$test, &$ok)
     {
         if (isset($test))
@@ -139,9 +110,87 @@ include 'profilePHP.php';
     to_know($_SESSION['username'], $myuser);
     to_know($handle, $profileowner);
     to_know($username, $profileowner);
+    ?>
+    <section class="tabs bg-light adleft">
+        <div class="cont">
+            <div id="tab1" class="tab1 tab adham fw-bold">
+                <i class="fas fa-books fa-3x"></i>
+                <p> <?php echo  $data['Fname'] . "'s Books"  ?></p>
+            </div>
+            <?php if (isset($handle)){
+                $testbook="written";?>
+            <div id="tab2" class="tab2 tab  fw-bold">
+                <i class="far fa-info-circle fa-3x"></i>
+                <p>Bio</p>
+            </div>
+            <?php 
+            }
+            else
+            {
+                $testbook="bought";
+            }
+            if ($profileowner == $myuser) {
+            ?>
+            <div id="tab3" class="tab3 tab  fw-bold">
+                <i class="fas fa-user-edit fa-3x"></i>
+                <p>Edit your Profile</p>
+            </div>
+            <?php } ?>
+        </div>
+    </section>
+
+    <?php if (isset($bio)&&strlen($bio) != 0) { 
+            ?>
+        <div class="fluid bg-white py-5 con" id="tab2-content">
+            <div id="" class="container">
+                <h4>About The Author: </h4>
+                <p><?php echo $bio ?></p>
+            </div>
+        </div>
+    <?php }
+    else{
+        ?>
+         <div class="fluid bg-white py-5 con" id="tab2-content">
+            <div class="container">
+                <div class="row d-flex justify-content-center fs-3">
+                    <?php echo  $data['Fname'] . " haven't Bio yet!"  ?>
+                </div>
+            </div>
+        </div>
+        <?php
+    } ?>
+
+    <?php
+    if (count($books) != 0) {
+
+    ?>
+        <div class="fluid bg-white py-5 con show" id="tab1-content">
+            <div class="container">
+                <div class="row d-flex justify-content-center ">
+                    <?php
+                    foreach ($books as $i) {
+                        include '../Part1/bookTemp.php';
+                    } ?>
+                </div>
+            </div>
+        </div>
+    <?php
+    } else { ?>
+        <div class="fluid bg-white py-5 con show" id="tab1-content">
+            <div class="container">
+                <div class="row d-flex justify-content-center fs-3">
+                    <?php echo  $data['Fname'] . " have $testbook nothing yet!"  ?>
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+
+    <?php
     if ($profileowner == $myuser) {
     ?>
-        <div class="fluid bg-light p-5">
+        <div class="fluid bg-white p-5 con" id="tab3-content">
             <div id="" class="container">
                 <form class="row g-3 w-75 mx-auto" action="ProfilesHelp.php" method="POST" enctype="multipart/form-data">
                     <div class="col-md-4">
@@ -272,17 +321,32 @@ include 'profilePHP.php';
     <script>
         let see = document.querySelector('.test');
         let pass = document.querySelector('.pass');
-        console.log(see);
-        see.addEventListener('click', () => {
-            console.log(see.className);
-            if (see.className.indexOf('slash') == -1) {
-                see.className += "-slash";
-                pass.type = 'text';
-            } else {
-                see.className = "test far fa-eye";
-                pass.type = 'password';
-            }
-        });
+        if (see) {
+            see.addEventListener('click', () => {
+                if (see.className.indexOf('slash') == -1) {
+                    see.className += "-slash";
+                    pass.type = 'text';
+                } else {
+                    see.className = "test far fa-eye";
+                    pass.type = 'password';
+                }
+            });
+        }
+        let tab = document.querySelectorAll(".tab");
+        let tabc = document.querySelectorAll(".con");
+        console.log(tab);
+        console.log(tabc);
+
+        function border() {
+            tab.forEach(e => e.classList.remove('adham'));
+            this.classList.add('adham')
+            tabc.forEach(e => e.classList.remove("show"));
+            let x = document.querySelector(`#${this.id}-content`)
+            if (x)
+                x.classList.add("show")
+
+        }
+        tab.forEach(e => e.addEventListener('click', border));
     </script>
 </body>
 
