@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-12 my-1">
                         <i class="fab fa-twitter me-1"></i>
-                        <a href="https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09">Twitter</a>
+                        <a href="https://twitter.com/Part1AliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09">Twitter</a>
                     </div>
                     <div class="col-12 my-1">
                         <i class="fs-5 fab fa-google-plus-g me-1"></i>
