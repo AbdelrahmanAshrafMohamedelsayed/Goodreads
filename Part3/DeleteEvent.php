@@ -9,7 +9,7 @@
          // Procedure for Deleting an Event
          $procedure = "Create PROCEDURE deleteEvent(IN eventID INT) 
          BEGIN
-         DELETE FROM signing_event, author_create_signing_event
+         DELETE FROM signing_event
          where ID = eventID;
          END";
  
