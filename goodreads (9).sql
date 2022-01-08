@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2022 at 05:31 PM
+-- Generation Time: Jan 08, 2022 at 11:50 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -25,8 +25,8 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delBook` (IN `isbn` INT(10))  BEGIN
-DELETE FROM book WHERE ISBN=isbn;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delBook` (IN `isbnN` INT(10))  BEGIN
+DELETE FROM book WHERE ISBN=isbnN;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteEvent` (IN `eventID` INT)  BEGIN
@@ -81,7 +81,7 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`Fname`, `Minit`, `Lname`, `Password`, `Nationality`, `Bio`, `Handle`, `ProfileImage`, `facebook`, `twitter`, `linkedin`) VALUES
-('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 'Adham_Ali', 'IMG_20200331_215814_726.jpg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
+('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 'Adham_Ali', 'IMG_٢٠١٩١٢٢٤_٠٠٥٤٠١.jpg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
 ('Eslam', 'A', 'Ebraheem', '1234567A', NULL, NULL, 'eslam_asharf', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hamdy', 'M', 'Fathi', '1234567A', NULL, NULL, 'hamdy_fathi', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hassan', 'M', 'Mahmoud', '1234567A', 'Naigeria', 'lContextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 'Hassan_Ayman', 'IMG_20191215_232051_268.jpg', '', '', ''),
@@ -109,6 +109,13 @@ CREATE TABLE `author_create_signing_event` (
   `Creation_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `author_create_signing_event`
+--
+
+INSERT INTO `author_create_signing_event` (`Creator`, `bookIsbn`, `SE_ID`, `Clocation`, `Creation_date`) VALUES
+('Adham_Ali', 3674367, 70, 'Zamalek', '2022-01-29');
+
 -- --------------------------------------------------------
 
 --
@@ -135,10 +142,9 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
-(8788, 'Orabi', 23, 295, 'Mohsen', 15, 15, '2022-01-07', 'Ahmed ʻUrabi, also known as Ahmed Ourabi or Orabi Pasha, also spelled Arabi or Araby Pasha, was an an officer of the Egyptian army.', 633, 'Arabic', 'ee.jpeg'),
-(36612, 'Hitler', 83, 82378, 'Mohsen', 14, 12, '2022-01-07', 'Adolf Hitler was an Austrian-born German politician who was the dictator of Germany from 1933 until his death in 1945. He rose to power as the leader of the Nazi Party, becoming the chancellor in 1933 and then assuming the title of Führer und Reichskanzler in 1934', 4378, 'German', 'book2.jpeg'),
-(3674367, 'Okda Nafsya', 7688, 8482, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
-(63265456, 'Arwah W Ashbah', 1277, 747, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
+(8788, 'Orabi', 23, 294, 'Mohsen', 15, 15, '2022-01-07', 'Ahmed ʻUrabi, also known as Ahmed Ourabi or Orabi Pasha, also spelled Arabi or Araby Pasha, was an an officer of the Egyptian army.', 633, 'Arabic', 'ee.jpeg'),
+(3674367, 'Okda Nafsya', 7688, 8481, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
+(63265456, 'Arwah W Ashbah', 1277, 746, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
 
 -- --------------------------------------------------------
 
@@ -156,9 +162,11 @@ CREATE TABLE `buy` (
 --
 
 INSERT INTO `buy` (`BookISBN`, `buyer`) VALUES
+(8788, '@esso11'),
 (3674367, '@dokkaa'),
 (3674367, '@esso11'),
-(63265456, '@adhamali');
+(63265456, '@adhamali'),
+(63265456, '@esso11');
 
 -- --------------------------------------------------------
 
@@ -172,14 +180,6 @@ CREATE TABLE `dislike_reaction` (
   `bookIsbn` int(10) UNSIGNED NOT NULL,
   `ReviewID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `dislike_reaction`
---
-
-INSERT INTO `dislike_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
-('@adhamali', '@esso11', 63265456, 21),
-('@adhamaliii', '@esso11', 63265456, 21);
 
 -- --------------------------------------------------------
 
@@ -206,7 +206,9 @@ INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
 (5, 'book2.jpeg', '2022-01-07 14:53:28', '1'),
 (6, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:13:58', '1'),
 (7, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:14:21', '1'),
-(8, 'IMG_20191024_133534_828.jpg', '2022-01-07 18:23:32', '1');
+(8, 'IMG_20191024_133534_828.jpg', '2022-01-07 18:23:32', '1'),
+(9, 'IMG_٢٠١٩١٢٢٤_٠٠٥٤٠١.jpg', '2022-01-08 12:00:16', '1'),
+(10, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-08 12:03:06', '1');
 
 -- --------------------------------------------------------
 
@@ -220,13 +222,6 @@ CREATE TABLE `like_reaction` (
   `bookIsbn` int(10) UNSIGNED NOT NULL,
   `ReviewID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `like_reaction`
---
-
-INSERT INTO `like_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
-('@adhamali', '@adhamaliii', 3674367, 23);
 
 -- --------------------------------------------------------
 
@@ -295,8 +290,8 @@ CREATE TABLE `rate_book` (
 INSERT INTO `rate_book` (`RatingValue`, `BookISBN`, `rater`) VALUES
 (1, 3674367, '@adhamali'),
 (5, 3674367, '@adhamaliii'),
-(1, 3674367, '@esso11'),
-(3, 63265456, '@esso11');
+(5, 3674367, '@esso11'),
+(4, 63265456, '@esso11');
 
 -- --------------------------------------------------------
 
@@ -312,14 +307,6 @@ CREATE TABLE `review` (
   `DateOfReview` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`ID`, `BOOKISBN`, `URName`, `ReviewText`, `DateOfReview`) VALUES
-(23, 3674367, '@adhamaliii', 'good job', '2022-01-05'),
-(21, 63265456, '@esso11', 'ana bagarab', '2022-01-05');
-
 -- --------------------------------------------------------
 
 --
@@ -331,6 +318,13 @@ CREATE TABLE `signing_event` (
   `Title` varchar(100) NOT NULL,
   `image` varchar(255) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `signing_event`
+--
+
+INSERT INTO `signing_event` (`ID`, `Title`, `image`) VALUES
+(70, 'Koora Sharab', 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png');
 
 -- --------------------------------------------------------
 
@@ -501,7 +495,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `publishing_house`
@@ -513,13 +507,13 @@ ALTER TABLE `publishing_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `signing_event`
 --
 ALTER TABLE `signing_event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `store`

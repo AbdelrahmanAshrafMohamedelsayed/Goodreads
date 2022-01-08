@@ -42,6 +42,17 @@ include 'bookPHP.php'
         .buy {
             width: 90%;
         }
+        .review-card
+        {
+            position:relative;
+        }
+        .review-card .text-danger
+        {
+            position:absolute;
+            right:9px;
+            top:10px;
+            cursor:pointer;
+        }
     </style>
 </head>
 
@@ -111,8 +122,8 @@ include 'bookPHP.php'
             $count = -1;
             foreach ($reviews as $i) {
                 $count += 1;  ?>
-                <div id=<?php echo $count ?> class="card w-75 mx-auto my-4">
-                    <a class="card-header card-title h4 xunderline" href="Profiles.php?username=<?php echo $i['URName']; ?>" target="_blank">
+                <div id=<?php echo $count ?> class="review-card card w-75 mx-auto my-4">
+                    <a class="card-header card-title h4 xunderline" href="Profiles.php?username=<?php echo $i['URName']; ?>">
                         <div>
                             <?php
                             $username = $i['URName'];
@@ -123,8 +134,10 @@ include 'bookPHP.php'
                             echo $usernameFull
                             ?>
                         </div>
-
                     </a>
+                    <?php if(isset($_SESSION['handle'])||$_SESSION['username']==$i['URName']){ ?>
+                    <a href="deleteReview.php?book=<?php echo$bookISBN."&id=".$i['ID']; ?>"><i class="fas fa-minus-circle text-danger fs-4"></i></a>
+                    <?php }?>
                     <div class="card-body">
                         <p class="card-text"><?php echo $i['ReviewText']; ?></p>
                         <div class="d-flex justify-content-between ">

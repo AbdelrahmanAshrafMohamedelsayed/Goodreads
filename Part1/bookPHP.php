@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['review'])) {
     $Insertion = mysqli_query($connect, $sql);
 }
 //reviews retrival
-$sql = "SELECT * FROM review,book WHERE BOOKISBN='$bookISBN' AND ISBN='$bookISBN' ORDER BY DateOfReview";
+$sql = "SELECT * FROM review WHERE BOOKISBN='$bookISBN' ORDER BY DateOfReview";
 $select = mysqli_query($connect, $sql);
 $reviews = mysqli_fetch_all($select, MYSQLI_ASSOC);
 //insert likes and dislikes
@@ -141,8 +141,7 @@ if(isset($_SESSION['username']))
         {
             $it['dislikes']=0;
         }
-    }
-    
+    }  
 }
 
 ?>

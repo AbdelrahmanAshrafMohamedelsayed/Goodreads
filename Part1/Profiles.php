@@ -153,7 +153,7 @@ include 'profilePHP.php';
          <div class="fluid bg-white py-5 con" id="tab2-content">
             <div class="container">
                 <div class="row d-flex justify-content-center fs-3">
-                    <?php echo  $data['Fname'] . " haven't Bio yet!"  ?>
+                    <?php echo  $data['Fname'] . " hasn't Bio yet!"  ?>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@ include 'profilePHP.php';
         <div class="fluid bg-white py-5 con show" id="tab1-content">
             <div class="container">
                 <div class="row d-flex justify-content-center fs-3">
-                    <?php echo  $data['Fname'] . " have $testbook nothing yet!"  ?>
+                    <?php echo  $data['Fname'] . " has $testbook nothing yet!"  ?>
                 </div>
             </div>
         </div>
