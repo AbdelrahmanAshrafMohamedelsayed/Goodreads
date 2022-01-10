@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2022 at 11:50 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Jan 10, 2022 at 06:20 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,12 +82,19 @@ CREATE TABLE `author` (
 
 INSERT INTO `author` (`Fname`, `Minit`, `Lname`, `Password`, `Nationality`, `Bio`, `Handle`, `ProfileImage`, `facebook`, `twitter`, `linkedin`) VALUES
 ('Adham', 'A', 'Abdel-Aal', '123456789A', 'Argantina', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur id quibusdam quos ratione ipsum itaque consequuntur sit doloribus? Earum, sed ipsa beatae eum eius nesciunt nisi quia doloribus facilis officia nobis delectus ipsum, dicta voluptatum labore, necessitatibus sit minus quo. Harum tempora placeat consequuntur ipsam ad, repellendus, suscipit laborum ex distinctio modi similique animi laudantium. Ea officia, eius neque quisquam delectus cupiditate doloribus voluptatum rerum natus cum? Quasi magni iure est id? Libero consequuntur voluptates omnis, odit debitis earum natus atque sequi architecto quas consequatur optio esse commodi sapiente! Facilis, reprehenderit autem perspiciatis totam mollitia debitis aspernatur quidem omnis accusamus.', 'Adham_Ali', 'IMG_٢٠١٩١٢٢٤_٠٠٥٤٠١.jpg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
+('Ahmed', 'A', 'Mahmoud', '1234567A', NULL, NULL, 'Ahmed231', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Aly', 'A', 'Maloul', '1234567A', NULL, NULL, 'Aly', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Eslam', 'A', 'Ebraheem', '1234567A', NULL, NULL, 'eslam_asharf', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hamdy', 'M', 'Fathi', '1234567A', NULL, NULL, 'hamdy_fathi', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Hassan', 'M', 'Mahmoud', '1234567A', 'Naigeria', 'lContextual classes also work with .list-group-item-action. Note the addition of the hover styles here not present in the previous example. Also supported is the .active state; apply it to indicate an active selection on a contextual list group item.', 'Hassan_Ayman', 'IMG_20191215_232051_268.jpg', '', '', ''),
+('Khaled', 'M', 'Mahmoud', '1234567A', NULL, NULL, 'Khaled', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Mahmoud', 'W', 'Okasha', '1234567A', NULL, NULL, 'Mahmoud', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Mahmoud', 'M', 'Mahmoud', '1234567A', NULL, NULL, 'Mahmoud129', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Mohsen ', 'D', 'Derballah', '1234567A', 'Unknown', 'erhfghfdghdg', 'Mohsen', '116562028_1257664504576304_5569883113548775320_o.jpg', '', '', ''),
+('Mustafa', 'A', 'Walid', '1234567A', NULL, NULL, 'Mustafa', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Mohamed', 'W', 'Bonegah', '1234567A', NULL, NULL, 'NOAH', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Mohamed', 'W', 'Bonegahhhh', '1234567A', NULL, NULL, 'NOAHaaaa', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
+('Pong', 'F', 'Micro', '1234567A', NULL, NULL, 'Pong', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Sohaila', 'M', 'Elnagy', '1234567A', 'Sweden', NULL, 'sooo', '../images/pic-2.png', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/'),
 ('Adham', 'M', 'Hameed', '1234567A', NULL, NULL, 'unkown_one', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
 ('Adham', 'M', 'Hameed', '1234567A', NULL, NULL, 'unkown_onee', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL),
@@ -114,7 +121,26 @@ CREATE TABLE `author_create_signing_event` (
 --
 
 INSERT INTO `author_create_signing_event` (`Creator`, `bookIsbn`, `SE_ID`, `Clocation`, `Creation_date`) VALUES
-('Adham_Ali', 3674367, 70, 'Zamalek', '2022-01-29');
+('Adham_Ali', 2323, 82, 'Aswan', '2022-01-15'),
+('Adham_Ali', 32211, 85, 'Alexandria', '2022-01-23'),
+('Adham_Ali', 212198, 86, 'Port Said', '2022-01-19'),
+('Adham_Ali', 2323216, 83, 'Alexandria', '2022-01-16'),
+('Adham_Ali', 3674367, 74, 'Alexandria', '2022-01-25'),
+('Adham_Ali', 3674367, 76, 'Giza', '2022-01-19'),
+('Adham_Ali', 3674367, 77, 'Alexandria', '2022-01-24'),
+('eslam_asharf', 6574, 78, 'Luxor', '2022-01-21'),
+('eslam_asharf', 12987, 79, 'Cairo', '2022-01-23'),
+('eslam_asharf', 2213207, 80, 'Aswan', '2022-01-21'),
+('eslam_asharf', 22132402, 81, 'Cairo', '2022-01-14'),
+('hamdy_fathi', 12432, 95, 'Port Said', '2022-01-23'),
+('hamdy_fathi', 242164, 92, 'Alexandria', '2022-01-21'),
+('hamdy_fathi', 332432, 93, 'Alexandria', '2022-01-15'),
+('hamdy_fathi', 32321435, 94, 'Berlin', '2022-01-27'),
+('Walid', 3242, 89, 'Cairo', '2022-01-15'),
+('Walid', 4643, 87, 'Alexandria', '2022-01-14'),
+('Walid', 6573, 88, 'Giza', '2022-01-21'),
+('Walid', 45354, 90, 'Cairo', '2022-01-14'),
+('Walid', 324143, 91, 'Port Said', '2022-01-22');
 
 -- --------------------------------------------------------
 
@@ -142,8 +168,25 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
-(8788, 'Orabi', 23, 294, 'Mohsen', 15, 15, '2022-01-07', 'Ahmed ʻUrabi, also known as Ahmed Ourabi or Orabi Pasha, also spelled Arabi or Araby Pasha, was an an officer of the Egyptian army.', 633, 'Arabic', 'ee.jpeg'),
+(2323, 'Is it over?', 80, 123, 'Adham_Ali', 15, 11, '2022-01-10', 'Who knows? The author doesn\'t.', 232, 'Arabic', 'book-8.png'),
+(3242, 'Pangram', 233, 500, 'Walid', 15, 11, '2022-01-10', 'His whole life turned upside down', 232, 'English', 'book-3.png'),
+(4643, '2001: A space odyssey', 40, 200, 'Walid', 14, 15, '2022-01-10', 'Exploring Space', 444, 'English', 'book-7.png'),
+(6573, 'Lolita', 21, 300, 'Walid', 14, 11, '2022-01-10', 'Died for his principles, but none heard of him', 333, 'English', 'book-10.png'),
+(6574, 'A Short Book About Killing', 23, 100, 'eslam_asharf', 14, 15, '2022-01-10', 'Just the last.', 123, 'English', 'ui.jpeg'),
+(12432, 'Not Over Till It Is Over', 23, 100, 'hamdy_fathi', 14, 11, '2022-01-10', 'The story of a project submission gone wrong', 232, 'Arabic', 'book-3.png'),
+(12987, 'A Confessoin', 50, 100, 'eslam_asharf', 17, 15, '2022-01-10', 'Tolstoy confesses, his art isn\'t art, his religious self is prominent here as he reflects on his life and times', 112, 'Russian', 'uu.jpeg'),
+(32211, 'Hunger', 33, 100, 'Adham_Ali', 14, 15, '2022-01-10', 'When a hunger strike starts in an Irish prison, authority has to take action.', 112, 'English', 'book-10.png'),
+(45354, 'MARS', 43, 120, 'Walid', 17, 15, '2022-01-10', 'A trip to Mars gone wrong', 423, 'Arabic', 'book-4.png'),
+(212198, 'Gone Girl', 23, 100, 'Adham_Ali', 15, 15, '2022-01-10', 'A girl, gone, but her spectre not.', 232, 'English', 'book5.png'),
+(221309, 'My Son! My Son! What Have Ye Done?', 20, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Looking for his child in jungles of Vietnam, but the beauty of nature made him forget his sorrows.', 112, 'English', 'book-9.png'),
+(242164, 'The Great Dictator', 43, 100, 'hamdy_fathi', 14, 15, '2022-01-10', 'Sequel to the underknown Hitler book, give it a try first.', 232, 'German', 'book2.jpeg'),
+(324143, 'As above so below', 22, 700, 'Walid', 17, 15, '2022-01-10', 'Avant-Garde artist shows his inner self.', 331, 'English', 'book-6.png'),
+(332432, 'Casablanca', 32, 100, 'hamdy_fathi', 15, 11, '2022-01-10', 'We will always have Paris.', 112, 'French', 'book-5.png'),
+(2213207, 'O Brother! Where Art Thou?', 43, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Another place, another missing person, but same hero with a knack for losing family members', 123, 'English', 'gg.jpeg'),
+(2323216, '12 Years a Slave', 25, 100, 'Adham_Ali', 17, 15, '2022-01-10', 'From a master to master, 12 years in mud.', 400, 'English', 'book-1.png'),
 (3674367, 'Okda Nafsya', 7688, 8481, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
+(22132402, 'If This Is It, So Be It', 23, 100, 'eslam_asharf', 15, 12, '2022-01-10', 'This time, lost in Africa, a man\'s sanity nearly gone but....', 112, 'English', 'book-9.png'),
+(32321435, 'Hitler', 43, 100, 'hamdy_fathi', 17, 15, '2022-01-10', 'From top of the world to ashes, the author takes us deep into the Nazi party and concentration camps.', 232, 'German', 'book2.jpeg'),
 (63265456, 'Arwah W Ashbah', 1277, 746, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
 
 -- --------------------------------------------------------
@@ -162,7 +205,6 @@ CREATE TABLE `buy` (
 --
 
 INSERT INTO `buy` (`BookISBN`, `buyer`) VALUES
-(8788, '@esso11'),
 (3674367, '@dokkaa'),
 (3674367, '@esso11'),
 (63265456, '@adhamali'),
@@ -184,35 +226,6 @@ CREATE TABLE `dislike_reaction` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
-  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `uploaded_on` datetime NOT NULL,
-  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
-(1, 'eee.png', '2022-01-07 14:12:35', '1'),
-(2, 'IMG_20190910_052330_537.jpg', '2022-01-07 14:12:55', '1'),
-(3, 'IMG_20200418_230205_415.jpg', '2022-01-07 14:16:19', '1'),
-(4, 'ee.jpeg', '2022-01-07 14:22:05', '1'),
-(5, 'book2.jpeg', '2022-01-07 14:53:28', '1'),
-(6, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:13:58', '1'),
-(7, '116562028_1257664504576304_5569883113548775320_o.jpg', '2022-01-07 15:14:21', '1'),
-(8, 'IMG_20191024_133534_828.jpg', '2022-01-07 18:23:32', '1'),
-(9, 'IMG_٢٠١٩١٢٢٤_٠٠٥٤٠١.jpg', '2022-01-08 12:00:16', '1'),
-(10, 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png', '2022-01-08 12:03:06', '1');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `like_reaction`
 --
 
@@ -222,6 +235,13 @@ CREATE TABLE `like_reaction` (
   `bookIsbn` int(10) UNSIGNED NOT NULL,
   `ReviewID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `like_reaction`
+--
+
+INSERT INTO `like_reaction` (`Reactor`, `Reviewer`, `bookIsbn`, `ReviewID`) VALUES
+('@adhamali', 'mohamed@Walid', 3674367, 33);
 
 -- --------------------------------------------------------
 
@@ -242,7 +262,28 @@ CREATE TABLE `publishing_house` (
 
 INSERT INTO `publishing_house` (`ID`, `NAME`, `Address`, `Publishing_house_Image`) VALUES
 (14, 'Moscco-ELgded', 'Helmya', 'blog-4.jpg'),
-(15, 'Mahmmoud PUBLISH', 'Bahteem', 'worldmap.png');
+(15, 'Mahmmoud PUBLISH', 'Bahteem', 'worldmap.png'),
+(17, 'Al_Fajr', '27 El-Nahda st.', 'blog-1.jpg'),
+(18, 'El-Ahram', 'Downtown', 'blog-1.jpg'),
+(19, 'DarELkotob', 'Cairo', 'blog-1.jpg'),
+(20, 'El-Gareda', 'Giza', 'blog-1.jpg'),
+(21, 'Blaze Vox', 'London', 'blog-1.jpg'),
+(22, 'Diversion Books', 'Madrid', 'blog-3.jpg'),
+(23, 'Bean', 'Roma', 'blog-3.jpg'),
+(24, 'Quirk Books', 'Banha', 'blog-3.jpg'),
+(25, 'Turner Publishing Company', 'Milan', 'blog-1.jpg'),
+(26, 'Quarto Knows', 'Manchester', 'blog-3.jpg'),
+(27, 'Avon Romance', 'Paris', 'blog-3.jpg'),
+(28, 'Akhbar', 'Cairo', 'blog-3.jpg'),
+(29, 'DarELMaarif', 'Cairo', 'blog-1.jpg'),
+(30, 'El-Haqeeqa', 'Giza', 'blog-3.jpg'),
+(31, 'People Vox', 'London', 'blog-3.jpg'),
+(32, 'Diversion Shows', 'Madrid', 'blog-3.jpg'),
+(33, 'Ponging', 'Roma', 'blog-1.jpg'),
+(34, 'Quirky Magazines', 'Banha', 'blog-3.jpg'),
+(35, 'Heisenberg Publishing Company', 'Milan', 'blog-1.jpg'),
+(36, 'Who Knows', 'Manchester', 'blog-3.jpg'),
+(37, 'A For Action', 'Paris', 'blog-1.jpg');
 
 -- --------------------------------------------------------
 
@@ -307,6 +348,34 @@ CREATE TABLE `review` (
   `DateOfReview` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`ID`, `BOOKISBN`, `URName`, `ReviewText`, `DateOfReview`) VALUES
+(53, 324143, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(54, 324143, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(36, 3674367, '@adhamali', 'I can\'t delete other reviews, Working well', '2022-01-10'),
+(46, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(47, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(48, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(49, 3674367, '@mosalah', '', '2022-01-10'),
+(50, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(51, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(52, 3674367, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(33, 3674367, 'mohamed@Walid', 'WOW', '2022-01-10'),
+(34, 3674367, 'mohamed@Walid', 'Hmmm, less than average', '2022-01-10'),
+(35, 32321435, '@mohy', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(37, 32321435, '@mohy', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(45, 32321435, '@mosalah', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(38, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(39, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(40, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(41, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(42, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(43, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10'),
+(44, 63265456, '@zizo', 'Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation-Brené Brown Endowed Chair at the Graduate College of Social Work. She is also a visiting professor in management at the University of Texas at Austin\'s McCombs School of Business. Brown has spent the past two decades studying courage, vulnerability, shame, and empathy and is the author of five #1 New York Times bestsellers: The Gifts of Imperfection, Daring Greatly, Rising Strong, Braving the Wilderness, and Dare to Lead, which is the culmination of a seven-year study on courage and leadership. With Tarana Burke, she co-edited the bestselling anthology You Are Your Best Thing: Vulnerability, Shame Resilience, and the Black Experience. She hosts the Unlocking Us and Dare to Lead podcasts, and her TEDx talk, \"The Power of Vulnerability,\" is one of the top five most-viewed TED talks in the world with more than 50 million views. Her Netflix special, The Call to Courage, is the first ', '2022-01-10');
+
 -- --------------------------------------------------------
 
 --
@@ -324,7 +393,26 @@ CREATE TABLE `signing_event` (
 --
 
 INSERT INTO `signing_event` (`ID`, `Title`, `image`) VALUES
-(70, 'Koora Sharab', 'Aho_Da_Elly_Sar_Ep17_بيت_المسلسلات_والأفلام_@Movies88888.mp4 9_17_2020 5_41_14 PM.png');
+(74, 'EventONE', 'blog-2.jpg'),
+(76, 'EventSIX', 'successful-book-signing-event.jpg'),
+(77, 'EventFOUR', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(78, 'Kill! Kill! Kill!', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(79, 'Let Me Show You', 'successful-book-signing-event.jpg'),
+(80, 'Gone But Found Waiting (for you)', 'successful-book-signing-event.jpg'),
+(81, 'My Book, My Event', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(82, 'NotOver', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(83, 'Freed!!!!!', 'successful-book-signing-event.jpg'),
+(85, 'Thirst', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(86, 'Never Back', 'successful-book-signing-event.jpg'),
+(87, 'Kubrick Event', 'successful-book-signing-event.jpg'),
+(88, 'Kubrick Revisited', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(89, 'Not Kubrick But Close', 'successful-book-signing-event.jpg'),
+(90, 'For Space Fanatics', 'successful-book-signing-event.jpg'),
+(91, 'Somewhere, Some Event', 'successful-book-signing-event.jpg'),
+(92, 'Chaplin', 'blog-2.jpg'),
+(93, 'Bogart', 'successful-book-signing-event.jpg'),
+(94, 'Fassbinder', 'book-launch-flyer-template-psd-creative-market-7-.jpg'),
+(95, 'Tis Over', 'successful-book-signing-event.jpg');
 
 -- --------------------------------------------------------
 
@@ -346,7 +434,24 @@ CREATE TABLE `store` (
 INSERT INTO `store` (`ID`, `NAME`, `Location`, `StoreImage`) VALUES
 (11, 'Layla', '22 Tolba hussin st', 'blog-1.jpg'),
 (12, 'Sorya', '12 Red corner', 'blog-3.jpg'),
-(15, 'El-Nozha', '12 Nasr City', 'blog-1.jpg');
+(15, 'El-Nozha', '12 Nasr City', 'blog-1.jpg'),
+(17, 'The Secret Garden Bookstore', 'Cairo', 'blog-3.jpg'),
+(18, 'Books By the Ocean', 'Cairo', 'blog-1.jpg'),
+(19, 'Book Addicts', 'Giza', 'blog-1.jpg'),
+(20, 'Books-R-Us', 'Fayoum', 'blog-1.jpg'),
+(21, 'Sunshine Book Shop', 'New York', 'blog-1.jpg'),
+(22, 'Rain or Shine Books', 'Luxor', 'blog-1.jpg'),
+(23, 'The Book Train', 'Aswan', 'blog-1.jpg'),
+(24, 'Reading Rhonda\'s Bookstore', 'Istanbul', 'blog-1.jpg'),
+(25, 'Paging All Readers!', 'Manchester', 'blog-1.jpg'),
+(26, 'Peepers and Pages Bookstore', 'Manchester', 'blog-1.jpg'),
+(27, 'Peepers Books', 'Manchester', 'blog-1.jpg'),
+(28, 'We Love Books!', 'Manchester', 'blog-1.jpg'),
+(29, 'Imagine Bookstore', 'Manchester', 'blog-1.jpg'),
+(30, 'Books By the Ocean-2', 'Cairo', 'blog-1.jpg'),
+(31, 'Book Addicts-2', 'Giza', 'blog-1.jpg'),
+(32, 'Books-R-Us-2', 'Fayoum', 'blog-1.jpg'),
+(33, 'Sunshine Book Shop-2', 'New York', 'blog-1.jpg');
 
 -- --------------------------------------------------------
 
@@ -375,14 +480,25 @@ INSERT INTO `users` (`Fname`, `Minit`, `Lname`, `Password`, `Username`, `Image`,
 ('Adham', 'A', 'Ali', '1234567A', '@adhamali', 'IMG_20191024_133534_828.jpg', '', '', '', 'Chinese'),
 ('Adham', 'm', 'Hazem', '1234567A', '@adhamaliii', '../images/undraw_male_avatar_323b.svg', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Egyptian'),
 ('Ali', 'A', 'Sayed', '1234567A', '@aliaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Brazilian'),
+('Eduardo', 'V', 'Mendy', '3819yuhhfskj', '@bejamin', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Abdelarhman', 'M', 'Ashraf', '1234567A', '@body', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Patric', 'K', 'Carlos', '873628hjKJS', '@carlosss', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
 ('Mohamed', 'M', 'Ali', '3276267A', '@dokkaa', 'دراسة الجدوى الفنية للمشروع - YouTube - Google Chrome 12_7_2021 7_37_58 PM.png', '', '', '', 'Unknown'),
 ('Eslam', 'A', 'Ebraheem', '123456789A', '@esso11', 'IMG_20191024_133534_828.jpg', '', '', '', 'Unknown'),
 ('Fahab', 'U', 'Monir', '1234567A', '@far', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
+('Abdo', 'B', 'Kolibaly', '12345675iJHF', '@fasido', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Fathi', 'K', 'El-Sammak', '1234567A', '@fathi', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
 ('Abdelarhman', 'M', 'Sayed', '1234567A', '@gggg', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
 ('Abdelarhman', 'M', 'Hamdy', '1234567A', '@hamdy', '../images/pic-6.png', '', '', '', 'Unknown'),
 ('Hamza', 'A', 'Sayed', '1234567A', '@hamza', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
 ('Abdelarhman', 'M', 'Mohamed', '1234567A', '@hamzaa', '../images/undraw_male_avatar_323b.svg	', 'https://www.facebook.com/profile.php?id=100009982989915', 'https://twitter.com/AdhamAliHasan?t=qF9os7jH_FgyLljMpWe0Fw&s=09', 'https://www.linkedin.com/feed/', 'Amarican'),
-('Muhammed', 'A', 'Osman', '12345678A', '@mohamed', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL);
+('Muhammed', 'A', 'Osman', '12345678A', '@mohamed', '../images/undraw_male_avatar_323b.svg	', NULL, NULL, NULL, NULL),
+('Mohy', 'M', 'El-Sharkawy', '1234567A', '@mohy', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Mohamed', 'M', 'Salah', '1234567A', '@mosalah', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Simon', 'N', 'Fakhry', '1234567A', '@sola', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Tamem', 'A', 'Younis', '1234567A', '@tamem', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL),
+('Ahmed', 'S', 'Zizo', '1234567Aa', '@zizo', 'pic-1.png', '', '', '', 'Unknown'),
+('mohamed', 'W', 'Fathy', '00998877M', 'mohamed@Walid', '../images/undraw_male_avatar_323b.svg', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -424,12 +540,6 @@ ALTER TABLE `buy`
 ALTER TABLE `dislike_reaction`
   ADD PRIMARY KEY (`Reactor`,`Reviewer`,`bookIsbn`,`ReviewID`),
   ADD KEY `bookIsbn` (`bookIsbn`,`Reviewer`,`ReviewID`);
-
---
--- Indexes for table `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `like_reaction`
@@ -492,34 +602,28 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `publishing_house`
 --
 ALTER TABLE `publishing_house`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `signing_event`
 --
 ALTER TABLE `signing_event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables

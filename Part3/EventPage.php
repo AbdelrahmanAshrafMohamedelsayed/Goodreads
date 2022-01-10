@@ -61,7 +61,6 @@ include 'SigningEvent.php'
         color: #FFFFFF;
         float: right;
         position: relative;
-        /* bottom: 2rem; */
         MARGIN-BOTTOM: 8%;
     }
 
@@ -121,7 +120,7 @@ include 'SigningEvent.php'
                         <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">
                     </form>
                     <?php } else {?>
-
+                    <br>
                     <br>
                     <br>
                     <?php } ?>
