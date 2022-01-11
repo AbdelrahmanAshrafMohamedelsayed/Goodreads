@@ -214,12 +214,12 @@ $Books = mysqli_fetch_all($select, MYSQLI_ASSOC);
 
 
     <div class="container mt-2">
-        <div class="books row d-flex justify-content-center ">
+        <div class="row d-flex justify-content-center ">
             <?php $Maxcount = 0;
             foreach ($Books as $i) {
                 $Maxcount += 1;
                 include '../Part1/bookTemp.php';
-                if ($Maxcount > 12)
+                if ($Maxcount > 14)
                     break;
             } ?>
         </div>

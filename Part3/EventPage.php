@@ -102,8 +102,9 @@ include 'SigningEvent.php'
 
                     <div class="card-body my-auto">
                         <h5 class="card-title"><?php echo $event['Title']; ?></h5>
-                        <p class="card-text">Author: <b><?php echo $event['Fname']?>
-                                <?php echo $event['Minit']?> <?php echo $event['Lname']?> </b> </p>
+                        <a style ="color :black;
+                        text-decoration:none;" href="../Part1/Profiles.php?handle=<?php echo $event['Handle']  ?>"><p class="card-text">Author: <b><?php echo $event['Fname']?>
+                                <?php echo $event['Minit']?> <?php echo $event['Lname']?> </b> </p></a>
 
                         <p class="card-text">Book to be signed: <b><a class="book-link"
                                     href="../Part1/bookPage.php?book=<?php echo $event['ISBN']?>">
@@ -114,7 +115,7 @@ include 'SigningEvent.php'
 
                 </div>
                     <!-- Sending ID to be deleted -->
-                    <?php if($event['Handle']==$_SESSION['handle']) {?>
+                    <?php if(isset($_SESSION['handle'])&&$event['Handle']==$_SESSION['handle']) {?>
                     <form action="DeleteEvent.php?id=<?php echo $event['ID']?>" method="GET">
                         <input type="hidden" name="DeletedID" value="<?php echo $event['ID']?>">
                         <input class="ab btn-lg active" type="submit" value="Delete Event" name="Delete">

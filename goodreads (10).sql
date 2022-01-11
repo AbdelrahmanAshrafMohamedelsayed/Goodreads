@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2022 at 06:20 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Jan 11, 2022 at 03:38 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -168,25 +168,25 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `price`, `numberOfCopies`, `BookAuthor`, `BookPH`, `BookStore`, `Pubdate`, `description`, `numberOfPages`, `bookLanguage`, `bookImage`) VALUES
-(2323, 'Is it over?', 80, 123, 'Adham_Ali', 15, 11, '2022-01-10', 'Who knows? The author doesn\'t.', 232, 'Arabic', 'book-8.png'),
-(3242, 'Pangram', 233, 500, 'Walid', 15, 11, '2022-01-10', 'His whole life turned upside down', 232, 'English', 'book-3.png'),
-(4643, '2001: A space odyssey', 40, 200, 'Walid', 14, 15, '2022-01-10', 'Exploring Space', 444, 'English', 'book-7.png'),
-(6573, 'Lolita', 21, 300, 'Walid', 14, 11, '2022-01-10', 'Died for his principles, but none heard of him', 333, 'English', 'book-10.png'),
-(6574, 'A Short Book About Killing', 23, 100, 'eslam_asharf', 14, 15, '2022-01-10', 'Just the last.', 123, 'English', 'ui.jpeg'),
-(12432, 'Not Over Till It Is Over', 23, 100, 'hamdy_fathi', 14, 11, '2022-01-10', 'The story of a project submission gone wrong', 232, 'Arabic', 'book-3.png'),
+(2323, 'Is it over?', 80, 123, 'Adham_Ali', 15, 11, '2022-01-10', 'Who knows? The author doesn\'t.', 232, 'Arabic', '3.jpeg'),
+(3242, 'Pangram', 233, 500, 'Walid', 15, 11, '2022-01-10', 'His whole life turned upside down', 232, 'English', '2.jpeg'),
+(4643, '2001: A space odyssey', 40, 200, 'Walid', 14, 15, '2022-01-10', 'Exploring Space', 444, 'English', '5.jpeg'),
+(6573, 'Lolita', 21, 300, 'Walid', 14, 11, '2022-01-10', 'Died for his principles, but none heard of him', 333, 'English', '1.jpeg'),
+(6574, 'A Short Book', 23, 100, 'eslam_asharf', 14, 15, '2022-01-10', 'Just the last.', 123, 'English', 'ui.jpeg'),
+(12432, 'Not Over Till It ', 23, 100, 'hamdy_fathi', 14, 11, '2022-01-10', 'The story of a project submission gone wrong', 232, 'Arabic', '6.jpeg'),
 (12987, 'A Confessoin', 50, 100, 'eslam_asharf', 17, 15, '2022-01-10', 'Tolstoy confesses, his art isn\'t art, his religious self is prominent here as he reflects on his life and times', 112, 'Russian', 'uu.jpeg'),
-(32211, 'Hunger', 33, 100, 'Adham_Ali', 14, 15, '2022-01-10', 'When a hunger strike starts in an Irish prison, authority has to take action.', 112, 'English', 'book-10.png'),
-(45354, 'MARS', 43, 120, 'Walid', 17, 15, '2022-01-10', 'A trip to Mars gone wrong', 423, 'Arabic', 'book-4.png'),
-(212198, 'Gone Girl', 23, 100, 'Adham_Ali', 15, 15, '2022-01-10', 'A girl, gone, but her spectre not.', 232, 'English', 'book5.png'),
-(221309, 'My Son! My Son! What Have Ye Done?', 20, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Looking for his child in jungles of Vietnam, but the beauty of nature made him forget his sorrows.', 112, 'English', 'book-9.png'),
+(32211, 'Hunger', 33, 100, 'Adham_Ali', 14, 15, '2022-01-10', 'When a hunger strike starts in an Irish prison, authority has to take action.', 112, 'English', '7.jpeg'),
+(45354, 'MARS', 43, 120, 'Walid', 17, 15, '2022-01-10', 'A trip to Mars gone wrong', 423, 'Arabic', '10.jpeg'),
+(212198, 'Gone Girl', 23, 100, 'Adham_Ali', 15, 15, '2022-01-10', 'A girl, gone, but her spectre not.', 232, 'English', '9.jpeg'),
+(221309, 'My Son! My Son!', 20, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Looking for his child in jungles of Vietnam, but the beauty of nature made him forget his sorrows.', 112, 'English', '8.jpeg'),
 (242164, 'The Great Dictator', 43, 100, 'hamdy_fathi', 14, 15, '2022-01-10', 'Sequel to the underknown Hitler book, give it a try first.', 232, 'German', 'book2.jpeg'),
-(324143, 'As above so below', 22, 700, 'Walid', 17, 15, '2022-01-10', 'Avant-Garde artist shows his inner self.', 331, 'English', 'book-6.png'),
-(332432, 'Casablanca', 32, 100, 'hamdy_fathi', 15, 11, '2022-01-10', 'We will always have Paris.', 112, 'French', 'book-5.png'),
-(2213207, 'O Brother! Where Art Thou?', 43, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Another place, another missing person, but same hero with a knack for losing family members', 123, 'English', 'gg.jpeg'),
-(2323216, '12 Years a Slave', 25, 100, 'Adham_Ali', 17, 15, '2022-01-10', 'From a master to master, 12 years in mud.', 400, 'English', 'book-1.png'),
+(324143, 'As above so below', 22, 700, 'Walid', 17, 15, '2022-01-10', 'Avant-Garde artist shows his inner self.', 331, 'English', '11.jpeg'),
+(332432, 'Casablanca', 32, 100, 'hamdy_fathi', 15, 11, '2022-01-10', 'We will always have Paris.', 112, 'French', '12.jpeg'),
+(2213207, 'O Brother! ', 43, 100, 'eslam_asharf', 14, 12, '2022-01-10', 'Another place, another missing person, but same hero with a knack for losing family members', 123, 'English', 'gg.jpeg'),
+(2323216, '12 Years a Slave', 25, 100, 'Adham_Ali', 17, 15, '2022-01-10', 'From a master to master, 12 years in mud.', 400, 'English', '14.jpeg'),
 (3674367, 'Okda Nafsya', 7688, 8481, 'Adham_Ali', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'English', 'rr.jpeg'),
-(22132402, 'If This Is It, So Be It', 23, 100, 'eslam_asharf', 15, 12, '2022-01-10', 'This time, lost in Africa, a man\'s sanity nearly gone but....', 112, 'English', 'book-9.png'),
-(32321435, 'Hitler', 43, 100, 'hamdy_fathi', 17, 15, '2022-01-10', 'From top of the world to ashes, the author takes us deep into the Nazi party and concentration camps.', 232, 'German', 'book2.jpeg'),
+(22132402, 'If This Is It, So Be It', 23, 100, 'eslam_asharf', 15, 12, '2022-01-10', 'This time, lost in Africa, a man\'s sanity nearly gone but....', 112, 'English', '13.jpeg'),
+(32321435, 'Hitler', 43, 100, 'hamdy_fathi', 17, 15, '2022-01-10', 'From top of the world to ashes, the author takes us deep into the Nazi party and concentration camps.', 232, 'German', '15.jpeg'),
 (63265456, 'Arwah W Ashbah', 1277, 746, 'hamdy_fathi', 15, 12, '2022-01-05', 'The book description is the pitch to the reader about why they should buy your book. When done right, it directly drives book sales. There are so many examples of how book descriptions lead to huge changes in sales. ... So we dove into the book description, figured out the flaws, and completely revamped it.', 123, 'Arabic', 'lo.jpeg');
 
 -- --------------------------------------------------------
@@ -309,6 +309,7 @@ INSERT INTO `rate_author` (`RatingValue`, `rated`, `rater`) VALUES
 (5, 'Adham_Ali', '@hamzaa'),
 (3, 'eslam_asharf', '@adhamali'),
 (4, 'hamdy_fathi', '@adhamali'),
+(3, 'Walid', '@adhamali'),
 (5, 'Walid', '@adhamaliii'),
 (3, 'Walid', '@esso11');
 
